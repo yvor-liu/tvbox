@@ -65,7 +65,7 @@ def main():
         print(f"❌ 运行失败: {e}")
 
 if __name__ == "__main__":
-    main()"
+    main()
 JAR_URL = "https://ghproxy.net/https://raw.githubusercontent.com/yvor-liu/tvbox/main/1767541963195d1mrhw.txt"
 
 HIDE_LIVES = ["限时测试", "内置测测", "V4-develop202", "V6-范明明（需开启V6网络）", "YY轮播"]
