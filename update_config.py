@@ -2,8 +2,8 @@ import requests
 import json
 import base64
 
-# 1. 配置信息（使用你提供的加速明文地址）
-SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.png"
+# 1. 配置信息
+SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.json"
 JAR_URL = "https://ghproxy.net/https://raw.githubusercontent.com/yvor-liu/tvbox/main/1767541963195d1mrhw.txt"
 
 HIDE_LIVES = ["限时测试", "内置测测", "V4-develop202", "V6-范明明（需开启V6网络）", "YY轮播"]
@@ -31,33 +31,27 @@ REPLACEMENTS = {
 }
 
 def main():
-       try:
-        print(f"正在读取在线源...")
+    try:
+        print("正在读取在线源...")
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         }
         response = requests.get(SOURCE_URL, headers=headers, timeout=15)
         content = response.text.strip()
-
-        # 打印前 20 个字符，帮我们在日志里确认是否加密
         print(f"原始数据前20位: {content[:20]}")
 
         # 尝试解密逻辑
         if content.startswith('{'):
-            # 如果是 { 开头，说明没加密，直接转 JSON
             data = response.json()
         else:
-            # 尝试 Base64 解码（天神源常见的混淆方式）
             try:
-                # 兼容某些带前缀或特殊处理的 Base64
-                if "**" in content: # 某些源用 ** 分割
+                if "**" in content:
                     content = content.split("**")[1]
-                
                 decoded_data = base64.b64decode(content).decode('utf-8')
                 data = json.loads(decoded_data)
                 print("✅ 成功通过 Base64 解码数据")
             except Exception as b64_err:
-                print(f"❌ 无法通过标准方式解密，可能存在高级加密: {b64_err}")
+                print(f"❌ 无法解密: {b64_err}")
                 return
 
         # 过滤 Lives
@@ -80,10 +74,10 @@ def main():
         # 生成新文件
         with open("my_local.json", "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print("✅ 任务完成！")
+        print("✅ 任务完成！已生成 my_local.json")
 
     except Exception as e:
         print(f"❌ 终极报错: {e}")
 
-		if __name__ == "__main__":
+if __name__ == "__main__":
     main()
