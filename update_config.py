@@ -3,11 +3,11 @@ import json
 import base64
 from Crypto.Cipher import AES
 
-# 1. 配置信息
-SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.json"
+# 1. 配置信息 - 确认使用 .png 后缀
+SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.png"
 JAR_URL = "https://ghproxy.net/https://raw.githubusercontent.com/yvor-liu/tvbox/main/1767541963195d1mrhw.txt"
 
-# 天神源常用的 AES 密钥 (固定)
+# 天神源 AES 密钥 (128位 ECB模式)
 AES_KEY = b"6543210987654321" 
 
 HIDE_LIVES = ["限时测试", "内置测测", "V4-develop202", "V6-范明明（需开启V6网络）", "YY轮播"]
@@ -20,39 +20,68 @@ REPLACEMENTS = {
 }
 
 def aes_decrypt(data):
-    """AES-128-ECB 解密逻辑"""
-    cipher = AES.new(AES_KEY, AES.MODE_ECB)
-    decrypted = cipher.decrypt(base64.b64decode(data))
-    # 去除 PKCS7 填充
-    padding_len = decrypted[-1]
-    return decrypted[:-padding_len].decode('utf-8')
+    """专门针对天神源提取 Base64 后的解密"""
+    try:
+        # 去除可能存在的非 Base64 字符
+        data = data.strip()
+        # 补齐等号
+        missing_padding = len(data) % 4
+        if missing_padding:
+            data += '=' * (4 - missing_padding)
+            
+        raw_bytes = base64.b64decode(data)
+        
+        # 核心：AES-128-ECB 要求 16 字节对齐
+        # 截取掉末尾可能存在的校验位干扰，保留 16 的倍数长度
+        valid_len = (len(raw_bytes) // 16) * 16
+        if valid_len == 0: return ""
+        
+        cipher = AES.new(AES_KEY, AES.MODE_ECB)
+        decrypted = cipher.decrypt(raw_bytes[:valid_len])
+        
+        # 移除 PKCS7 填充字符
+        padding_len = decrypted[-1]
+        if padding_len < 16:
+            decrypted = decrypted[:-padding_len]
+            
+        return decrypted.decode('utf-8', errors='ignore')
+    except Exception as e:
+        print(f"解密逻辑内部错误: {e}")
+        return ""
 
 def main():
     try:
-        print("正在获取天神加密源...")
+        print(f"正在从 PNG 源获取数据: {SOURCE_URL}")
         res = requests.get(SOURCE_URL, timeout=15)
         text = res.text.strip()
 
-        # 如果内容包含 **，截取中间的加密段
+        # 精准定位加密主体
         if "**" in text:
-            content = text.split("**")[1]
+            # 天神源格式通常是: [图片链接]**[加密内容]**[校验位]
+            parts = text.split("**")
+            # 通常第二段是最长的加密内容
+            content = max(parts, key=len)
         else:
             content = text
 
-        print("正在尝试 AES 解密...")
+        print(f"获取到的加密段长度: {len(content)}")
         decrypted_text = aes_decrypt(content)
         
-        # 提取真正的 JSON 部分
+        # 寻找 JSON 的开头和结尾
         start = decrypted_text.find('{')
         end = decrypted_text.rfind('}') + 1
-        data = json.loads(decrypted_text[start:end])
-        print("✅ 天神源解密成功！")
+        
+        if start == -1:
+            print("❌ 解密结果不包含有效的 JSON 结构，请检查密钥是否失效")
+            print(f"解密出的前50位预览: {decrypted_text[:50]}")
+            return
 
-        # 2. 过滤 Lives
+        data = json.loads(decrypted_text[start:end])
+        print("✅ 天神源 (.png) 解密成功！")
+
+        # 过滤与替换逻辑
         if "lives" in data:
             data["lives"] = [l for l in data["lives"] if l.get("name") not in HIDE_LIVES]
-
-        # 3. 过滤并替换 Sites
         if "sites" in data:
             new_sites = []
             for s in data["sites"]:
@@ -61,10 +90,10 @@ def main():
                 new_sites.append(REPLACEMENTS.get(key, s))
             data["sites"] = new_sites
 
-        # 4. 写入文件
+        # 保存结果
         with open("my_local.json", "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print("✅ 任务完成！")
+        print("✅ 配置文件 my_local.json 已成功生成")
 
     except Exception as e:
         print(f"❌ 运行报错: {e}")
