@@ -1,6 +1,7 @@
 import requests
 import json
 import base64
+import re
 
 # 1. 配置信息
 SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.json"
@@ -34,34 +35,43 @@ def main():
     try:
         print("正在读取在线源...")
         headers = {"User-Agent": "Mozilla/5.0"}
+        # 获取原始二进制数据
         response = requests.get(SOURCE_URL, headers=headers, timeout=15)
-        content = response.text.strip()
+        raw_content = response.content
+        
+        # 尝试将二进制转为文本并清洗掉非 ASCII 字符
+        content = "".join(chr(b) for b in raw_content if b < 128).strip()
         
         # 尝试解析
         if content.startswith('{'):
-            data = response.json()
+            data = json.loads(content)
         else:
             try:
-                # 核心修正：更鲁棒的 Base64 提取逻辑
+                # 针对天神源特征：提取 ** 之间的 Base64 字符串
+                # 如果没有 **，则尝试正则提取可能的 Base64 特征
                 if "**" in content:
                     parts = content.split("**")
-                    # 取出最长的那一段，通常就是加密主体
                     content = max(parts, key=len)
-                
-                # 补齐 Base64 缺失的等号
+                else:
+                    # 匹配可能是 Base64 的长字符串
+                    match = re.search(r'[A-Za-z0-0+/=]{50,}', content)
+                    if match:
+                        content = match.group()
+
+                # 补齐等号
                 missing_padding = len(content) % 4
                 if missing_padding:
                     content += '=' * (4 - missing_padding)
                 
                 decoded_data = base64.b64decode(content).decode('utf-8')
                 
-                # 清洗数据：只取第一个 { 到最后一个 } 之间的内容
+                # 清洗数据：截取真正的 JSON 部分
                 start = decoded_data.find('{')
                 end = decoded_data.rfind('}') + 1
                 data = json.loads(decoded_data[start:end])
-                print("✅ 成功通过 Base64 解码并清洗数据")
+                print("✅ 成功解密并提取 JSON")
             except Exception as b64_err:
-                print(f"❌ 无法解密: {b64_err}")
+                print(f"❌ 解密失败: {b64_err}")
                 return
 
         # 过滤 Lives
