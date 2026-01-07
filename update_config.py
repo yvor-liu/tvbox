@@ -1,5 +1,6 @@
 import requests
 import json
+import base64
 
 # 1. 配置信息（使用你提供的加速明文地址）
 SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.png"
@@ -31,12 +32,33 @@ REPLACEMENTS = {
 
 def main():
     try:
-        print(f"正在读取在线源: {SOURCE_URL}")
-        response = requests.get(SOURCE_URL, timeout=15)
-        response.encoding = 'utf-8'
-        
-        # 此时已经是明文 JSON，直接解析
-        data = response.json()
+        print(f"正在读取在线源...")
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+        response = requests.get(SOURCE_URL, headers=headers, timeout=15)
+        content = response.text.strip()
+
+        # 打印前 20 个字符，帮我们在日志里确认是否加密
+        print(f"原始数据前20位: {content[:20]}")
+
+        # 尝试解密逻辑
+        if content.startswith('{'):
+            # 如果是 { 开头，说明没加密，直接转 JSON
+            data = response.json()
+        else:
+            # 尝试 Base64 解码（天神源常见的混淆方式）
+            try:
+                # 兼容某些带前缀或特殊处理的 Base64
+                if "**" in content: # 某些源用 ** 分割
+                    content = content.split("**")[1]
+                
+                decoded_data = base64.b64decode(content).decode('utf-8')
+                data = json.loads(decoded_data)
+                print("✅ 成功通过 Base64 解码数据")
+            except Exception as b64_err:
+                print(f"❌ 无法通过标准方式解密，可能存在高级加密: {b64_err}")
+                return
 
         # 过滤 Lives
         if "lives" in data:
