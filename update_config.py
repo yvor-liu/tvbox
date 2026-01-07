@@ -2,10 +2,6 @@ import requests
 import json
 
 # 1. 配置信息（使用你提供的加速明文地址）
-SOURCE_URL = "import requests
-import json
-
-# 1. 配置信息（使用你提供的加速明文地址）
 SOURCE_URL = "https://wget.la/https://raw.githubusercontent.com/IY-CPU/IY/main/天神IY.png"
 JAR_URL = "https://ghproxy.net/https://raw.githubusercontent.com/yvor-liu/tvbox/main/1767541963195d1mrhw.txt"
 
