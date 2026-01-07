@@ -1,0 +1,39 @@
+name: Auto Update Config
+
+on:
+  schedule:
+    # 每天北京时间凌晨 2:00 自动运行 (UTC 18:00)
+    - cron: '0 18 * * *'
+  workflow_dispatch: 
+    # 允许你在 GitHub 网页上手动点击运行
+
+# 给予流水线写入仓库的权限，否则生成的 json 存不下来
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 拉取代码
+        uses: actions/checkout@v3
+
+      - name: 2. 安装 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 3. 安装依赖插件
+        run: pip install requests
+
+      - name: 4. 运行更新脚本
+        run: python update_config.py
+
+      - name: 5. 提交并同步到仓库
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add my_local.json
+          # 如果文件没变化就不提交，防止报错
+          git commit -m "自动更新接口内容" || exit 0
+          git push
