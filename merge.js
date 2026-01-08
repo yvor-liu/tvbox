@@ -1,57 +1,61 @@
 const fs = require("fs");
-const path = require("path");
 
-// 文件路径
-const PNG_PATH = path.join(__dirname, "天神IY.txt");
-const PATCH_PATH = path.join(__dirname, "edited.json");
-const OUT_PATH = path.join(__dirname, "iy_merged.json");
+// 深度合并，但对 sites 做“整体替换”
+function deepMerge(base, patch) {
+  const result = JSON.parse(JSON.stringify(base));
 
-// 读取 txt（纯 JSON 文本）
-const raw = fs.readFileSync(PNG_PATH, "utf8");
+  for (const key in patch) {
+    // 特殊处理 sites
+    if (key === "sites" && Array.isArray(patch[key])) {
+      const baseSites = Array.isArray(base.sites) ? base.sites : [];
+      const patchSites = patch.sites;
 
-// 合并数组（支持 delete:true）
-function mergeArray(baseArr, patchArr, keyName = "key") {
-  const map = new Map();
-  (baseArr || []).forEach(item => map.set(item[keyName], item));
+      // 构建一个 map 方便按 key 替换
+      const map = new Map();
 
-  (patchArr || []).forEach(p => {
-    if (p.delete) {
-      map.delete(p[keyName]);
-    } else {
-      const old = map.get(p[keyName]) || {};
-      map.set(p[keyName], { ...old, ...p });
+      // 先放入 base 的所有 site（保持原样）
+      for (const s of baseSites) {
+        if (s.key) map.set(s.key, s);
+      }
+
+      // 再用 patch 覆盖（完整替换）
+      for (const s of patchSites) {
+        if (s.key) map.set(s.key, s); // 整体替换，不保留旧字段
+      }
+
+      // 转回数组
+      result.sites = Array.from(map.values());
+      continue;
     }
-  });
 
-  return Array.from(map.values());
+    // 普通对象深度合并（但不合并数组）
+    if (
+      typeof patch[key] === "object" &&
+      patch[key] !== null &&
+      !Array.isArray(patch[key])
+    ) {
+      result[key] = deepMerge(result[key] || {}, patch[key]);
+    } else {
+      // 直接覆盖
+      result[key] = patch[key];
+    }
+  }
+
+  return result;
 }
 
-function main() {
-  // 解析天神主接口
-  const base = JSON.parse(raw);
+try {
+  const api = JSON.parse(fs.readFileSync("天神IY.txt", "utf8"));
+  const edited = JSON.parse(fs.readFileSync("edited.json", "utf8"));
 
-  // 解析补丁
-  const patch = JSON.parse(fs.readFileSync(PATCH_PATH, "utf8"));
+  const merged = deepMerge(api, edited);
 
-  // 合并 lives
-  if (patch.lives) {
-    base.lives = mergeArray(base.lives, patch.lives, "name");
-  }
+  fs.writeFileSync("iy_merged.json", JSON.stringify(merged, null, 2), "utf8");
 
-  // 合并 sites
-  if (patch.sites) {
-    base.sites = mergeArray(base.sites, patch.sites, "key");
-  }
+  console.log("✅ 合并完成：site 完整替换，未在 edited 中出现的字段不保留");
 
-  // 合并 flags
-  if (patch.flags) {
-    base.flags = { ...(base.flags || {}), ...patch.flags };
-  }
-
-  // 输出最终接口
-  fs.writeFileSync(OUT_PATH, JSON.stringify(base, null, 2), "utf8");
-  console.log("✅ 已生成:", OUT_PATH);
+} catch (e) {
+  console.error("❌ 合并失败");
+  console.error(e);
+  process.exit(1);
 }
-
-main();
-
