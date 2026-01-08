@@ -1,0 +1,138 @@
+{
+  "lives": [
+    {
+      "name": "限时测试",
+      "delete": true
+    },
+    {
+      "name": "内置测测",
+      "delete": true
+    },
+    {
+      "name": "V4-develop202",
+      "delete": true
+    },
+    {
+      "name": "V6-范明明（需开启V6网络）",
+      "delete": true
+    },
+    {
+      "name": "YY轮播",
+      "delete": true
+    }
+  ],
+  "sites": [
+    {
+      "key": "版本信息",
+      "delete": true
+    },
+    {
+      "key": "DG音乐仓",
+      "delete": true
+    },
+    {
+      "key": "lf_live10_min",
+      "delete": true
+    },
+    {
+      "key": "六月听书",
+      "delete": true
+    },
+    {
+      "key": "世界听书",
+      "delete": true
+    },
+    {
+      "key": "蜻蜓FM",
+      "delete": true
+    },
+    {
+      "key": "凤凰FM",
+      "delete": true
+    },
+    {
+      "key": "随身评书",
+      "name": "📺斗鱼｜直播",
+      "type": 3,
+      "api": "csp_WexNewDouYuGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "戏曲多多",
+      "name": "📺虎牙｜直播",
+      "type": 3,
+      "api": "csp_WexNewHuYaGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "网络直播",
+      "delete": true
+    },
+    {
+      "key": "哔哩直播",
+      "name": "📺哔哩｜直播",
+      "type": 3,
+      "api": "csp_WexNewBiLiLiveGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "哔哩演唱会",
+      "delete": true
+    },
+    {
+      "key": "哔哩听书",
+      "delete": true
+    },
+    {
+      "key": "哔哩相声",
+      "delete": true
+    },
+    {
+      "key": "哔哩小品",
+      "delete": true
+    },
+    {
+      "key": "哔哩戏曲",
+      "delete": true
+    },
+    {
+      "key": "少儿教育",
+      "delete": true
+    },
+    {
+      "key": "小学课堂",
+      "delete": true
+    },
+    {
+      "key": "初中课堂",
+      "delete": true
+    },
+    {
+      "key": "高中课堂",
+      "delete": true
+    },
+    {
+      "key": "养生堂",
+      "delete": true
+    },
+    {
+      "key": "急救教学",
+      "delete": true
+    }
+  ],
+  "flags": {
+    "autoTryNext": 0
+  }
+}
