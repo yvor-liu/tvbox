@@ -27,10 +27,6 @@
   ],
   "sites": [
     {
-      "key": "版本信息",
-      "delete": true
-    },
-    {
       "key": "配置中心",
       "name": "🌐网盘配置｜1.03版",
       "type": 3,
@@ -54,14 +50,6 @@
       "filterable": 0,
       "quickSearch": 1,
       "changeable": 0
-    },
-    {
-      "key": "DG音乐仓",
-      "delete": true
-    },
-    {
-      "key": "lf_live10_min",
-      "delete": true
     },
     {
       "key": "藤藤",
@@ -95,56 +83,49 @@
     },
     {
       "key": "木偶",
-      "name": "🌐木偶｜4K自扫",
+      "name": "❤木偶｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_MuouGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "https://123.666291.xyz",
-          "https://666.666291.xyz",
-          "https://www.muou.site",
-          "https://www.muou.asia"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png",
+      "categories": [
+        "木偶电影",
+        "木偶剧集",
+        "木偶动漫",
+        "木偶短剧",
+        "木偶纪录片"
+      ]
     },
     {
       "key": "多多",
-      "name": "🌐多多｜4K自扫",
+      "name": "❤多多｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_DuoDuoGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "https://tv.yydsys.top",
-          "https://tv.yydsys.cc",
-          "https://tv.214521.xyz"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "二小",
-      "name": "🌐二小｜4K自扫",
+      "name": "❤二小｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_ErXiaoGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "https://xhww.net",
-          "https://erxiaofn.site",
-          "https://erxiaofn.click",
-          "https://www.xhww.net"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "玩偶",
@@ -161,55 +142,42 @@
     },
     {
       "key": "至臻",
-      "name": "🌐至臻｜4K自扫",
+      "name": "❤至臻｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_ZhiZhenGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "https://mihdr.top",
-          "https://www.miqk.cc",
-          "https://xiaomiai.site",
-          "https://xiaomi666.fun",
-          "https://www.mihdr.top",
-          "https://www.zhizhenpan.fun"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "蜡笔",
-      "name": "🌐蜡笔｜4K自扫",
+      "name": "❤蜡笔｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_LabiGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "https://www.labi88.sbs",
-          "https://feimao666.fun",
-          "http://feimao888.fun"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "虎斑",
-      "name": "🌐虎斑｜4K自扫",
+      "name": "❤虎斑｜4K测试",
       "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
+      "api": "csp_HuBanGuard",
+      "changeable": 0,
       "ext": {
-        "site": [
-          "http://103.45.162.207:20720"
-        ]
-      }
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "小飒",
@@ -239,12 +207,16 @@
     },
     {
       "key": "双星",
-      "name": "🌐双星｜4K自扫",
+      "name": "❤双星｜4K测试",
       "type": 3,
-      "api": "csp_ShuangXing",
-      "style": {
-        "type": "list"
-      }
+      "api": "csp_Star2Guard",
+      "changeable": 0,
+      "ext": {
+        "cookie": "https://d.kstore.dev/download/14505/lib/qk.png",
+        "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
+        "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
+      },
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Fok.png"
     },
     {
       "key": "窈窕",
@@ -703,6 +675,78 @@
       }
     },
     {
+      "key": "木偶",
+      "name": "🌐木偶｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "https://123.666291.xyz",
+          "https://666.666291.xyz",
+          "https://www.muou.site",
+          "https://www.muou.asia"
+        ]
+      }
+    },
+    {
+      "key": "蜡笔",
+      "name": "🌐蜡笔｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "https://www.labi88.sbs",
+          "https://feimao666.fun",
+          "http://feimao888.fun"
+        ]
+      }
+    },
+    {
+      "key": "至臻",
+      "name": "🌐至臻｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "https://mihdr.top",
+          "https://www.miqk.cc",
+          "https://xiaomiai.site",
+          "https://xiaomi666.fun",
+          "https://www.mihdr.top",
+          "https://www.zhizhenpan.fun"
+        ]
+      }
+    },
+    {
+      "key": "多多",
+      "name": "🌐多多｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "https://tv.yydsys.top",
+          "https://tv.yydsys.cc",
+          "https://tv.214521.xyz"
+        ]
+      }
+    },
+    {
       "key": "欧哥",
       "name": "🌐欧哥｜4K自扫",
       "type": 3,
@@ -721,6 +765,39 @@
       }
     },
     {
+      "key": "二小",
+      "name": "🌐二小｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "https://xhww.net",
+          "https://erxiaofn.site",
+          "https://erxiaofn.click",
+          "https://www.xhww.net"
+        ]
+      }
+    },
+    {
+      "key": "虎斑",
+      "name": "🌐虎斑｜4K自扫",
+      "type": 3,
+      "api": "csp_PanWebShare",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": [
+          "http://103.45.162.207:20720"
+        ]
+      }
+    },
+    {
       "key": "夸克",
       "name": "🌐夸克｜4K自扫",
       "type": 3,
@@ -733,6 +810,15 @@
         "site": [
           "https://www.quarktv.cc"
         ]
+      }
+    },
+    {
+      "key": "双星",
+      "name": "🌐双星｜4K自扫",
+      "type": 3,
+      "api": "csp_ShuangXing",
+      "style": {
+        "type": "list"
       }
     },
     {
@@ -1015,44 +1101,6 @@
       "filterable": 1
     },
     {
-      "key": "六月听书",
-      "delete": true
-    },
-    {
-      "key": "世界听书",
-      "delete": true
-    },
-    {
-      "key": "蜻蜓FM",
-      "delete": true
-    },
-    {
-      "key": "凤凰FM",
-      "delete": true
-    },
-    {
-      "key": "随身评书",
-      "name": "📺斗鱼｜直播",
-      "type": 3,
-      "api": "csp_WexNewDouYuGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
-    },
-    {
-      "key": "戏曲多多",
-      "name": "📺虎牙｜直播",
-      "type": 3,
-      "api": "csp_WexNewHuYaGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
-    },
-    {
       "key": "88看球",
       "name": "📺看球｜点播",
       "type": 3,
@@ -1061,21 +1109,6 @@
       "style": {
         "type": "list"
       }
-    },
-    {
-      "key": "网络直播",
-      "delete": true
-    },
-    {
-      "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
-      "type": 3,
-      "api": "csp_WexNewBiLiLiveGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
     },
     {
       "key": "哔哩视频",
@@ -1112,46 +1145,6 @@
         "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2F%E5%93%94%E5%93%A9%E5%90%88%E9%9B%86.png",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
-    },
-    {
-      "key": "哔哩演唱会",
-      "delete": true
-    },
-    {
-      "key": "哔哩听书",
-      "delete": true
-    },
-    {
-      "key": "哔哩相声",
-      "delete": true
-    },
-    {
-      "key": "哔哩小品",
-      "delete": true
-    },
-    {
-      "key": "哔哩戏曲",
-      "delete": true
-    },
-    {
-      "key": "少儿教育",
-      "delete": true
-    },
-    {
-      "key": "小学课堂",
-      "delete": true
-    },
-    {
-      "key": "初中课堂",
-      "delete": true
-    },
-    {
-      "key": "高中课堂",
-      "delete": true
-    },
-    {
-      "key": "养生堂",
-      "delete": true
     },
     {
       "key": "本地",
@@ -1226,10 +1219,6 @@
         "type": "list"
       },
       "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2Falist.png"
-    },
-    {
-      "key": "急救教学",
-      "delete": true
     },
     {
       "key": "push_agent",
@@ -1396,6 +1385,39 @@
       "type": 3,
       "hide": 1,
       "api": "csp_QuPanSo"
+    },
+    {
+      "key": "随身评书",
+      "name": "📺斗鱼｜直播",
+      "type": 3,
+      "api": "csp_WexNewDouYuGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "戏曲多多",
+      "name": "📺虎牙｜直播",
+      "type": 3,
+      "api": "csp_WexNewHuYaGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "哔哩直播",
+      "name": "📺哔哩｜直播",
+      "type": 3,
+      "api": "csp_WexNewBiLiLiveGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
     }
   ],
   "parses": [
