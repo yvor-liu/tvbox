@@ -1,54 +1,76 @@
 const fs = require("fs");
 
-// 深度合并：普通对象递归合并，数组默认直接覆盖（除了 sites 特殊处理）
-function deepMerge(base, patch) {
-  const result = JSON.parse(JSON.stringify(base || {}));
+const ARRAY_FIELDS = ["sites", "lives", "flags", "parses", "rules", "ads"];
 
-  for (const key in patch) {
-    // 特殊处理 sites
-    if (key === "sites" && Array.isArray(patch[key])) {
-      const baseSites = Array.isArray(base?.sites) ? base.sites : [];
-      const patchSites = patch.sites;
+// 按 API 顺序逐项处理 edited 的三种规则
+function mergeArrays(apiArr, editedArr, keyName) {
+  if (!Array.isArray(editedArr)) return apiArr;
 
-      // 先复制一份原始数组（原样保留，不合并、不去重）
-      let resultSites = [...baseSites];
+  // 把 edited 按 keyName 建立一个 map
+  const editedMap = new Map();
+  for (const item of editedArr) {
+    if (!item || !item[keyName]) continue;
+    editedMap.set(item[keyName], item);
+  }
 
-      // 收集所有需要删除的 key，以及需要“完整替换”的 key
-      for (const s of patchSites) {
-        if (!s || !s.key) continue;
+  const result = [];
 
-        const siteKey = s.key;
-        const toDelete = s.delete === true;
+  // 1. 按 API 顺序逐项处理
+  for (const apiItem of apiArr) {
+    const k = apiItem[keyName];
+    const editedItem = editedMap.get(k);
 
-        // 先把原数组里所有同 key 的删掉（无论是 delete 还是替换，第一步都是删光旧的）
-        resultSites = resultSites.filter(item => item.key !== siteKey);
-
-        // 如果是 delete 指令，则不再添加新 site（等于彻底移除）
-        if (toDelete) {
-          continue;
-        }
-
-        // 否则：完整插入 patch 里的这个 site（不保留旧字段）
-        // 同时去掉 delete 字段，避免出现在最终结果
-        const { delete: _del, ...pureSite } = s;
-        resultSites.push(pureSite);
-      }
-
-      result.sites = resultSites;
+    if (!editedItem) {
+      // edited 没有 → 保留原项
+      result.push(apiItem);
       continue;
     }
 
-    // 其他 key 的普通深度合并（不处理数组内部）
-    if (
-      typeof patch[key] === "object" &&
-      patch[key] !== null &&
-      !Array.isArray(patch[key])
-    ) {
-      result[key] = deepMerge(result[key], patch[key]);
-    } else {
-      // 非对象 / 数组：直接覆盖
-      result[key] = patch[key];
+    if (editedItem.delete === true) {
+      // delete:true → 删除，不写入
+      continue;
     }
+
+    // 重名 → 替换（保持原位置）
+    const { delete: _del, ...pure } = editedItem;
+    result.push(pure);
+
+    // 已处理 → 从 map 中删除
+    editedMap.delete(k);
+  }
+
+  // 2. 剩下的 edited → 新增（api 中不存在）→ 追加到末尾
+  for (const [_, item] of editedMap) {
+    if (item.delete === true) continue;
+    const { delete: _del, ...pure } = item;
+    result.push(pure);
+  }
+
+  return result;
+}
+
+function deepMerge(api, edited) {
+  const result = JSON.parse(JSON.stringify(api));
+
+  for (const key in edited) {
+    const value = edited[key];
+
+    if (ARRAY_FIELDS.includes(key) && Array.isArray(value)) {
+      const keyName = key === "sites" ? "key" : "name";
+      result[key] = mergeArrays(api[key] || [], value, keyName);
+      continue;
+    }
+
+    if (
+      typeof value === "object" &&
+      value !== null &&
+      !Array.isArray(value)
+    ) {
+      result[key] = deepMerge(api[key] || {}, value);
+      continue;
+    }
+
+    result[key] = value;
   }
 
   return result;
@@ -62,10 +84,7 @@ try {
 
   fs.writeFileSync("iy_merged.json", JSON.stringify(merged, null, 2), "utf8");
 
-  console.log("✅ 合并完成：");
-  console.log("   - api.json 内部同 key 的 site 不再被合并");
-  console.log("   - edited.json 中同 key 的 site 进行完整替换");
-  console.log("   - 带 delete: true 的 site 作为删除指令，不会出现在结果中");
+  console.log("✅ 合并完成：按 API 顺序逐项执行删除/替换/新增，逻辑最简最稳");
 
 } catch (e) {
   console.error("❌ 合并失败");
