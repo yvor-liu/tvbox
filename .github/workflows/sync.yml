@@ -1,4 +1,4 @@
-name: Auto Sync 天神接口 & Build Merged Interface
+name: Auto Sync 天神接口（ff.zip）& Build Merged Interface
 
 permissions:
   contents: write
@@ -22,94 +22,52 @@ jobs:
           node-version: "18"
 
       # -----------------------------
-      # 1. 主源下载
+      # 1. 下载作者仓库的 ff.zip
       # -----------------------------
-      - name: Download 天神 JSON (primary)
-        id: download_primary
+      - name: Download ff.zip
         run: |
-          curl -L -o 天神IY.json "https://d.kstore.dev/download/14505/天神IY.json"
-          echo "主源下载完成"
+          curl -L -o ff.zip "https://raw.githubusercontent.com/IY-CPU/test/main/%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91.zip"
 
       # -----------------------------
-      # 2. 主源内容检测（是否 JSON / gzip / HTML / 加密）
+      # 2. 解压 ff.zip
       # -----------------------------
-      - name: Debug primary source header
+      - name: Unzip ff.zip
         run: |
-          echo "----- HEX DUMP START -----"
-          head -c 32 天神IY.json | hexdump -C
-          echo "----- HEX DUMP END -----"
-
-          echo "----- FILE TYPE -----"
-          file 天神IY.json
-
-          echo "----- FIRST 200 BYTES -----"
-          head -c 200 天神IY.json | cat -v
-
-          # 检查是否以 { 开头（JSON）
-          if head -c 1 天神IY.json | grep -q "{" ; then
-            echo "VALID_JSON" > primary_status.txt
-            exit 0
-          fi
-
-          # 检查是否 gzip
-          if file 天神IY.json | grep -qi "gzip"; then
-            echo "GZIP_FILE" > primary_status.txt
-            exit 0
-          fi
-
-          # 检查是否 HTML 错误页
-          if head -c 20 天神IY.json | grep -qi "<html"; then
-            echo "HTML_ERROR" > primary_status.txt
-            exit 1
-          fi
-
-          # 否则视为加密或未知格式
-          echo "UNKNOWN_FORMAT" > primary_status.txt
-          exit 1
-        continue-on-error: true
+          rm -rf ff
+          unzip -o ff.zip -d ff
 
       # -----------------------------
-      # 3. fallback 条件：主源内容无效
+      # 3. 从 ff/0本地库【ff】/缘起【天神IY】/api.json 提取纯净 JSON
       # -----------------------------
-      - name: Fallback to Codeberg
-        if: steps.download_primary.outcome == 'failure' || hashFiles('primary_status.txt') == ''
-        run: |
-          echo "⚠️ 主源内容无效，尝试 Codeberg 备用源"
-          curl -L -o 天神IY.json "https://codeberg.org/IY-CPU/IY/raw/branch/main/天神IY.json?download=1"
-
-      # -----------------------------
-      # 4. 解压 + 解析 JSON
-      # -----------------------------
-      - name: Extract JSON (auto-detect gzip)
+      - name: Extract JSON from api.json
         run: |
           node extract.js
 
       # -----------------------------
-      # 5. 调试输出
+      # 4. 调试输出
       # -----------------------------
       - name: Debug TXT content
         run: |
           echo "----- FILE LIST -----"
-          ls -l
+          ls -R ff
           echo "----- TXT CONTENT START -----"
           cat 天神IY.txt || echo "TXT NOT FOUND"
           echo "----- TXT CONTENT END -----"
 
       # -----------------------------
-      # 6. 合并补丁
+      # 5. 合并补丁
       # -----------------------------
       - name: Run merge script
         run: |
           node merge.js
 
       # -----------------------------
-      # 7. 提交结果
+      # 6. 提交结果
       # -----------------------------
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add 天神IY.txt iy_merged.json
-          git commit -m "Auto-sync 天神接口 & rebuild merged interface" || echo "No changes to commit"
+          git commit -m "Auto-sync ff.zip & rebuild merged interface" || echo "No changes to commit"
           git push
-
