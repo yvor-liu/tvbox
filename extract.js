@@ -1,27 +1,49 @@
 const fs = require("fs");
-const zlib = require("zlib");
+const path = require("path");
 
-const raw = fs.readFileSync("天神IY.json");
-
-let jsonText;
-
-// 尝试作为 gzip 解压
-try {
-  jsonText = zlib.gunzipSync(raw).toString("utf8");
-  console.log("🔧 检测到 gzip 格式，已成功解压");
-} catch (e) {
-  // 不是 gzip，当作普通文本处理
-  jsonText = raw.toString("utf8");
-  console.log("ℹ️ 文件不是 gzip，按普通 JSON 处理");
+// 去除注释（支持 /* */ 和 //）
+function removeComments(str) {
+  // 去掉 /* ... */ 注释
+  str = str.replace(/\/\*[\s\S]*?\*\//g, "");
+  // 去掉 // 注释（不匹配 URL）
+  str = str.replace(/(^|[^:])\/\/.*/g, "$1");
+  return str;
 }
 
-// 验证 JSON
+// 去除 UTF-8 BOM
+function removeBOM(str) {
+  if (str.charCodeAt(0) === 0xFEFF) {
+    return str.slice(1);
+  }
+  return str;
+}
+
 try {
-  JSON.parse(jsonText);
-  fs.writeFileSync("天神IY.txt", jsonText, "utf8");
-  console.log("✅ 成功写入天神IY.txt");
+  const apiPath = path.join("ff", "api.json");
+
+  if (!fs.existsSync(apiPath)) {
+    console.error("❌ 未找到 ff/api.json，请检查 zip 是否正确解压");
+    process.exit(1);
+  }
+
+  let raw = fs.readFileSync(apiPath, "utf8");
+
+  // 去 BOM
+  raw = removeBOM(raw);
+
+  // 去注释
+  let cleaned = removeComments(raw);
+
+  // 验证 JSON
+  const parsed = JSON.parse(cleaned);
+
+  // 写入最终 txt（纯净 JSON）
+  fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
+
+  console.log("✅ 成功解析 api.json 并生成 天神IY.txt");
+
 } catch (e) {
-  console.error("❌ JSON 解析失败");
+  console.error("❌ 解析 api.json 失败");
   console.error(e);
   process.exit(1);
 }
