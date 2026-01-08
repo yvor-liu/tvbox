@@ -21,15 +21,17 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Download 天神 JSON (primary source)
+      - name: Download 天神 JSON (primary)
+        id: download_primary
         run: |
-          curl -L -o 天神IY.json "https://d.kstore.dev/download/14505/天神IY.json" || echo "PRIMARY_FAILED" > source_status.txt
+          curl -L -o 天神IY.json "https://d.kstore.dev/download/14505/天神IY.json"
+        continue-on-error: true
 
-      - name: Fallback to wget.la if primary failed
-        if: contains(steps.Download_天神_JSON_primary_source.outputs.stdout, 'PRIMARY_FAILED')
+      - name: Fallback to Codeberg if primary failed
+        if: steps.download_primary.outcome == 'failure'
         run: |
-          echo "⚠️ 主源失败，尝试 wget.la 备用源"
-          curl -L -o 天神IY.json "https://wget.la/https://d.kstore.dev/download/14505/天神IY.json"
+          echo "⚠️ 主源失败，尝试 Codeberg 备用源"
+          curl -L -o 天神IY.json "https://codeberg.org/IY-CPU/IY/raw/branch/main/天神IY.json"
 
       - name: Extract JSON (gunzip)
         run: |
