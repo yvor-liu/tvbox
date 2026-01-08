@@ -19,10 +19,12 @@ function removeBOM(str) {
 }
 
 try {
-  const apiPath = path.join("ff", "api.json");
+  // 你的 api.json 的真实路径
+  const apiPath = path.join("ff", "0本地库【ff】", "缘起【天神IY】", "api.json");
 
   if (!fs.existsSync(apiPath)) {
-    console.error("❌ 未找到 ff/api.json，请检查 zip 是否正确解压");
+    console.error("❌ 未找到 api.json，请检查 zip 是否正确解压");
+    console.error("查找路径：" + apiPath);
     process.exit(1);
   }
 
@@ -47,4 +49,3 @@ try {
   console.error(e);
   process.exit(1);
 }
-
