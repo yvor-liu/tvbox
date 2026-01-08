@@ -5,24 +5,34 @@
   "warningText": "天神IY：资源来自网络，无盈利纯搬运分享！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
   "lives": [
     {
-      "name": "限时测试",
-      "delete": true
+      "name": "冰茶",
+      "type": 0,
+      "url": "https://fy.188766.xyz/?ip=&mishitong=true&mima=mianfeidehaimaiqian",
+      "timeout": 10
     },
     {
-      "name": "内置测测",
-      "delete": true
+      "name": "虎牙一起看",
+      "type": 0,
+      "url": "https://sub.ottiptv.cc/huyayqk.m3u",
+      "playerType": 2,
+      "timeout": 10,
+      "ua": "okHttp/Mod-1.4.0.0"
     },
     {
-      "name": "V4-develop202",
-      "delete": true
+      "name": "斗鱼一起看",
+      "type": 0,
+      "url": "https://sub.ottiptv.cc/douyuyqk.m3u",
+      "playerType": 2,
+      "timeout": 10,
+      "ua": "okHttp/Mod-1.4.0.0"
     },
     {
-      "name": "V6-范明明（需开启V6网络）",
-      "delete": true
-    },
-    {
-      "name": "YY轮播",
-      "delete": true
+      "name": "B站直播",
+      "type": 0,
+      "url": "https://sub.ottiptv.cc/bililive.m3u",
+      "playerType": 2,
+      "timeout": 10,
+      "ua": "okHttp/Mod-1.4.0.0"
     }
   ],
   "sites": [
@@ -1101,6 +1111,28 @@
       "filterable": 1
     },
     {
+      "key": "随身评书",
+      "name": "📺斗鱼｜直播",
+      "type": 3,
+      "api": "csp_WexNewDouYuGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
+      "key": "戏曲多多",
+      "name": "📺虎牙｜直播",
+      "type": 3,
+      "api": "csp_WexNewHuYaGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
+    },
+    {
       "key": "88看球",
       "name": "📺看球｜点播",
       "type": 3,
@@ -1109,6 +1141,17 @@
       "style": {
         "type": "list"
       }
+    },
+    {
+      "key": "哔哩直播",
+      "name": "📺哔哩｜直播",
+      "type": 3,
+      "api": "csp_WexNewBiLiLiveGuard",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "@https://9280.kstore.space/wex.json"
     },
     {
       "key": "哔哩视频",
@@ -1385,39 +1428,6 @@
       "type": 3,
       "hide": 1,
       "api": "csp_QuPanSo"
-    },
-    {
-      "key": "随身评书",
-      "name": "📺斗鱼｜直播",
-      "type": 3,
-      "api": "csp_WexNewDouYuGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
-    },
-    {
-      "key": "戏曲多多",
-      "name": "📺虎牙｜直播",
-      "type": 3,
-      "api": "csp_WexNewHuYaGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
-    },
-    {
-      "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
-      "type": 3,
-      "api": "csp_WexNewBiLiLiveGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
     }
   ],
   "parses": [
