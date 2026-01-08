@@ -26,22 +26,21 @@ jobs:
         run: |
           curl -L -o ff.zip "https://raw.githubusercontent.com/IY-CPU/test/main/%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91.zip"
 
-      # 2. 解压 ff.zip
+      # 2. 解压 ff.zip（自动生成中文目录）
       - name: Unzip ff.zip
         run: |
-          rm -rf "本地库【ff】"
           unzip -o ff.zip
 
-      # 3. 运行 extract.js（智能搜索 + 修复路径）
+      # 3. 运行 extract.js（自动识别根目录 + 修复路径）
       - name: Extract JSON from api.json
         run: |
           node extract.js
 
-      # 4. 调试输出
+      # 4. 调试输出（不依赖目录名）
       - name: Debug TXT content
         run: |
-          echo "----- FILE LIST -----"
-          ls -R "本地库【ff】"
+          echo "----- ROOT FILE LIST -----"
+          ls -R .
           echo "----- TXT CONTENT START -----"
           cat 天神IY.txt || echo "TXT NOT FOUND"
           echo "----- TXT CONTENT END -----"
@@ -56,7 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "本地库【ff】" 天神IY.txt iy_merged.json
+          git add . 
           git commit -m "Auto-sync ff.zip & rebuild merged interface" || echo "No changes to commit"
           git push
 
