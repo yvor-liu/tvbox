@@ -4,22 +4,35 @@ const path = require("path");
 // 关键字（模糊匹配）
 const KEYWORDS = ["天神", "iy", "IY", "Iy", "iY"];
 
-// Raw URL 前缀（注意：中文目录需要 URL 编码）
+// Raw URL 前缀
 const RAW_PREFIX = "https://raw.githubusercontent.com/yvor-liu/tvbox/main/";
 
-// 对路径进行 URL 编码（逐段编码）
+// 对路径进行 URL 编码
 function encodePath(p) {
   return p.split("/").map(encodeURIComponent).join("/");
 }
 
-// 去除注释（支持 /* */ 和 //）
+// 自动找到 zip 解压后的根目录（包含“本地库”或“ff”）
+function findRootDir() {
+  const dirs = fs.readdirSync(".");
+  for (const d of dirs) {
+    if (fs.statSync(d).isDirectory()) {
+      if (d.includes("本地库") || d.includes("ff")) {
+        return d;
+      }
+    }
+  }
+  return null;
+}
+
+// 去除注释
 function removeComments(str) {
-  str = str.replace(/\/\*[\s\S]*?\*\//g, ""); // /* ... */
-  str = str.replace(/(^|[^:])\/\/.*/g, "$1"); // //
+  str = str.replace(/\/\*[\s\S]*?\*\//g, "");
+  str = str.replace(/(^|[^:])\/\/.*/g, "$1");
   return str;
 }
 
-// 去除 UTF-8 BOM
+// 去除 BOM
 function removeBOM(str) {
   return str.charCodeAt(0) === 0xFEFF ? str.slice(1) : str;
 }
@@ -50,7 +63,6 @@ function findApiJson(dir) {
 // 修复相对路径 → Raw URL
 function fixPaths(obj, basePath) {
   const jsonStr = JSON.stringify(obj);
-
   const encodedBase = encodePath(basePath);
 
   const fixed = jsonStr.replace(
@@ -62,15 +74,23 @@ function fixPaths(obj, basePath) {
 }
 
 try {
+  // 自动识别根目录
+  const root = findRootDir();
+  if (!root) {
+    console.error("❌ 未找到 ff.zip 解压后的根目录");
+    process.exit(1);
+  }
+
+  console.log("📁 自动识别根目录:", root);
+
   // 搜索 api.json
-  const candidates = findApiJson("本地库【ff】");
+  const candidates = findApiJson(root);
 
   if (candidates.length === 0) {
     console.error("❌ 未找到包含关键字的 api.json");
     process.exit(1);
   }
 
-  // 选择最短路径（优先级最高）
   candidates.sort((a, b) => a.length - b.length);
   const apiPath = candidates[0];
 
@@ -83,13 +103,10 @@ try {
 
   let parsed = JSON.parse(raw);
 
-  // 计算相对路径（用于 Raw URL 拼接）
   const relativeDir = path.dirname(apiPath);
 
-  // 修复相对路径
   parsed = fixPaths(parsed, relativeDir);
 
-  // 输出纯净 JSON
   fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
 
   console.log("✅ 成功生成 天神IY.txt");
