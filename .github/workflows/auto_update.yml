@@ -1,39 +1,57 @@
-name: Auto Update Config
+name: Auto Sync 天神接口 & Build Merged Interface
+
+permissions:
+  contents: write
 
 on:
   schedule:
-    # 每天北京时间凌晨 2:00 自动运行 (UTC 18:00)
-    - cron: '0 18 * * *'
-  workflow_dispatch: 
-    # 允许你在 GitHub 网页上手动点击运行
-
-# 给予流水线写入仓库的权限，否则生成的 json 存不下来
-permissions:
-  contents: write
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 1. 拉取代码
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: 2. 安装 Python
-        uses: actions/setup-python@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.9'
+          node-version: "18"
 
-      - name: 3. 安装依赖插件
-        run: pip install requests pycryptodome
-
-      - name: 4. 运行更新脚本
-        run: python update_config.py
-
-      - name: 5. 提交并同步到仓库
+      - name: Download 天神 JSON (primary source)
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git add my_local.json
-          # 如果文件没变化就不提交，防止报错
-          git commit -m "自动更新接口内容" || exit 0
+          curl -L -o 天神IY.json "https://d.kstore.dev/download/14505/天神IY.json" || echo "PRIMARY_FAILED" > source_status.txt
+
+      - name: Fallback to wget.la if primary failed
+        if: contains(steps.Download_天神_JSON_primary_source.outputs.stdout, 'PRIMARY_FAILED')
+        run: |
+          echo "⚠️ 主源失败，尝试 wget.la 备用源"
+          curl -L -o 天神IY.json "https://wget.la/https://d.kstore.dev/download/14505/天神IY.json"
+
+      - name: Extract JSON (gunzip)
+        run: |
+          node extract.js
+
+      - name: Debug TXT content
+        run: |
+          echo "----- FILE LIST -----"
+          ls -l
+          echo "----- TXT CONTENT START -----"
+          cat 天神IY.txt || echo "TXT NOT FOUND"
+          echo "----- TXT CONTENT END -----"
+
+      - name: Run merge script
+        run: |
+          node merge.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 天神IY.txt iy_merged.json
+          git commit -m "Auto-sync 天神接口 & rebuild merged interface" || echo "No changes to commit"
           git push
+
