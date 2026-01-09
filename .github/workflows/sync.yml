@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Install axios
+        run: npm install axios
+
       # 1. 下载 ff.zip
       - name: Download ff.zip
         run: |
