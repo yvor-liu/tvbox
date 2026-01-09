@@ -20,45 +20,68 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+          cache: "npm"
 
-      - name: Install axios
-        run: npm install axios
+      - name: Install dependencies
+        run: npm install
 
-      # 1. 下载 ff.zip
+      # 清理旧目录
+      - name: Clean old extracted folders
+        run: |
+          rm -rf ./*ff* || true
+          rm -rf ./*本地库* || true
+
+      # 下载 ff.zip（带重试）
       - name: Download ff.zip
         run: |
-          curl -L -o ff.zip "https://raw.githubusercontent.com/IY-CPU/test/main/%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91.zip"
+          for i in {1..5}; do
+            curl -L --retry 5 --retry-delay 2 --max-time 60 \
+              -o ff.zip \
+              "https://raw.githubusercontent.com/IY-CPU/test/main/%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91.zip" && break
+          done
+          if [ ! -s ff.zip ]; then
+            echo "❌ ff.zip 下载失败"
+            exit 1
+          fi
 
-      # 2. 解压 ff.zip（自动生成中文目录）
+      # 解压
       - name: Unzip ff.zip
-        run: |
-          unzip -o ff.zip
+        run: unzip -o ff.zip || exit 1
 
-      # 3. 运行 extract.js（自动识别根目录 + 修复路径）
-      - name: Extract JSON from api.json
-        run: |
-          node extract.js
+      # 运行 extract.js
+      - name: Extract JSON
+        run: node extract.js || exit 1
 
-      # 4. 调试输出（不依赖目录名）
-      - name: Debug TXT content
+      # 调试输出
+      - name: Debug TXT
         run: |
-          echo "----- ROOT FILE LIST -----"
           ls -R .
-          echo "----- TXT CONTENT START -----"
-          cat 天神IY.txt || echo "TXT NOT FOUND"
-          echo "----- TXT CONTENT END -----"
+          cat 天神IY.txt || exit 1
 
-      # 5. 合并补丁
-      - name: Run merge script
+      # 合并补丁
+      - name: Merge JSON
+        run: node merge.js || exit 1
+
+      # 检查是否有变化
+      - name: Check for changes
         run: |
-          node merge.js
+          if git diff --quiet; then
+            echo "No changes detected."
+            exit 0
+          fi
 
-      # 6. 提交结果
-      - name: Commit and push changes
+      # 推送到 GitHub（主仓库）
+      - name: Commit and push to GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add . 
+          git add .
           git commit -m "Auto-sync ff.zip & rebuild merged interface" || echo "No changes to commit"
           git push
 
+      # ⭐ 推送到 Gitee 镜像（你需要的部分）
+      - name: Push to Gitee mirror
+        run: |
+          echo "Pushing to Gitee mirror..."
+          git remote add gitee https://$GITEE_USERNAME:$GITEE_TOKEN@gitee.com/$GITEE_USERNAME/tvbox.git
+          git push gitee main --force
