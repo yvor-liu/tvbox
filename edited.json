@@ -75,16 +75,6 @@
       "delete": true
     },
     {
-      "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
-      "type": 3,
-      "api": "csp_WexNewBiLiLiveGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
       "key": "哔哩演唱会",
       "delete": true
     },
