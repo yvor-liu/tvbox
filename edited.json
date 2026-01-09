@@ -59,7 +59,7 @@
       "changeable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
+      "ext": "https://9280.kstore.space/wex.json"
     },
     {
       "key": "戏曲多多",
@@ -70,7 +70,7 @@
       "changeable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
+      "ext": "https://9280.kstore.space/wex.json"
     },
     {
       "key": "网络直播",
@@ -85,7 +85,7 @@
       "changeable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "@https://9280.kstore.space/wex.json"
+      "ext": "https://9280.kstore.space/wex.json"
     },
     {
       "key": "哔哩演唱会",
