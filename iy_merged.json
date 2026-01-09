@@ -1119,7 +1119,7 @@
       "changeable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1767541963195d1mrhw.txt;md5;f0b20e509c5d31899bd1c43f6189b6b4",
+      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1767972472524o87GLB.txt;md5;3b7c681a4cfc16b009a0a566eb65a694",
       "ext": "https://9280.kstore.space/wex.json"
     },
     {
@@ -1131,7 +1131,7 @@
       "changeable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1767541963195d1mrhw.txt;md5;f0b20e509c5d31899bd1c43f6189b6b4",
+      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1767972472524o87GLB.txt;md5;3b7c681a4cfc16b009a0a566eb65a694",
       "ext": "https://9280.kstore.space/wex.json"
     },
     {
@@ -1146,15 +1146,9 @@
     },
     {
       "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
+      "name": "📺哔哩｜点播",
       "type": 3,
-      "api": "csp_WexNewBiLiLiveGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1767541963195d1mrhw.txt;md5;f0b20e509c5d31899bd1c43f6189b6b4",
-      "ext": "https://9280.kstore.space/wex.json"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib%2F%E5%93%94%E5%93%A9%E7%9B%B4%E6%92%AD.py"
     },
     {
       "key": "哔哩视频",
