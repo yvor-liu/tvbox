@@ -60,17 +60,58 @@ function findApiJson(dir) {
   return candidates;
 }
 
-// 修复相对路径 → Raw URL
+// ⭐⭐⭐ 完整修复相对路径（支持 ./ ../ 多层目录）⭐⭐⭐
 function fixPaths(obj, basePath) {
-  const jsonStr = JSON.stringify(obj);
-  const encodedBase = encodePath(basePath);
+  function resolveRelative(base, relative) {
+    // 已经是绝对 URL
+    if (/^(https?:)?\/\//.test(relative)) return relative;
 
-  const fixed = jsonStr.replace(
-    /"\.\/([^"]+)"/g,
-    (_, p1) => `"${RAW_PREFIX}${encodedBase}/${encodeURIComponent(p1)}"`
-  );
+    // 统一路径分隔符
+    base = base.replace(/\\/g, "/");
+    relative = relative.replace(/\\/g, "/");
 
-  return JSON.parse(fixed);
+    // base 取目录部分
+    let baseDir = base.replace(/\/[^\/]+$/, "");
+
+    const stack = baseDir.split("/");
+    const parts = relative.split("/");
+
+    for (const part of parts) {
+      if (part === "..") {
+        stack.pop();
+      } else if (part !== "." && part !== "") {
+        stack.push(part);
+      }
+    }
+
+    return stack.join("/");
+  }
+
+  function walk(node, base) {
+    if (typeof node === "string") {
+      if (node.startsWith("./") || node.startsWith("../")) {
+        const fixed = resolveRelative(base, node);
+        return RAW_PREFIX + encodePath(fixed);
+      }
+      return node;
+    }
+
+    if (Array.isArray(node)) {
+      return node.map(v => walk(v, base));
+    }
+
+    if (typeof node === "object" && node !== null) {
+      const out = {};
+      for (const k in node) {
+        out[k] = walk(node[k], base);
+      }
+      return out;
+    }
+
+    return node;
+  }
+
+  return walk(obj, basePath);
 }
 
 try {
@@ -116,4 +157,3 @@ try {
   console.error(e);
   process.exit(1);
 }
-
