@@ -1,12 +1,31 @@
 const fs = require("fs");
+const axios = require("axios");
 
 const ARRAY_FIELDS = ["sites", "lives", "flags", "parses", "rules", "ads"];
 
-// 按 API 顺序逐项处理 edited 的三种规则
+// ------------------------------
+// ① 自动获取 Wex 最新 spider
+// ------------------------------
+async function getWexSpider() {
+  try {
+    const url = "https://9280.kstore.space/wex.json";
+    const res = await axios.get(url, { timeout: 10000 });
+    if (res.data && res.data.spider) {
+      console.log("🕷️ 已获取最新 Wex spider:", res.data.spider);
+      return res.data.spider;
+    }
+  } catch (e) {
+    console.error("❌ 获取 Wex spider 失败:", e);
+  }
+  return null;
+}
+
+// ------------------------------
+// ② 合并数组逻辑（保持原样）
+// ------------------------------
 function mergeArrays(apiArr, editedArr, keyName) {
   if (!Array.isArray(editedArr)) return apiArr;
 
-  // 把 edited 按 keyName 建立一个 map
   const editedMap = new Map();
   for (const item of editedArr) {
     if (!item || !item[keyName]) continue;
@@ -15,31 +34,22 @@ function mergeArrays(apiArr, editedArr, keyName) {
 
   const result = [];
 
-  // 1. 按 API 顺序逐项处理
   for (const apiItem of apiArr) {
     const k = apiItem[keyName];
     const editedItem = editedMap.get(k);
 
     if (!editedItem) {
-      // edited 没有 → 保留原项
       result.push(apiItem);
       continue;
     }
 
-    if (editedItem.delete === true) {
-      // delete:true → 删除，不写入
-      continue;
-    }
+    if (editedItem.delete === true) continue;
 
-    // 重名 → 替换（保持原位置）
     const { delete: _del, ...pure } = editedItem;
     result.push(pure);
-
-    // 已处理 → 从 map 中删除
     editedMap.delete(k);
   }
 
-  // 2. 剩下的 edited → 新增（api 中不存在）→ 追加到末尾
   for (const [_, item] of editedMap) {
     if (item.delete === true) continue;
     const { delete: _del, ...pure } = item;
@@ -49,6 +59,9 @@ function mergeArrays(apiArr, editedArr, keyName) {
   return result;
 }
 
+// ------------------------------
+// ③ 深度合并（保持原样）
+// ------------------------------
 function deepMerge(api, edited) {
   const result = JSON.parse(JSON.stringify(api));
 
@@ -61,11 +74,7 @@ function deepMerge(api, edited) {
       continue;
     }
 
-    if (
-      typeof value === "object" &&
-      value !== null &&
-      !Array.isArray(value)
-    ) {
+    if (typeof value === "object" && value !== null && !Array.isArray(value)) {
       result[key] = deepMerge(api[key] || {}, value);
       continue;
     }
@@ -76,19 +85,45 @@ function deepMerge(api, edited) {
   return result;
 }
 
-try {
-  const api = JSON.parse(fs.readFileSync("天神IY.txt", "utf8"));
-  const edited = JSON.parse(fs.readFileSync("edited.json", "utf8"));
+// ------------------------------
+// ④ 主流程
+// ------------------------------
+(async () => {
+  try {
+    const api = JSON.parse(fs.readFileSync("天神IY.txt", "utf8"));
+    const edited = JSON.parse(fs.readFileSync("edited.json", "utf8"));
 
-  const merged = deepMerge(api, edited);
+    // 先合并
+    const merged = deepMerge(api, edited);
 
-  fs.writeFileSync("iy_merged.json", JSON.stringify(merged, null, 2), "utf8");
+    // 获取最新 Wex spider
+    const wexSpider = await getWexSpider();
 
-  console.log("✅ 合并完成：按 API 顺序逐项执行删除/替换/新增，逻辑最简最稳");
+    // ------------------------------
+    // ⑤ 自动为所有 csp_Wex* 站点注入 jar/ext
+    // ------------------------------
+    if (merged.sites && Array.isArray(merged.sites) && wexSpider) {
+      merged.sites = merged.sites.map(site => {
+        if (typeof site.api === "string" && site.api.startsWith("csp_Wex")) {
+          console.log(`✨ 为 ${site.key} 注入最新 Wex spider`);
+          return {
+            ...site,
+            jar: wexSpider,
+            ext: "https://9280.kstore.space/wex.json"
+          };
+        }
+        return site;
+      });
+    }
 
-} catch (e) {
-  console.error("❌ 合并失败");
-  console.error(e);
-  process.exit(1);
-}
+    // 写入最终接口
+    fs.writeFileSync("iy_merged.json", JSON.stringify(merged, null, 2), "utf8");
 
+    console.log("🎉 合并完成：已自动注入所有 Wex 系列 spider");
+
+  } catch (e) {
+    console.error("❌ 合并失败");
+    console.error(e);
+    process.exit(1);
+  }
+})();
