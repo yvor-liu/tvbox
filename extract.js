@@ -7,9 +7,16 @@ const KEYWORDS = ["天神", "iy", "IY", "Iy", "iY"];
 // Raw URL 前缀
 const RAW_PREFIX = "https://raw.githubusercontent.com/yvor-liu/tvbox/main/";
 
-// 对路径进行 URL 编码
-function encodePath(p) {
-  return p.split("/").map(encodeURIComponent).join("/");
+// 去除注释
+function removeComments(str) {
+  str = str.replace(/\/\*[\s\S]*?\*\//g, "");
+  str = str.replace(/(^|[^:])\/\/.*/g, "$1");
+  return str;
+}
+
+// 去除 BOM
+function removeBOM(str) {
+  return str.charCodeAt(0) === 0xFEFF ? str.slice(1) : str;
 }
 
 // 自动找到 zip 解压后的根目录（包含“本地库”或“ff”）
@@ -23,18 +30,6 @@ function findRootDir() {
     }
   }
   return null;
-}
-
-// 去除注释
-function removeComments(str) {
-  str = str.replace(/\/\*[\s\S]*?\*\//g, "");
-  str = str.replace(/(^|[^:])\/\/.*/g, "$1");
-  return str;
-}
-
-// 去除 BOM
-function removeBOM(str) {
-  return str.charCodeAt(0) === 0xFEFF ? str.slice(1) : str;
 }
 
 // 递归搜索 api.json（必须包含关键字）
@@ -60,23 +55,23 @@ function findApiJson(dir) {
   return candidates;
 }
 
-// ⭐⭐⭐ 最终稳定版路径修复（基于 api.json 所在目录） ⭐⭐⭐
+// ⭐⭐⭐ 最终稳定版路径修复（保留中文不转码） ⭐⭐⭐
 function fixPaths(obj, apiDir) {
   const apiDirNorm = apiDir.replace(/\\/g, "/");
   const apiParent = apiDirNorm.split("/").slice(0, -1).join("/");
 
   let jsonStr = JSON.stringify(obj);
 
-  // ./xxx → ff/xxx/xxx
+  // ./xxx → 拼接到当前目录
   jsonStr = jsonStr.replace(
     /"\.\/([^"]+)"/g,
-    (_, p1) => `"${RAW_PREFIX}${encodePath(apiDirNorm)}/${encodePath(p1)}"`
+    (_, p1) => `"${RAW_PREFIX}${apiDirNorm}/${p1}"`
   );
 
-  // ../xxx → ff/xxx
+  // ../xxx → 拼接到父目录
   jsonStr = jsonStr.replace(
     /"\.\.\/([^"]+)"/g,
-    (_, p1) => `"${RAW_PREFIX}${encodePath(apiParent)}/${encodePath(p1)}"`
+    (_, p1) => `"${RAW_PREFIX}${apiParent}/${p1}"`
   );
 
   return JSON.parse(jsonStr);
