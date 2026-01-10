@@ -167,9 +167,9 @@ try {
 
   parsed = fixPaths(parsed, apiDir);
 
-  fs.writeFileSync("iy.merged.json", JSON.stringify(parsed, null, 2), "utf8");
+  fs.writeFileSync("iy_merged.json", JSON.stringify(parsed, null, 2), "utf8");
 
-  console.log("✅ 成功生成 iy.merged.json");
+  console.log("✅ 成功生成 iy_merged.json");
 
 } catch (e) {
   console.error("❌ 解析失败");
