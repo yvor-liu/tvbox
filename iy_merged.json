@@ -323,7 +323,7 @@
       "key": "人人影视",
       "name": "♨️人人｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/人人影视.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/rrys.py",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
@@ -440,7 +440,7 @@
       "key": "py_山有木兮",
       "name": "♨️木兮｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/山有木兮.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/symx.py"
     },
     {
       "key": "盘它",
@@ -505,7 +505,7 @@
       "key": "广广",
       "name": "🌀广广｜1920",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/广广.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/gg.py"
     },
     {
       "key": "星海视频",
@@ -566,14 +566,14 @@
       "name": "🌀韩剧｜1280",
       "type": 3,
       "api": "csp_XBPQ",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/韩剧看看.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/hjkk.png"
     },
     {
       "key": "酷酷",
       "name": "🌀酷酷｜1280",
       "type": 3,
       "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/酷酷.png",
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/kk.png",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0,
@@ -584,7 +584,7 @@
       "name": "🌀奇奇｜1280",
       "type": 3,
       "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/奇奇.png",
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/qq.png",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0,
@@ -636,7 +636,7 @@
       "key": "星芽短剧",
       "name": "🎬星芽｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/星芽短剧.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/xydj.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -646,7 +646,7 @@
       "key": "剧王短剧",
       "name": "🎬剧王｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/剧王短剧.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/jwdj.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -949,7 +949,7 @@
       "name": "🌈路漫漫｜动漫",
       "type": 3,
       "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/路漫漫.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/lmm.png"
     },
     {
       "key": "方舟动漫",
@@ -1062,7 +1062,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/雪花.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/xh.png"
     },
     {
       "key": "修罗",
@@ -1099,7 +1099,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/电影港.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/dyg.png"
     },
     {
       "key": "电影天堂",
@@ -1148,7 +1148,7 @@
       "key": "哔哩直播",
       "name": "📺哔哩｜点播",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/哔哩直播.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/blzb.py"
     },
     {
       "key": "哔哩视频",
@@ -1164,7 +1164,7 @@
         "ratio": 1.433
       },
       "ext": {
-        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/哔哩视频.png",
+        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/blsp.png",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
     },
@@ -1182,7 +1182,7 @@
         "ratio": 1.433
       },
       "ext": {
-        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/哔哩合集.png",
+        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/blhj.png",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
     },
