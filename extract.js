@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const pinyin = require("pinyin");
 
 // 关键字（模糊匹配）
 const KEYWORDS = ["天神", "iy", "IY", "Iy", "iY"];
@@ -60,64 +61,75 @@ function hasChinese(str) {
   return /[\u4e00-\u9fa5]/.test(str);
 }
 
-// 生成英文别名（简单规则：取拼音首字母或 fallback）
+// 生成拼音缩写别名
 function generateAlias(filename) {
-  const base = path.basename(filename, ".py");
-  // 简单规则：取拼音首字母缩写（这里用固定映射或直接 fallback）
-  // 你可以根据需要改成更复杂的映射
-  return "alias_" + Buffer.from(base).toString("hex").slice(0, 6) + ".py";
+  const base = path.basename(filename, path.extname(filename));
+  const ext = path.extname(filename);
+
+  // 把中文转拼音首字母
+  const arr = pinyin(base, { style: pinyin.STYLE_FIRST_LETTER });
+  const abbr = arr.flat().join("");
+
+  return `${abbr}${ext}`;
 }
 
-// ⭐⭐⭐ 最终稳定版路径修复（保留中文不转码 + 自动生成别名） ⭐⭐⭐
+// 复制副本（每次覆盖，确保最新）
+function ensureAliasFile(dirAbs, relFile) {
+  const srcAbs = path.join(dirAbs, relFile);
+  const alias = generateAlias(relFile);
+  const dstAbs = path.join(dirAbs, alias);
+  try {
+    fs.copyFileSync(srcAbs, dstAbs);
+    console.log(`📄 生成副本: ${alias}`);
+  } catch (e) {
+    console.error("❌ 副本生成失败:", e);
+  }
+  return alias;
+}
+
+// **目录转码，文件名保留英文或生成副本**
+function encodeDirsKeepFilename(p) {
+  const parts = p.replace(/\\/g, "/").split("/");
+  if (parts.length === 0) return p;
+  const filename = parts.pop(); // 保留最后一级文件名原样
+  const encodedDirs = parts.map(encodeURIComponent).join("/");
+  return encodedDirs ? `${encodedDirs}/${filename}` : filename;
+}
+
+// ⭐⭐⭐ 路径修复：目录转码 + 文件名副本 ⭐⭐⭐
 function fixPaths(obj, apiDir) {
+  const apiDirAbs = apiDir;
   const apiDirNorm = apiDir.replace(/\\/g, "/");
-  const apiParent = apiDirNorm.split("/").slice(0, -1).join("/");
+  const apiParentNorm = apiDirNorm.split("/").slice(0, -1).join("/");
+  const apiParentAbs = path.dirname(apiDirAbs);
 
   let jsonStr = JSON.stringify(obj);
 
-  // ./xxx → 拼接到当前目录
+  // ./xxx → 当前目录
   jsonStr = jsonStr.replace(
     /"\.\/([^"]+)"/g,
     (_, p1) => {
       let target = p1;
-      if (target.endsWith(".py") && hasChinese(target)) {
-        const alias = generateAlias(target);
-        const src = path.join(apiDirNorm, target);
-        const dst = path.join(apiDirNorm, alias);
-        try {
-          if (!fs.existsSync(dst)) {
-            fs.copyFileSync(src, dst);
-            console.log(`📄 生成别名文件: ${alias}`);
-          }
-        } catch (e) {
-          console.error("❌ 别名生成失败:", e);
-        }
-        target = alias;
+      if (hasChinese(path.basename(target))) {
+        target = ensureAliasFile(apiDirAbs, target);
       }
-      return `"${RAW_PREFIX}${apiDirNorm}/${target}"`;
+      const joined = `${apiDirNorm}/${target}`;
+      const encoded = encodeDirsKeepFilename(joined);
+      return `"${RAW_PREFIX}${encoded}"`;
     }
   );
 
-  // ../xxx → 拼接到父目录
+  // ../xxx → 父目录
   jsonStr = jsonStr.replace(
     /"\.\.\/([^"]+)"/g,
     (_, p1) => {
       let target = p1;
-      if (target.endsWith(".py") && hasChinese(target)) {
-        const alias = generateAlias(target);
-        const src = path.join(apiParent, target);
-        const dst = path.join(apiParent, alias);
-        try {
-          if (!fs.existsSync(dst)) {
-            fs.copyFileSync(src, dst);
-            console.log(`📄 生成别名文件: ${alias}`);
-          }
-        } catch (e) {
-          console.error("❌ 别名生成失败:", e);
-        }
-        target = alias;
+      if (hasChinese(path.basename(target))) {
+        target = ensureAliasFile(apiParentAbs, target);
       }
-      return `"${RAW_PREFIX}${apiParent}/${target}"`;
+      const joined = `${apiParentNorm}/${target}`;
+      const encoded = encodeDirsKeepFilename(joined);
+      return `"${RAW_PREFIX}${encoded}"`;
     }
   );
 
@@ -154,9 +166,9 @@ try {
 
   parsed = fixPaths(parsed, apiDir);
 
-  fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
+  fs.writeFileSync("iy.merged.json", JSON.stringify(parsed, null, 2), "utf8");
 
-  console.log("✅ 成功生成 天神IY.txt");
+  console.log("✅ 成功生成 iy.merged.json");
 
 } catch (e) {
   console.error("❌ 解析失败");
