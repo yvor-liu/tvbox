@@ -323,7 +323,7 @@
       "key": "人人影视",
       "name": "♨️人人｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/人人影视.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e4baba.py",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
@@ -440,7 +440,7 @@
       "key": "py_山有木兮",
       "name": "♨️木兮｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/山有木兮.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e5b1b1.py"
     },
     {
       "key": "盘它",
@@ -505,7 +505,7 @@
       "key": "广广",
       "name": "🌀广广｜1920",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/广广.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e5b9bf.py"
     },
     {
       "key": "星海视频",
@@ -636,7 +636,7 @@
       "key": "星芽短剧",
       "name": "🎬星芽｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/星芽短剧.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e6989f.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -646,7 +646,7 @@
       "key": "剧王短剧",
       "name": "🎬剧王｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/剧王短剧.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e589a7.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -1148,7 +1148,7 @@
       "key": "哔哩直播",
       "name": "📺哔哩｜点播",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/哔哩直播.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e59394.py"
     },
     {
       "key": "哔哩视频",
