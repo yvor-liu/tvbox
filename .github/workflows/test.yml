@@ -1,4 +1,4 @@
-name: Test Gitee Push
+name: Test Gitee Push (Hardcoded Token)
 
 on:
   workflow_dispatch:   # 手动触发
@@ -19,10 +19,11 @@ jobs:
           echo "=== 最近提交 ==="
           git log -3 --oneline
 
-      - name: Add Gitee remote
+      - name: Add Gitee remote (hardcoded token)
         run: |
           echo "=== 添加 Gitee 远程仓库 ==="
-          git remote add gitee https://yvor_liu:${{ secrets.GITEE_TOKEN }}@gitee.com/yvor_liu/tvbox.git
+          # ⚠️ 在这里替换 <YOUR_TOKEN> 为你真实的 Gitee Token
+          git remote add gitee https://yvor_liu:321e50c481fc252d4b5dab71bfb1aa45@gitee.com/yvor_liu/tvbox.git
           git remote -v
 
       - name: Push to Gitee (main -> master)
