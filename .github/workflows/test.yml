@@ -1,4 +1,4 @@
-name: Test Gitee Push (Hardcoded Token)
+name: Test Gitee Token & Push
 
 on:
   workflow_dispatch:   # 手动触发
@@ -18,6 +18,12 @@ jobs:
           git status
           echo "=== 最近提交 ==="
           git log -3 --oneline
+
+      - name: Test Gitee API with Token
+        run: |
+          echo "=== 测试 Gitee Token 是否有效 ==="
+          # ⚠️ 在这里替换 <YOUR_TOKEN> 为你真实的 Gitee Token
+          curl -i -H "Authorization: token 321e50c481fc252d4b5dab71bfb1aa45" https://gitee.com/api/v5/user
 
       - name: Add Gitee remote (hardcoded token)
         run: |
