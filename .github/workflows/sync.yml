@@ -81,10 +81,3 @@ jobs:
           git add .
           git commit -m "Auto-sync ff.zip & rebuild merged interface" || echo "No changes to commit"
           git push
-
-      # ⭐ 推送到 Gitee（始终执行，保证镜像一致）
-      - name: Push to Gitee mirror
-        run: |
-          echo "Pushing to Gitee mirror..."
-          git remote add gitee https://yvor_liu:${{ secrets.GITEE_TOKEN }}@gitee.com/yvor_liu/tvbox.git
-          git push gitee HEAD:master --force
