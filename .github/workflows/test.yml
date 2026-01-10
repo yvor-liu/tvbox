@@ -29,5 +29,4 @@ jobs:
       - name: Push to Gitee (main -> master)
         run: |
           echo "=== 开始推送到 Gitee ==="
-          git push gitee HEAD:master --force
-
+          GIT_TERMINAL_PROMPT=0 git push gitee HEAD:master --force
