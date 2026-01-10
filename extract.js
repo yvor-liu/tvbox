@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const pinyin = require("pinyin");
+// 正确导入 pinyin 包
+const { pinyin } = require("pinyin");
 
 // 关键字（模糊匹配）
 const KEYWORDS = ["天神", "iy", "IY", "Iy", "iY"];
