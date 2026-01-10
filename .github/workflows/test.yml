@@ -1,4 +1,4 @@
-name: Push to Gitee (Final)
+name: Push to Gitee Debug
 
 on:
   workflow_dispatch:
@@ -24,6 +24,10 @@ jobs:
           echo "=== 添加 Gitee 远程仓库 ==="
           # ⚠️ 在这里替换 <YOUR_TOKEN> 为真实的 Gitee Token（不要尖括号）
           git remote add gitee https://yvor_liu:321e50c481fc252d4b5dab71bfb1aa45@gitee.com/yvor_liu/tvbox.git
+
+      - name: Debug remote URL
+        run: |
+          echo "=== 打印远程仓库配置 ==="
           git remote -v
 
       - name: Push to Gitee (main -> master)
