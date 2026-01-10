@@ -1146,9 +1146,13 @@
     },
     {
       "key": "哔哩直播",
-      "name": "📺哔哩｜点播",
+      "name": "📺哔哩｜直播",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/yqtsiy/lib/blzb.py"
+      "api": "https://7337.kstore.vip/py/哔哩直播.py",
+      "searchable": 1,
+      "changeable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     },
     {
       "key": "哔哩视频",
