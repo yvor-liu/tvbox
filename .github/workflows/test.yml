@@ -1,0 +1,32 @@
+name: Test Gitee Push
+
+on:
+  workflow_dispatch:   # 手动触发
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Git info
+        run: |
+          echo "=== 当前分支状态 ==="
+          git branch -a
+          git status
+          echo "=== 最近提交 ==="
+          git log -3 --oneline
+
+      - name: Add Gitee remote
+        run: |
+          echo "=== 添加 Gitee 远程仓库 ==="
+          git remote add gitee https://yvor_liu:${{ secrets.GITEE_TOKEN }}@gitee.com/yvor_liu/tvbox.git
+          git remote -v
+
+      - name: Push to Gitee (main -> master)
+        run: |
+          echo "=== 开始推送到 Gitee ==="
+          git push gitee HEAD:master --force
+
