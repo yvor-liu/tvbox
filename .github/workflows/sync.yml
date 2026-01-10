@@ -20,10 +20,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
-          cache: "npm"
+          cache: "npm"   # 开启 npm 缓存
 
+      # 安装 pinyin 包（会自动利用缓存）
       - name: Install dependencies
-        run: npm install
+        run: npm install pinyin
 
       # 清理旧目录
       - name: Clean old extracted folders
