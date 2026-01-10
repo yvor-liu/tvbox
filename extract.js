@@ -55,7 +55,20 @@ function findApiJson(dir) {
   return candidates;
 }
 
-// ⭐⭐⭐ 最终稳定版路径修复（保留中文不转码） ⭐⭐⭐
+// 检测是否包含中文
+function hasChinese(str) {
+  return /[\u4e00-\u9fa5]/.test(str);
+}
+
+// 生成英文别名（简单规则：取拼音首字母或 fallback）
+function generateAlias(filename) {
+  const base = path.basename(filename, ".py");
+  // 简单规则：取拼音首字母缩写（这里用固定映射或直接 fallback）
+  // 你可以根据需要改成更复杂的映射
+  return "alias_" + Buffer.from(base).toString("hex").slice(0, 6) + ".py";
+}
+
+// ⭐⭐⭐ 最终稳定版路径修复（保留中文不转码 + 自动生成别名） ⭐⭐⭐
 function fixPaths(obj, apiDir) {
   const apiDirNorm = apiDir.replace(/\\/g, "/");
   const apiParent = apiDirNorm.split("/").slice(0, -1).join("/");
@@ -65,13 +78,47 @@ function fixPaths(obj, apiDir) {
   // ./xxx → 拼接到当前目录
   jsonStr = jsonStr.replace(
     /"\.\/([^"]+)"/g,
-    (_, p1) => `"${RAW_PREFIX}${apiDirNorm}/${p1}"`
+    (_, p1) => {
+      let target = p1;
+      if (target.endsWith(".py") && hasChinese(target)) {
+        const alias = generateAlias(target);
+        const src = path.join(apiDirNorm, target);
+        const dst = path.join(apiDirNorm, alias);
+        try {
+          if (!fs.existsSync(dst)) {
+            fs.copyFileSync(src, dst);
+            console.log(`📄 生成别名文件: ${alias}`);
+          }
+        } catch (e) {
+          console.error("❌ 别名生成失败:", e);
+        }
+        target = alias;
+      }
+      return `"${RAW_PREFIX}${apiDirNorm}/${target}"`;
+    }
   );
 
   // ../xxx → 拼接到父目录
   jsonStr = jsonStr.replace(
     /"\.\.\/([^"]+)"/g,
-    (_, p1) => `"${RAW_PREFIX}${apiParent}/${p1}"`
+    (_, p1) => {
+      let target = p1;
+      if (target.endsWith(".py") && hasChinese(target)) {
+        const alias = generateAlias(target);
+        const src = path.join(apiParent, target);
+        const dst = path.join(apiParent, alias);
+        try {
+          if (!fs.existsSync(dst)) {
+            fs.copyFileSync(src, dst);
+            console.log(`📄 生成别名文件: ${alias}`);
+          }
+        } catch (e) {
+          console.error("❌ 别名生成失败:", e);
+        }
+        target = alias;
+      }
+      return `"${RAW_PREFIX}${apiParent}/${target}"`;
+    }
   );
 
   return JSON.parse(jsonStr);
