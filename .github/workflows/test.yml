@@ -1,4 +1,4 @@
-name: Push to Gitee via HTTP Header
+name: Push to Gitee (Final)
 
 on:
   workflow_dispatch:
@@ -19,14 +19,14 @@ jobs:
           echo "=== 最近提交 ==="
           git log -3 --oneline
 
-      - name: Add Gitee remote
+      - name: Add Gitee remote (with Token)
         run: |
           echo "=== 添加 Gitee 远程仓库 ==="
-          git remote add gitee https://gitee.com/yvor_liu/tvbox.git
+          # ⚠️ 在这里替换 <YOUR_TOKEN> 为真实的 Gitee Token（不要尖括号）
+          git remote add gitee https://yvor_liu:321e50c481fc252d4b5dab71bfb1aa45@gitee.com/yvor_liu/tvbox.git
           git remote -v
 
       - name: Push to Gitee (main -> master)
         run: |
           echo "=== 开始推送到 Gitee ==="
-          # 用 http.extraHeader 强制带 Token，避免交互式认证
-          GIT_TERMINAL_PROMPT=0 git -c http.extraHeader="Authorization: token 321e50c481fc252d4b5dab71bfb1aa45" push gitee HEAD:master --force
+          GIT_TERMINAL_PROMPT=0 git push gitee HEAD:master --force
