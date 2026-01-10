@@ -4,9 +4,9 @@ const path = require("path");
 const { pinyin } = require("pinyin");
 
 // 关键字（模糊匹配）
-const KEYWORDS = ["天神", "iy", "IY", "Iy", "iY"];
+const KEYWORDS = ["缘起", "天神", "iy", "IY", "Iy", "iY"];
 
-// Raw URL 前缀
+// Raw URL 前缀（你的仓库根）
 const RAW_PREFIX = "https://raw.githubusercontent.com/yvor-liu/tvbox/main/";
 
 // 去除注释
@@ -26,7 +26,7 @@ function findRootDir() {
   const dirs = fs.readdirSync(".");
   for (const d of dirs) {
     if (fs.statSync(d).isDirectory()) {
-      if (d.includes("本地库") || d.includes("ff")) {
+      if (d.includes("本地库") || d.toLowerCase().includes("ff")) {
         return d;
       }
     }
@@ -34,27 +34,19 @@ function findRootDir() {
   return null;
 }
 
-// 递归搜索 api.json（必须包含关键字）
-function findApiJson(dir) {
-  const files = fs.readdirSync(dir);
-  let candidates = [];
-
-  for (const file of files) {
-    const full = path.join(dir, file);
-    const stat = fs.statSync(full);
-
-    if (stat.isDirectory()) {
-      const result = findApiJson(full);
-      if (result) candidates = candidates.concat(result);
-    } else if (file === "api.json") {
-      const lowerPath = full.toLowerCase();
-      if (KEYWORDS.some(k => lowerPath.includes(k.toLowerCase()))) {
-        candidates.push(full);
+// 在 root 下模糊查找目标目录（包含关键字）
+function findTargetDir(root) {
+  const entries = fs.readdirSync(root);
+  for (const e of entries) {
+    const full = path.join(root, e);
+    if (fs.statSync(full).isDirectory()) {
+      const lower = e.toLowerCase();
+      if (KEYWORDS.some(k => lower.includes(k.toLowerCase()))) {
+        return full;
       }
     }
   }
-
-  return candidates;
+  return null;
 }
 
 // 检测是否包含中文
@@ -62,61 +54,72 @@ function hasChinese(str) {
   return /[\u4e00-\u9fa5]/.test(str);
 }
 
-// 生成拼音缩写别名
-function generateAlias(filename) {
-  const base = path.basename(filename, path.extname(filename));
-  const ext = path.extname(filename);
+// 转拼音缩写
+function toPinyinAbbr(str) {
+  const arr = pinyin(str, { style: pinyin.STYLE_FIRST_LETTER });
+  return arr.flat().join("");
+}
 
-  // 把中文转拼音首字母
-  const arr = pinyin(base, { style: pinyin.STYLE_FIRST_LETTER });
-  const abbr = arr.flat().join("");
-
+// 重命名为英文（目录或文件）
+function renameToEnglish(name) {
+  if (!hasChinese(name)) return name;
+  const ext = path.extname(name);
+  const base = path.basename(name, ext);
+  const abbr = toPinyinAbbr(base);
   return `${abbr}${ext}`;
 }
 
-// 复制副本（每次覆盖，确保最新）
-function ensureAliasFile(dirAbs, relFile) {
-  const srcAbs = path.join(dirAbs, relFile);
-  const alias = generateAlias(relFile);
-  const dstAbs = path.join(dirAbs, alias);
-  try {
-    fs.copyFileSync(srcAbs, dstAbs);
-    console.log(`📄 生成副本: ${alias}`);
-  } catch (e) {
-    console.error("❌ 副本生成失败:", e);
+// 递归复制并重命名（目录与文件名都转英文）
+function copyDirWithRename(src, dest) {
+  if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+  const entries = fs.readdirSync(src);
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry);
+    const renamed = renameToEnglish(entry);
+    const destPath = path.join(dest, renamed);
+    const stat = fs.statSync(srcPath);
+    if (stat.isDirectory()) {
+      copyDirWithRename(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
   }
-  return alias;
 }
 
-// **目录转码，文件名保留英文或生成副本**
-function encodeDirsKeepFilename(p) {
-  const parts = p.replace(/\\/g, "/").split("/");
-  if (parts.length === 0) return p;
-  const filename = parts.pop(); // 保留最后一级文件名原样
-  const encodedDirs = parts.map(encodeURIComponent).join("/");
-  return encodedDirs ? `${encodedDirs}/${filename}` : filename;
+// 解析并返回 JSON 对象
+function readJson(file) {
+  let raw = fs.readFileSync(file, "utf8");
+  raw = removeBOM(raw);
+  raw = removeComments(raw);
+  return JSON.parse(raw);
 }
 
-// ⭐⭐⭐ 路径修复：目录转码 + 文件名副本 ⭐⭐⭐
-function fixPaths(obj, apiDir) {
-  const apiDirAbs = apiDir;
-  const apiDirNorm = apiDir.replace(/\\/g, "/");
-  const apiParentNorm = apiDirNorm.split("/").slice(0, -1).join("/");
-  const apiParentAbs = path.dirname(apiDirAbs);
+// 将相对路径（./ 或 ../）解析为绝对源路径
+function resolveRelative(baseDir, rel) {
+  const norm = baseDir.replace(/\\/g, "/");
+  const joined = path.posix.normalize(`${norm}/${rel}`);
+  return joined;
+}
 
+// 将源绝对路径映射到 yqtsiy 副本中的相对路径（保持同层级结构）
+function mapToYqtsiy(srcRoot, yqRoot, absPath) {
+  const relFromSrcRoot = path.relative(srcRoot, absPath).replace(/\\/g, "/");
+  // relFromSrcRoot 的每一段都已在复制时转为英文；这里只需要把路径前缀替换为 yqtsiy
+  return `${path.basename(yqRoot)}/${relFromSrcRoot}`;
+}
+
+// 修复 JSON 中的路径：将 ./ 和 ../ 引用改为 RAW_PREFIX + yqtsiy 路径（全英文）
+function fixPaths(obj, apiDirSrc, srcRoot, yqRoot) {
+  const apiDirNorm = apiDirSrc.replace(/\\/g, "/");
   let jsonStr = JSON.stringify(obj);
 
   // ./xxx → 当前目录
   jsonStr = jsonStr.replace(
     /"\.\/([^"]+)"/g,
     (_, p1) => {
-      let target = p1;
-      if (hasChinese(path.basename(target))) {
-        target = ensureAliasFile(apiDirAbs, target);
-      }
-      const joined = `${apiDirNorm}/${target}`;
-      const encoded = encodeDirsKeepFilename(joined);
-      return `"${RAW_PREFIX}${encoded}"`;
+      const absSrc = resolveRelative(apiDirNorm, p1);
+      const mappedRel = mapToYqtsiy(srcRoot, yqRoot, absSrc);
+      return `"${RAW_PREFIX}${mappedRel}"`;
     }
   );
 
@@ -124,13 +127,9 @@ function fixPaths(obj, apiDir) {
   jsonStr = jsonStr.replace(
     /"\.\.\/([^"]+)"/g,
     (_, p1) => {
-      let target = p1;
-      if (hasChinese(path.basename(target))) {
-        target = ensureAliasFile(apiParentAbs, target);
-      }
-      const joined = `${apiParentNorm}/${target}`;
-      const encoded = encodeDirsKeepFilename(joined);
-      return `"${RAW_PREFIX}${encoded}"`;
+      const absSrc = resolveRelative(path.posix.dirname(apiDirNorm), p1);
+      const mappedRel = mapToYqtsiy(srcRoot, yqRoot, absSrc);
+      return `"${RAW_PREFIX}${mappedRel}"`;
     }
   );
 
@@ -143,32 +142,59 @@ try {
     console.error("❌ 未找到 ff.zip 解压后的根目录");
     process.exit(1);
   }
-
   console.log("📁 自动识别根目录:", root);
 
-  const candidates = findApiJson(root);
+  const targetDir = findTargetDir(root);
+  if (!targetDir) {
+    console.error("❌ 未找到包含关键字的目标目录");
+    process.exit(1);
+  }
+  console.log("📁 找到目标目录:", targetDir);
+
+  // 复制到仓库根目录并重命名为全英文 yqtsiy（目录与文件名都转英文）
+  const yqRoot = path.resolve("yqtsiy");
+  // 清理旧的 yqtsiy
+  if (fs.existsSync(yqRoot)) {
+    fs.rmSync(yqRoot, { recursive: true, force: true });
+  }
+  copyDirWithRename(targetDir, yqRoot);
+  console.log("✅ 已复制并重命名到:", yqRoot);
+
+  // 找到源目录中的 api.json（用于解析相对引用）
+  const candidates = [];
+  function findApiJson(dir) {
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const full = path.join(dir, file);
+      const stat = fs.statSync(full);
+      if (stat.isDirectory()) {
+        findApiJson(full);
+      } else if (file === "api.json") {
+        const lowerPath = full.toLowerCase();
+        if (KEYWORDS.some(k => lowerPath.includes(k.toLowerCase()))) {
+          candidates.push(full);
+        }
+      }
+    }
+  }
+  findApiJson(targetDir);
+
   if (candidates.length === 0) {
     console.error("❌ 未找到包含关键字的 api.json");
     process.exit(1);
   }
-
   candidates.sort((a, b) => a.length - b.length);
-  const apiPath = candidates[0];
+  const apiPathSrc = candidates[0];
+  console.log("🔍 找到 api.json（源目录）:", apiPathSrc);
 
-  console.log("🔍 找到 api.json:", apiPath);
+  // 读取源 api.json
+  const parsed = readJson(apiPathSrc);
 
-  let raw = fs.readFileSync(apiPath, "utf8");
-  raw = removeBOM(raw);
-  raw = removeComments(raw);
+  // 修复路径为 RAW_PREFIX + yqtsiy/...（全英文）
+  const fixed = fixPaths(parsed, path.dirname(apiPathSrc), path.resolve(targetDir), yqRoot);
 
-  let parsed = JSON.parse(raw);
-
-  const apiDir = path.dirname(apiPath);
-
-  parsed = fixPaths(parsed, apiDir);
-
-  fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
-
+  // 输出为 天神IY.txt（中间过渡文件）
+  fs.writeFileSync("天神IY.txt", JSON.stringify(fixed, null, 2), "utf8");
   console.log("✅ 成功生成 天神IY.txt");
 
 } catch (e) {
@@ -176,3 +202,4 @@ try {
   console.error(e);
   process.exit(1);
 }
+
