@@ -79,9 +79,9 @@ jobs:
           git commit -m "Auto-sync ff.zip & rebuild merged interface" || echo "No changes to commit"
           git push
 
-      # ⭐ 推送到 Gitee 镜像（分支 master）
+      # ⭐ 推送到 Gitee 镜像（GitHub main → Gitee master）
       - name: Push to Gitee mirror
         run: |
           echo "Pushing to Gitee mirror..."
           git remote add gitee https://yvor_liu:${{ secrets.GITEE_TOKEN }}@gitee.com/yvor_liu/tvbox.git
-          git push gitee master --force
+          git push gitee main:master --force
