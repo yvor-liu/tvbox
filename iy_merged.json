@@ -1,7 +1,7 @@
 {
-  "spider": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/spider.jar",
+  "spider": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/spider.jar",
   "wallpaper": "https://wp.upx8.com/api.php",
-  "logo": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/logo.png",
+  "logo": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/logo.png",
   "warningText": "天神IY：资源来自网络，无盈利纯搬运分享！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
   "lives": [
     {
@@ -65,14 +65,14 @@
       "key": "藤藤",
       "name": "❤藤藤｜4K限时",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/drpy2.min.js",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/drpy2.min.js",
       "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/藤藤.png"
     },
     {
       "key": "茫茫",
       "name": "❤茫茫｜4K限时",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/drpy2.min.js",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/drpy2.min.js",
       "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/茫茫.png"
     },
     {
@@ -102,7 +102,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png",
       "categories": [
         "木偶电影",
         "木偶剧集",
@@ -122,7 +122,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "二小",
@@ -135,7 +135,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "玩偶",
@@ -148,7 +148,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "至臻",
@@ -161,7 +161,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "蜡笔",
@@ -174,7 +174,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "虎斑",
@@ -187,7 +187,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "小飒",
@@ -200,7 +200,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "SeedHub",
@@ -213,7 +213,7 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "双星",
@@ -226,13 +226,13 @@
         "uc_cookie": "https://d.kstore.dev/download/14505/lib/uc.png",
         "baidu_cookie": "https://d.kstore.dev/download/14505/lib/bd.png"
       },
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png"
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png"
     },
     {
       "key": "窈窕",
       "name": "❤窈窕｜4K虎斑",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/custom_spider.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/custom_spider.png",
       "api": "csp_HBT4",
       "ext": "http://154.219.113.13:4866/test.php?site=labi###labi"
     },
@@ -240,7 +240,7 @@
       "key": "淑女",
       "name": "❤淑女｜4K虎斑",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/custom_spider.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/custom_spider.png",
       "api": "csp_HBT4",
       "ext": "http://154.219.113.13:4866/test.php?site=mihdr###mihdr"
     },
@@ -249,7 +249,7 @@
       "name": "❤君子｜4K虎斑",
       "type": 3,
       "api": "csp_HBT4",
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/custom_spider.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/custom_spider.png",
       "ext": "http://154.219.113.13:4866/test.php?site=erxiao###erxiao"
     },
     {
@@ -257,14 +257,14 @@
       "name": "❤好逑｜4K虎斑",
       "type": 3,
       "api": "csp_HBT4",
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/custom_spider.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/custom_spider.png",
       "ext": "http://154.219.113.13:4866/test.php?site=ouge###ouge"
     },
     {
       "key": "爱影视",
       "name": "♨️爱影｜4K线路",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/vox.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/vox.png",
       "api": "csp_AppGet",
       "ext": {
         "host": "https://aysappto.oss-cn-chengdu.aliyuncs.com/qj3.txt",
@@ -300,7 +300,7 @@
       "key": "粉象世界",
       "name": "♨️粉象｜4K线路",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/vox.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/vox.png",
       "changeable": 0,
       "api": "csp_Appfox",
       "ext": {
@@ -316,14 +316,14 @@
       "quickSearch": 1,
       "api": "csp_qiao2",
       "playerType": 2,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/qj071.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/qj071.png",
       "ext": "7lj763gg402i7942412h849jg1558j9jl8g19213il86316k465719lik158491h179312h4934183ig2l05g9"
     },
     {
       "key": "人人影视",
       "name": "♨️人人｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e4baba.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/rrys.py",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
@@ -337,7 +337,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "api": "csp_AppYsV2",
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/vox.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/vox.png",
       "ext": {
         "api": "http://yjyi.juyongjiu.com:80/icciu_api.php/v1.vod",
         "datasignkey": "6QQNUsP3PkD2ajJCPCY8",
@@ -358,7 +358,7 @@
       "key": "幕启影视",
       "name": "♨️幕启｜4K线路",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/vox.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/vox.png",
       "api": "csp_AppGet",
       "ext": {
         "host": "https://daen-1256234123.cos.ap-shanghai.myqcloud.com/MuQi/mqxh.txt",
@@ -440,7 +440,7 @@
       "key": "py_山有木兮",
       "name": "♨️木兮｜4K线路",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e5b1b1.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/symx.py"
     },
     {
       "key": "盘它",
@@ -505,7 +505,7 @@
       "key": "广广",
       "name": "🌀广广｜1920",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e5b9bf.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/gg.py"
     },
     {
       "key": "星海视频",
@@ -524,7 +524,7 @@
       "key": "雄鹰",
       "name": "🌀雄鹰｜1920",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png",
       "api": "csp_XiongYingGuard",
       "searchable": 1,
       "quickSearch": 1,
@@ -535,7 +535,7 @@
       "key": "蒙太奇",
       "name": "🌀太奇｜1920",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/vox.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/vox.png",
       "changeable": 0,
       "searchable": 1,
       "quickSearch": 1,
@@ -566,14 +566,14 @@
       "name": "🌀韩剧｜1280",
       "type": 3,
       "api": "csp_XBPQ",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/韩剧看看.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/hjkk.png"
     },
     {
       "key": "酷酷",
       "name": "🌀酷酷｜1280",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/酷酷.png",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/kk.png",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0,
@@ -583,8 +583,8 @@
       "key": "奇奇",
       "name": "🌀奇奇｜1280",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/奇奇.png",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/qq.png",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0,
@@ -624,7 +624,7 @@
       "key": "盒马短剧",
       "name": "🎬盒马┃短剧",
       "type": 3,
-      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ok.png",
+      "jar": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ok.png",
       "api": "csp_HeMaGuard",
       "searchable": 1,
       "quickSearch": 1,
@@ -636,7 +636,7 @@
       "key": "星芽短剧",
       "name": "🎬星芽｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e6989f.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/xydj.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -646,7 +646,7 @@
       "key": "剧王短剧",
       "name": "🎬剧王｜短剧",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e589a7.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/jwdj.py",
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
@@ -948,8 +948,8 @@
       "key": "路漫漫",
       "name": "🌈路漫漫｜动漫",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/路漫漫.png"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lmm.png"
     },
     {
       "key": "方舟动漫",
@@ -1016,9 +1016,9 @@
       "key": "py_嘶哩嘶哩",
       "name": "🌈嘶哩｜动漫",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/skapp.py",
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/skapp.py",
       "ext": {
-        "host": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/api.png",
+        "host": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/api.png",
         "key": "ygcnbcznazmyrbdn",
         "iv": "6571230062143708"
       }
@@ -1062,7 +1062,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/雪花.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/xh.png"
     },
     {
       "key": "修罗",
@@ -1099,7 +1099,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/电影港.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/dyg.png"
     },
     {
       "key": "电影天堂",
@@ -1148,7 +1148,7 @@
       "key": "哔哩直播",
       "name": "📺哔哩｜点播",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/alias_e59394.py"
+      "api": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/blzb.py"
     },
     {
       "key": "哔哩视频",
@@ -1164,7 +1164,7 @@
         "ratio": 1.433
       },
       "ext": {
-        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/哔哩视频.png",
+        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/blsp.png",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
     },
@@ -1182,7 +1182,7 @@
         "ratio": 1.433
       },
       "ext": {
-        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/哔哩合集.png",
+        "json": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/blhj.png",
         "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
       }
     },
@@ -1204,7 +1204,7 @@
         "type": "list",
         "ratio": 1.433
       },
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/aliShare.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/aliShare.png"
     },
     {
       "key": "夸克云盘",
@@ -1218,7 +1218,7 @@
         "type": "list",
         "ratio": 1.433
       },
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/quarkShare.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/quarkShare.png"
     },
     {
       "key": "UC云盘",
@@ -1232,7 +1232,7 @@
         "type": "list",
         "ratio": 1.433
       },
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/ucShare.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/ucShare.png"
     },
     {
       "key": "百度云盘",
@@ -1258,7 +1258,7 @@
       "style": {
         "type": "list"
       },
-      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0本地库【ff】/缘起【天神IY】/lib/alist.png"
+      "ext": "https://raw.githubusercontent.com/yvor-liu/tvbox/main/0%E6%9C%AC%E5%9C%B0%E5%BA%93%E3%80%90ff%E3%80%91/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91/lib/alist.png"
     },
     {
       "key": "push_agent",
