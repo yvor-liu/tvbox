@@ -1,5 +1,20 @@
 {
+  "wallpaper": {
+    "delete": true
+  },
+  "warningText": {
+    "delete": true
+  },
   "lives": [
+    {
+      "name": "冰茶",
+      "type": 0,
+      "url": "https://bc.188766.xyz/?ip=&mima=bingcha1130",
+      "playerType": 2,
+      "ua": "okhttp/3",
+      "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
+      "logo": "https://epg.112114.eu.org/logo/{name}.png"
+    },
     {
       "name": "限时测试",
       "delete": true
@@ -32,6 +47,18 @@
     },
     {
       "key": "lf_live10_min",
+      "delete": true
+    },
+    {
+      "key": "测试1",
+      "delete": true
+    },
+    {
+      "key": "测试2",
+      "delete": true
+    },
+    {
+      "key": "爱影视",
       "delete": true
     },
     {
@@ -73,16 +100,6 @@
     {
       "key": "网络直播",
       "delete": true
-    },
-    {
-      "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
-      "type": 3,
-      "api": "https://7337.kstore.vip/py/哔哩直播.py",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
     },
     {
       "key": "哔哩演唱会",
@@ -128,8 +145,5 @@
       "key": "急救教学",
       "delete": true
     }
-  ],
-  "flags": {
-    "autoTryNext": 0
-  }
+  ]
 }
