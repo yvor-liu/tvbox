@@ -11,6 +11,19 @@ function removeBOM(str) {
   return str.charCodeAt(0) === 0xFEFF ? str.slice(1) : str;
 }
 
+// 自动识别解压根目录（包含“本地库”或“ff”）
+function findRootDir() {
+  const dirs = fs.readdirSync(".");
+  for (const d of dirs) {
+    if (fs.statSync(d).isDirectory()) {
+      if (d.includes("本地库") || d.toLowerCase().includes("ff")) {
+        return d;
+      }
+    }
+  }
+  return null;
+}
+
 // 递归查找 api.json
 function findApiJson(dir) {
   const files = fs.readdirSync(dir);
@@ -45,13 +58,18 @@ function fixPaths(obj) {
 }
 
 try {
-  // 假设 ff.zip 已经解压到 ffdir
-  const apiPath = findApiJson("ffdir");
+  const root = findRootDir();
+  if (!root) {
+    console.error("❌ 未找到 ff.zip 解压后的根目录");
+    process.exit(1);
+  }
+  console.log("📁 自动识别根目录:", root);
+
+  const apiPath = findApiJson(root);
   if (!apiPath) {
     console.error("❌ 未找到 api.json");
     process.exit(1);
   }
-
   console.log("🔍 找到 api.json:", apiPath);
 
   let raw = fs.readFileSync(apiPath, "utf8");
