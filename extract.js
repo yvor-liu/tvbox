@@ -40,21 +40,28 @@ function findApiJson(dir) {
   return null;
 }
 
-// 修复相对路径：直接改为天神 Gitee raw 地址
+// 递归修复路径：只替换以 ./ 或 ../ 开头的字符串
 function fixPaths(obj) {
-  let jsonStr = JSON.stringify(obj);
-
-  // ./xxx → 天神 Gitee raw
-  jsonStr = jsonStr.replace(/"\.\/([^"]+)"/g, (_, p1) => {
-    return `"https://gitee.com/cpu-iy/lib/raw/master/${p1}"`;
-  });
-
-  // ../xxx → 天神 Gitee raw
-  jsonStr = jsonStr.replace(/"\.\.\/([^"]+)"/g, (_, p1) => {
-    return `"https://gitee.com/cpu-iy/lib/raw/master/${p1}"`;
-  });
-
-  return JSON.parse(jsonStr);
+  if (typeof obj === "string") {
+    if (obj.startsWith("./")) {
+      return `https://gitee.com/cpu-iy/lib/raw/master/${obj.slice(2)}`;
+    }
+    if (obj.startsWith("../")) {
+      return `https://gitee.com/cpu-iy/lib/raw/master/${obj.slice(3)}`;
+    }
+    return obj;
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(fixPaths);
+  }
+  if (typeof obj === "object" && obj !== null) {
+    const res = {};
+    for (const [k, v] of Object.entries(obj)) {
+      res[k] = fixPaths(v);
+    }
+    return res;
+  }
+  return obj;
 }
 
 try {
