@@ -7,8 +7,11 @@
     {
       "name": "冰茶",
       "type": 0,
-      "url": "https://fy.188766.xyz/?ip=&mishitong=true&mima=mianfeidehaimaiqian",
-      "timeout": 10
+      "url": "https://bc.188766.xyz/?ip=&mima=bingcha1130",
+      "playerType": 2,
+      "ua": "okhttp/3",
+      "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
+      "logo": "https://epg.112114.eu.org/logo/{name}.png"
     },
     {
       "name": "虎牙一起看",
@@ -74,22 +77,6 @@
       "type": 3,
       "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/drpy2.min.js",
       "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/茫茫.png"
-    },
-    {
-      "key": "测试1",
-      "name": "❤虎斑｜4K解析",
-      "type": 3,
-      "api": "csp_XY4K",
-      "jar": "https://d.kstore.dev/download/14505/lib/XY4K.png",
-      "ext": "http://111.170.151.121:2323/api.php?site=labi###labi"
-    },
-    {
-      "key": "测试2",
-      "name": "❤二小｜4K解析",
-      "type": 3,
-      "api": "csp_XY4K",
-      "jar": "https://d.kstore.dev/download/14505/lib/XY4K.png",
-      "ext": "http://111.170.151.121:2323/api.php?site=erxiao###erxiao"
     },
     {
       "key": "木偶",
@@ -259,29 +246,6 @@
       "api": "csp_HBT4",
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
       "ext": "http://154.219.113.13:4866/test.php?site=ouge###ouge"
-    },
-    {
-      "key": "爱影视",
-      "name": "♨️爱影｜4K线路",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
-      "api": "csp_AppGet",
-      "ext": {
-        "host": "https://aysappto.oss-cn-chengdu.aliyuncs.com/qj3.txt",
-        "datakey": "sda1231sasddad21",
-        "ua": "okhttp/3.10.0",
-        "api": 2
-      },
-      "categories": [
-        "直播",
-        "电影",
-        "电视剧",
-        "短剧",
-        "综艺",
-        "动漫",
-        "少儿",
-        "体育"
-      ]
     },
     {
       "key": "金牌",
@@ -1146,13 +1110,9 @@
     },
     {
       "key": "哔哩直播",
-      "name": "📺哔哩｜直播",
+      "name": "📺哔哩｜点播",
       "type": 3,
-      "api": "https://7337.kstore.vip/py/哔哩直播.py",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
+      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/哔哩直播.py"
     },
     {
       "key": "哔哩视频",
