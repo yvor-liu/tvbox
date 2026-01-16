@@ -1,0 +1,2251 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "type": "local",
+        "tag": "local"
+      },
+      {
+        "type": "udp",
+        "tag": "remote",
+        "server": "8.8.8.8"
+      },
+      {
+        "type": "udp",
+        "tag": "cn",
+        "server": "223.5.5.5"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": "geosite-cn",
+        "server": "cn"
+      }
+    ],
+    "final": "remote"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "address": [
+        "172.19.0.1/30",
+        "2001:470:f9da:fdfa::1/64"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "route_exclude_address_set": "geoip-cn",
+      "stack": "system"
+    },
+    {
+      "type": "socks",
+      "tag": "socks-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2333
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "DIRECT",
+      "domain_resolver": "local"
+    },
+    {
+      "type": "selector",
+      "tag": "节点选择",
+      "outbounds": [
+        "自动选择",
+        "日本大阪1-CDN | 1x",
+        "日本大阪2-CDN | 1x",
+        "日本大阪3-CDN | 1x",
+        "日本大阪4-CDN | 1x",
+        "日本东京1-CDN | 1x",
+        "日本东京2-CDN | 1x",
+        "日本东京3-CDN | 1x",
+        "日本东京4-CDN | 1x",
+        "泰国1-CDN | 1x",
+        "印度尼西亚1-CDN | 1x",
+        "印度尼西亚2-CDN | 1x",
+        "印度尼西亚3-CDN | 1x",
+        "印度尼西亚4-CDN | 1x",
+        "印度-海得拉巴1-CDN | 1x",
+        "印度-海得拉巴2-CDN | 1x",
+        "印度-海得拉巴3-CDN | 1x",
+        "印度-海得拉巴4-CDN | 1x",
+        "澳大利亚-墨尔本1-CDN | 1x",
+        "澳大利亚-墨尔本2-CDN | 1x",
+        "沙特阿拉伯-吉达1-CDN | 1x",
+        "沙特阿拉伯-吉达2-CDN | 1x",
+        "美国东部阿什本1-CDN | 1x",
+        "美国东部阿什本2-CDN | 1x",
+        "美国东部阿什本3-CDN | 1x",
+        "美国西部圣何塞1-CDN | 1x",
+        "美国西部圣何塞2-CDN | 1x",
+        "美国西部圣何塞3-CDN | 1x",
+        "美国西部圣何塞4-CDN | 1x",
+        "美国中部芝加哥1-CDN | 1x",
+        "美国中部芝加哥2-CDN | 1x",
+        "美国中部芝加哥3-CDN | 1x",
+        "美国中部芝加哥4-CDN | 1x",
+        "美国中部芝加哥5-CDN | 1x",
+        "美国中部芝加哥6-CDN | 1x",
+        "美国中部芝加哥7-CDN | 1x",
+        "美国中部芝加哥8-CDN | 1x",
+        "美国中部芝加哥9-CDN | 1x",
+        "美国西部洛杉矶1-高性能-CDN | 0x",
+        "美国南部达拉斯1-高性能-CDN | 0x",
+        "美国东部纽约1-CDN | 0x",
+        "美国西部洛杉矶2-CDN | 1x",
+        "美国西部弗里蒙特1-CDN | 0x",
+        "美国中部犹他州盐湖城-三年付-高性能1-CDN | 0x",
+        "美国东部乔治亚州亚特兰大-高性能-年付1-CDN | 0x",
+        "罗马尼亚1-BT/PT/矿池-无分流直出-CDN | 0x",
+        "意大利OVH-CDN | 0x",
+        "尼日利亚1双ISP无分流直出-CDN | 1x",
+        "土耳其无分流直出-CDN | 0x",
+        "俄罗斯-CDN | 0x",
+        "德国纽伦堡1-CDN | 0x",
+        "德国纽伦堡2-CDN | 0x",
+        "加拿大1多伦多-CDN | 1x",
+        "英国伦敦1-CDN | 1x",
+        "英国伦敦2-CDN | 1x",
+        "英国伦敦3-CDN | 1x",
+        "英国伦敦4-CDN | 1x",
+        "英国伦敦5-CDN | 1x",
+        "英国伦敦6-CDN | 1x",
+        "英国伦敦高性能-10Gbps-CDN | 0x",
+        "西班牙马德里1-CDN | 1x",
+        "法国马赛1-CDN | 1x",
+        "荷兰1-CDN | 1x",
+        "荷兰2-CDN | 1x",
+        "以色列1-CDN | 1x",
+        "以色列2-CDN | 1x",
+        "墨西哥1-蒙特雷-CDN | 1x",
+        "墨西哥2-蒙特雷-CDN | 1x",
+        "墨西哥3-蒙特雷-CDN | 1x",
+        "墨西哥4-蒙特雷-CDN | 1x",
+        "巴西圣保罗1-CDN | 1x",
+        "巴西圣保罗2-CDN | 1x",
+        "巴西圣保罗3-CDN | 1x",
+        "巴西维涅社1-CDN | 1x",
+        "巴西维涅社2-CDN | 1x",
+        "巴西维涅社3-CDN | 1x",
+        "巴西维涅社4-CDN | 1x",
+        "智利1-CDN | 1x",
+        "智利2-CDN | 1x",
+        "南非约翰内斯堡1-CDN | 1x",
+        "南非约翰内斯堡2-CDN | 1x",
+        "南非约翰内斯堡3-CDN | 1x",
+        "南非约翰内斯堡4-CDN | 1x",
+        "哥伦比亚-波哥大1-CDN | 0.5x",
+        "哥伦比亚-波哥大2-CDN | 0.5x"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "urltest",
+      "tag": "自动选择",
+      "outbounds": [
+        "日本大阪1-CDN | 1x",
+        "日本大阪2-CDN | 1x",
+        "日本大阪3-CDN | 1x",
+        "日本大阪4-CDN | 1x",
+        "日本东京1-CDN | 1x",
+        "日本东京2-CDN | 1x",
+        "日本东京3-CDN | 1x",
+        "日本东京4-CDN | 1x",
+        "泰国1-CDN | 1x",
+        "印度尼西亚1-CDN | 1x",
+        "印度尼西亚2-CDN | 1x",
+        "印度尼西亚3-CDN | 1x",
+        "印度尼西亚4-CDN | 1x",
+        "印度-海得拉巴1-CDN | 1x",
+        "印度-海得拉巴2-CDN | 1x",
+        "印度-海得拉巴3-CDN | 1x",
+        "印度-海得拉巴4-CDN | 1x",
+        "澳大利亚-墨尔本1-CDN | 1x",
+        "澳大利亚-墨尔本2-CDN | 1x",
+        "沙特阿拉伯-吉达1-CDN | 1x",
+        "沙特阿拉伯-吉达2-CDN | 1x",
+        "美国东部阿什本1-CDN | 1x",
+        "美国东部阿什本2-CDN | 1x",
+        "美国东部阿什本3-CDN | 1x",
+        "美国西部圣何塞1-CDN | 1x",
+        "美国西部圣何塞2-CDN | 1x",
+        "美国西部圣何塞3-CDN | 1x",
+        "美国西部圣何塞4-CDN | 1x",
+        "美国中部芝加哥1-CDN | 1x",
+        "美国中部芝加哥2-CDN | 1x",
+        "美国中部芝加哥3-CDN | 1x",
+        "美国中部芝加哥4-CDN | 1x",
+        "美国中部芝加哥5-CDN | 1x",
+        "美国中部芝加哥6-CDN | 1x",
+        "美国中部芝加哥7-CDN | 1x",
+        "美国中部芝加哥8-CDN | 1x",
+        "美国中部芝加哥9-CDN | 1x",
+        "美国西部洛杉矶1-高性能-CDN | 0x",
+        "美国南部达拉斯1-高性能-CDN | 0x",
+        "美国东部纽约1-CDN | 0x",
+        "美国西部洛杉矶2-CDN | 1x",
+        "美国西部弗里蒙特1-CDN | 0x",
+        "美国中部犹他州盐湖城-三年付-高性能1-CDN | 0x",
+        "美国东部乔治亚州亚特兰大-高性能-年付1-CDN | 0x",
+        "罗马尼亚1-BT/PT/矿池-无分流直出-CDN | 0x",
+        "意大利OVH-CDN | 0x",
+        "尼日利亚1双ISP无分流直出-CDN | 1x",
+        "土耳其无分流直出-CDN | 0x",
+        "俄罗斯-CDN | 0x",
+        "德国纽伦堡1-CDN | 0x",
+        "德国纽伦堡2-CDN | 0x",
+        "加拿大1多伦多-CDN | 1x",
+        "英国伦敦1-CDN | 1x",
+        "英国伦敦2-CDN | 1x",
+        "英国伦敦3-CDN | 1x",
+        "英国伦敦4-CDN | 1x",
+        "英国伦敦5-CDN | 1x",
+        "英国伦敦6-CDN | 1x",
+        "英国伦敦高性能-10Gbps-CDN | 0x",
+        "西班牙马德里1-CDN | 1x",
+        "法国马赛1-CDN | 1x",
+        "荷兰1-CDN | 1x",
+        "荷兰2-CDN | 1x",
+        "以色列1-CDN | 1x",
+        "以色列2-CDN | 1x",
+        "墨西哥1-蒙特雷-CDN | 1x",
+        "墨西哥2-蒙特雷-CDN | 1x",
+        "墨西哥3-蒙特雷-CDN | 1x",
+        "墨西哥4-蒙特雷-CDN | 1x",
+        "巴西圣保罗1-CDN | 1x",
+        "巴西圣保罗2-CDN | 1x",
+        "巴西圣保罗3-CDN | 1x",
+        "巴西维涅社1-CDN | 1x",
+        "巴西维涅社2-CDN | 1x",
+        "巴西维涅社3-CDN | 1x",
+        "巴西维涅社4-CDN | 1x",
+        "智利1-CDN | 1x",
+        "智利2-CDN | 1x",
+        "南非约翰内斯堡1-CDN | 1x",
+        "南非约翰内斯堡2-CDN | 1x",
+        "南非约翰内斯堡3-CDN | 1x",
+        "南非约翰内斯堡4-CDN | 1x",
+        "哥伦比亚-波哥大1-CDN | 0.5x",
+        "哥伦比亚-波哥大2-CDN | 0.5x"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m0s",
+      "tolerance": 50,
+      "idle_timeout": "30m0s"
+    },
+    {
+      "type": "vmess",
+      "tag": "日本大阪1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "xbln91.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "boocwcvx.speed.jpsacibna.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "boocwcvx.speed.jpsacibna.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本大阪2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "iqtlckin.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "ajskwgnw.speed.jpsacibnb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "ajskwgnw.speed.jpsacibnb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本大阪3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "tmbg2n.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "cijtsj.speed.jpsacibnc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "cijtsj.speed.jpsacibnc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本大阪4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "07rvs2q.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "rfbretik.speed.jpsacibnd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "rfbretik.speed.jpsacibnd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本东京1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "eei5vm.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "tdmygkjp.speed.jobashiiudsa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "tdmygkjp.speed.jobashiiudsa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本东京2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "2ca3db5k.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "nzkawiz.speed.jobashiiudsb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "nzkawiz.speed.jobashiiudsb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本东京3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "c916e7ju.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wthbnjhi.speed.jobashiiudsc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wthbnjhi.speed.jobashiiudsc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "日本东京4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "pca6rz.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "aqezirl.speed.jobashiiudsd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "aqezirl.speed.jobashiiudsd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "泰国1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "jjs1jcsn.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "zghsrez.speed.thasduba.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "zghsrez.speed.thasduba.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度尼西亚1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "cempdh.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "nvpmsa.speed.ydnxya.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "nvpmsa.speed.ydnxya.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度尼西亚2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "27iquqsk.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "hebuupqi.speed.ydnxyb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "hebuupqi.speed.ydnxyb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度尼西亚3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "yymxjndm.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wcuryty.speed.ydnxyc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wcuryty.speed.ydnxyc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度尼西亚4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "lf4zcfu.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "rcoozgkf.speed.ydnxyd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "rcoozgkf.speed.ydnxyd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度-海得拉巴1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "o20nyh9k.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "hqhmqspx.speed.ydindda.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "hqhmqspx.speed.ydindda.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度-海得拉巴2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "4uk2c9y.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vcxhro.speed.ydinddb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "vcxhro.speed.ydinddb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度-海得拉巴3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "kcrgs9o.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "smicolp.speed.ydinddc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "smicolp.speed.ydinddc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "印度-海得拉巴4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "cgz7wk.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "uhdracku.speed.ydinddd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "uhdracku.speed.ydinddd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "澳大利亚-墨尔本1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "jplm0yf1.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "gsvyecy.speed.moerba.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "gsvyecy.speed.moerba.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "澳大利亚-墨尔本2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "n5l5r0.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vulwyfgo.speed.moerbb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "vulwyfgo.speed.moerbb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "沙特阿拉伯-吉达1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "5z4edej.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wxyyvjhi.speed.shatealba.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wxyyvjhi.speed.shatealba.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "沙特阿拉伯-吉达2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "dslcnykp.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "elquavc.speed.shatealbb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "elquavc.speed.shatealbb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国东部阿什本1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "xrunfy.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "orrkzspx.speed.asbafwa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "orrkzspx.speed.asbafwa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国东部阿什本2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "k5s7e2vy.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "utnfqk.speed.asbafwb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "utnfqk.speed.asbafwb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国东部阿什本3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "um83fmj.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "cikbchd.speed.asbafwc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "cikbchd.speed.asbafwc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部圣何塞1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "bxdvzy.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "icokjo.speed.sjccascha.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "icokjo.speed.sjccascha.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部圣何塞2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "kzzlu3.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "smguelt.speed.sjccaschb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "smguelt.speed.sjccaschb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部圣何塞3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "ttd2x84.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wpkhdu.speed.sjccaschc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wpkhdu.speed.sjccaschc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部圣何塞4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "biczjf.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "btopgm.speed.sjccaschd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "btopgm.speed.sjccaschd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "j5ujucv4.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vwwqqfe.speed.zjgsaduba.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "vwwqqfe.speed.zjgsaduba.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "mv886xt.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "efmvru.speed.zjgsadubb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "efmvru.speed.zjgsadubb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "nri1fouy.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "rghspvj.speed.zjgsadubc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "rghspvj.speed.zjgsadubc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "qfovz38k.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "jlcenehy.speed.zjgsadubd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "jlcenehy.speed.zjgsadubd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥5-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "ctugjyz.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdjkzpb.speed.zjgsadube.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "cdjkzpb.speed.zjgsadube.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥6-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "fpw5r3v.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "pyagfiae.speed.zjgsadubf.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "pyagfiae.speed.zjgsadubf.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥7-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "cxbiao8.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "xocvtgbp.speed.zjgsadubg.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "xocvtgbp.speed.zjgsadubg.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥8-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "jqr9t0a.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "rjvyhnv.speed.zjgsadubh.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "rjvyhnv.speed.zjgsadubh.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部芝加哥9-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "k3k75r54.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "eapwmy.speed.zjgsadubi.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "eapwmy.speed.zjgsadubi.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部洛杉矶1-高性能-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "dtpsj190.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "cwcusf.speed.laxash.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "cwcusf.speed.laxash.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国南部达拉斯1-高性能-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "3vs3uoj.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "oswgoak.speed.dlsashja.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "oswgoak.speed.dlsashja.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国东部纽约1-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "0tufb1z.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "dfpiyrnr.speed.jysada.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "dfpiyrnr.speed.jysada.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部洛杉矶2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "g3upnu08.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "bcktmejj.speed.lssaasda.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "bcktmejj.speed.lssaasda.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国西部弗里蒙特1-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "qq47d0.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "pbomulyi.speed.awfiulaxa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "pbomulyi.speed.awfiulaxa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国中部犹他州盐湖城-三年付-高性能1-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "qntvndm.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "xdyiwgs.speed.psphaca.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "xdyiwgs.speed.psphaca.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "美国东部乔治亚州亚特兰大-高性能-年付1-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "z4c358e2.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "xrsorqdv.speed.uuptlada.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "xrsorqdv.speed.uuptlada.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "罗马尼亚1-BT/PT/矿池-无分流直出-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "ztr54xz.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wkjrgf.speed.lmnyaca.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wkjrgf.speed.lmnyaca.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "意大利OVH-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "72iz7rww.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wqrkzrkz.speed.fsamla.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wqrkzrkz.speed.fsamla.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "尼日利亚1双ISP无分流直出-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "qmkqow.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "uulxfia.speed.nrlyacaca.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "uulxfia.speed.nrlyacaca.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "土耳其无分流直出-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "lzw605i.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "wuigjaa.speed.iaugsuitrya.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "wuigjaa.speed.iaugsuitrya.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "俄罗斯-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "7gc37hgk.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "tjqzcol.speed.ruauba.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "tjqzcol.speed.ruauba.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "德国纽伦堡1-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "pozn1zj.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "fzggnv.speed.nlbasda.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "fzggnv.speed.nlbasda.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "德国纽伦堡2-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "an5hoqda.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "hgiwlmem.speed.nlbasdb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "hgiwlmem.speed.nlbasdb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "加拿大1多伦多-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "2dcba93h.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "lilemzjz.speed.cvbuiasda.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "lilemzjz.speed.cvbuiasda.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "atxyn3b.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "cbyozfe.speed.cvbuiasdb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "cbyozfe.speed.cvbuiasdb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "uvkxoa4h.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "darghttp.speed.cvbuiasdc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "darghttp.speed.cvbuiasdc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "d32unh9.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "riougzcp.speed.cvbuiasdd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "riougzcp.speed.cvbuiasdd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "eb1zh8.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "tpuekom.speed.cvbuiasde.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "tpuekom.speed.cvbuiasde.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦5-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "gj2ele.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "gtykgb.speed.cvbuiasdf.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "gtykgb.speed.cvbuiasdf.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦6-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "jfatz6oj.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "ydxcshgm.speed.cvbuiasdg.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "ydxcshgm.speed.cvbuiasdg.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "英国伦敦高性能-10Gbps-CDN | 0x",
+      "domain_resolver": "local",
+      "server": "gy5mf0f.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "nyeyhp.speed.gbaosidha.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "nyeyhp.speed.gbaosidha.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "西班牙马德里1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "jhl97y.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "efnxai.speed.xbyuaswda.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "efnxai.speed.xbyuaswda.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "法国马赛1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "82cb7s2n.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "pbmhyug.speed.fgaduyga.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "pbmhyug.speed.fgaduyga.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "荷兰1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "qi0ba5.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "kwcwcxe.speed.nlsadadvsa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "kwcwcxe.speed.nlsadadvsa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "荷兰2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "evwjt4x.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "qtzpdtjp.speed.nlsadadvsb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "qtzpdtjp.speed.nlsadadvsb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "以色列1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "zeupq7na.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "pfgqlg.speed.iraadca.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "pfgqlg.speed.iraadca.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "以色列2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "xrpzh9ij.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "ltlyivca.speed.iraadcb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "ltlyivca.speed.iraadcb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "墨西哥1-蒙特雷-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "iyzrka.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "bwbsiot.speed.maxmxga.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "bwbsiot.speed.maxmxga.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "墨西哥2-蒙特雷-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "cw6z11.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "hvfpjabe.speed.maxmxgb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "hvfpjabe.speed.maxmxgb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "墨西哥3-蒙特雷-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "da26gfg.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "ijsopi.speed.maxmxgc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "ijsopi.speed.maxmxgc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "墨西哥4-蒙特雷-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "7hgj1a4.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vdbawfp.speed.maxmxgd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "vdbawfp.speed.maxmxgd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西圣保罗1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "4lex4m.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "jmjimmy.speed.baxafbasa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "jmjimmy.speed.baxafbasa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西圣保罗2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "zfvu9k.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "eultnick.speed.baxafbasb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "eultnick.speed.baxafbasb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西圣保罗3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "za5lado.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "zkdihjbf.speed.baxafbasc.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "zkdihjbf.speed.baxafbasc.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西维涅社1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "x82fldw3.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "uhcppivb.speed.baxafbasd.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "uhcppivb.speed.baxafbasd.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西维涅社2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "ujwjpq.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "mnhtykf.speed.baxafbase.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "mnhtykf.speed.baxafbase.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西维涅社3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "hl9acjf6.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "dauuryub.speed.baxafbasf.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "dauuryub.speed.baxafbasf.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "巴西维涅社4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "7ju9hf.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "soqpzdr.speed.baxafbasg.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "soqpzdr.speed.baxafbasg.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "智利1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "l83j4r.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "qoyzewu.speed.ziabsndia.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "qoyzewu.speed.ziabsndia.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "智利2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "x3gqx982.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "mxakzrkz.speed.ziabsndib.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "mxakzrkz.speed.ziabsndib.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "南非约翰内斯堡1-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "2gtgixsw.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "oocuqx.speed.nfyhnsbaa.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "oocuqx.speed.nfyhnsbaa.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "南非约翰内斯堡2-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "m3d7oh4.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "nddgvifc.speed.nfyhnsbab.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "nddgvifc.speed.nfyhnsbab.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "南非约翰内斯堡3-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "zss9n8w.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "efobtly.speed.nfyhnsbac.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "efobtly.speed.nfyhnsbac.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "南非约翰内斯堡4-CDN | 1x",
+      "domain_resolver": "local",
+      "server": "ivhk1b.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "yisreun.speed.nfyhnsbad.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "yisreun.speed.nfyhnsbad.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "哥伦比亚-波哥大1-CDN | 0.5x",
+      "domain_resolver": "local",
+      "server": "edca6qv.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "fhucbcjk.speed.bomdauta.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "fhucbcjk.speed.bomdauta.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "哥伦比亚-波哥大2-CDN | 0.5x",
+      "domain_resolver": "local",
+      "server": "rpzkjol.tencentapp.cn",
+      "server_port": 443,
+      "uuid": "6ec4981b-0bd6-43ca-9b8a-5ea26175a1d0",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "rlepkete.speed.bomdautb.cccp.cfcndns.pp.ua",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/emby/system/info/public/m3u8",
+        "headers": {
+          "Host": "rlepkete.speed.bomdautb.cccp.cfcndns.pp.ua"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": "category-ads-all",
+        "action": "reject"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "DIRECT"
+      },
+      {
+        "clash_mode": "关闭代理",
+        "outbound": "DIRECT"
+      },
+      {
+        "clash_mode": "全局代理",
+        "outbound": "节点选择"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geoip-cn"
+        ],
+        "outbound": "DIRECT"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geosite-geolocation-!cn",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "download_detour": "节点选择"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-cn",
+        "url": "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/srs/cn.srs",
+        "download_detour": "节点选择"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-cn",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "download_detour": "节点选择"
+      },
+      {
+        "type": "remote",
+        "tag": "category-ads-all",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "节点选择"
+      }
+    ],
+    "final": "节点选择",
+    "auto_detect_interface": true,
+    "default_domain_resolver": "remote"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "default_mode": "海外代理"
+    }
+  }
+}
