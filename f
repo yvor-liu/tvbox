@@ -85,7 +85,7 @@
             "name": "小虎斑"
         },
         {
-            "url": "http://tvbox.王二小放牛娃.top/",
+            "url": "https://9280.kstore.space/newwex.json",
             "name": "王二小"
         },
         {
@@ -125,7 +125,7 @@
             "name": "天微"
         },
         {
-            "url": "https://xn--fyyf-wn6lw489o.v.nxog.top/apia?id=3",
+            "url": "https://xn--wttw-wn6lw489o.v.nxog.top/m/?ou=公众号装歌app&mz=index&jar=index&b=wt装🅱tw",
             "name": "讴歌"
         },
         {

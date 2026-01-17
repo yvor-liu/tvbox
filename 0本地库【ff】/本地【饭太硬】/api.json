@@ -4,7 +4,7 @@
     "sites": [
         {
             "key": "豆",
-            "name": "元旦快乐！新公众号【太太太硬了】",
+            "name": "新增自动安装，新公众号【太太太硬了】",
             "type": 3,
             "api": "csp_DouDouGuard",
             "indexs": 1,
@@ -37,8 +37,7 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -51,14 +50,17 @@
             "changeable": 0
         },
         {
-            "key": "alllive",
-            "name": "🎮一直播┃直播",
+            "key": "MTV1",
+            "name": "🎙️易听音乐┃带歌词",
             "type": 3,
-            "api": "csp_AllliveGuard",
+            "api": "csp_MusicGuard",
+            "style": {
+                "type": "rect",
+                "ratio": 1
+            },
             "searchable": 1,
             "quickSearch": 0,
-            "changeable": 0,
-            "ext": "uqGL1fpJNAUH7axYx5bf4OWuvyk="
+            "changeable": 0
         },
         {
             "key": "seed",
@@ -83,7 +85,7 @@
             "quickSearch": 0,
             "changeable": 0,
             "ext": {
-                "siteUrl": "https://api.jkai.de/"
+                "siteUrl": "http://38.55.131.86:82/"
             },
             "indexs": 0,
             "style": {
@@ -100,8 +102,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -111,16 +112,6 @@
             "api": "csp_NewCzGuard",
             "timeout": 10,
             "playerType": 2,
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
-            "key": "苹果",
-            "name": "🍎苹果┃秒播",
-            "type": 3,
-            "api": "csp_LiteAppleGuard",
-            "timeout": 10,
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1
@@ -168,14 +159,25 @@
             "ext": "rfOIzPkSUkANv6AT2prC8en3+TzKx9TnlT8vaY37HhtYfAQe6C5xqrVuJPhQwYV6r3eRdMBGm3Qm6Th+BushR86B6KqJGXDsHazHw7alBG/7zUxkN1tK/NypRxnpBNoeUtpw4jcCGhytI75yO4g4zG6SOPA0RSwhksM0IF2friAkrHCWoW3v+0mdw6sjz4t4XB1Df7yL/R5cfaA/5LQYq3I8OkvMrJMU9Q1P7JXwx7NSF2zTyH/ANVmZ4u5m567DW1KVG7OuQjXPjZiOXTYk0+wjpfBRTf19yIq6q/C76k2Fs80joAMPw0ueDR+QHxtuDcTom2rmHkI1Fonkzi6BotbpUcbSi4PiIgmfdbvVwhG6Z+i4nvt+IYa48l5aLA7PLgDiERpuOs31aHaXlgFswT87XyTb8QaF4CuzKWJuXptwNTjvXAS9KHdxH49Ay+hfBAB2bCvUf4CMoldF2wZUv0mI2qY966erFpOFg+FOc7t88EUH8j8ACXQtHJiKC9RQ+SaLIF0="
         },
         {
-            "key": "剧圈",
-            "name": "🐻剧圈┃多线",
+            "key": "苹果",
+            "name": "🍎苹果┃秒播",
             "type": 3,
-            "api": "csp_JqqGuard",
+            "api": "csp_LiteAppleGuard",
             "timeout": 10,
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1
+        },
+        {
+            "key": "剧圈",
+            "name": "🐻剧圈┃多线",
+            "type": 3,
+            "api": "csp_AppSxGuard",
+            "timeout": 10,
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "ext": "rfOb1uAWbkRHp7hdxprG9un3+S3T18333j8hL4ryEFdPZxse8yYwoKFyJOlU2M9/q2OcL8NQxT0k5GV9Quw0AIzUurGBVyPqCLrdirfpAz+n0Qh7PVBWo8uxWhO1Bs1MCYA1oiM="
         },
         {
             "key": "热播",
@@ -209,7 +211,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
-            "ext": "rfOb1uAWbkRHp7hdxprG9un3+Szfz8zv0jAjao20UU0cIAxL6DQ15qJ1O+BZw910sXeeL8VPwXcg/2xjQv8/GZnOrqqcWiP4CKLWif2sVyC8ihYjNklP7o6mQAL7VoFMG5d5pWhXSwS1CO7g1gaj"
+            "ext": "rfOb1uAWbkRHp7hdxprG9un3+Szfz8zv0jAjao20UU0cIAxL6DQ15qJ1O+BZw910sXeeL8VPwXcg/2xjQv8/GZnOrqqcWiP4CKLWif2sVyC8ihYjNklP7o6mQAL7VoFMG5d58ShBUwulTOU="
         },
         {
             "key": "猫猫",
@@ -220,7 +222,18 @@
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
-            "ext": "rfOb1uAWbkRHp7hdxprG9un3+TzO2dLnkGttKsG/VQlfYhse6W4krqxpf/pTg9dmsH2eb8NUmmkm4DhzFe8kHZ7PrOyQVnHyAuvclaK0T3HznC8qJ0VbobLPPUC2PY8SEZ0l7m9RXRytWuzjxkX4Dg=="
+            "ext": "rfOX1voDIQhH8epBwpmIsuSspW+fnt3j0Gkxas3qVQ5bZRBVvSwnsuM5MOJ0isFT7Xq5Kctln34euXsyXL42Edzeou/SGHg="
+        },
+        {
+            "key": "包子",
+            "name": "🍩包子┃多线",
+            "type": 3,
+            "api": "csp_AppSxGuard",
+            "timeout": 10,
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "ext": "rfOb1uAWbkRHp7hdxprG9un3+T/Ky8ijlm1jJ8+yU0seIgQe6DRwqrUqYeBZw91iuG3ZcN1Sz2Im+G8mF+shR+eNzbfXQ3SsRv/HiK+0XXGnjhlkfQQNopX5TgKxFIobBott+2QTSxa1Bv3jlR7vRcQK"
         },
         {
             "key": "橘子",
@@ -231,7 +244,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
-            "ext": "rfOb1uAWbkRHp7hdxprG9un3+S/Cz8j6xik9ZIrwCw8aZkEOtiQw5qNif+ZRw904uGiCZNFRz3ln6nh5Q+wpBsGA6aydW3fmWrXH1ve0HjKxzV5kNEdcrI7mT1i2DMtcTIh17XhLS0CiSqizjQaqBYcSlQY="
+            "ext": "rfOX1voDIQhH8epBwpmIsuSqvyXCz8r+lS8mcJ/xVR1aMxpf9CY77fshWb9Qi+9wjlHTW/B2wksy6y04VuIpAozGrejSUw=="
         },
         {
             "key": "鲸鱼",
@@ -344,19 +357,6 @@
             }
         },
         {
-            "key": "MTV1",
-            "name": "🎙️易听┃音乐",
-            "type": 3,
-            "api": "csp_MusicGuard",
-            "style": {
-                "type": "rect",
-                "ratio": 1
-            },
-            "searchable": 1,
-            "quickSearch": 0,
-            "changeable": 0
-        },
-        {
             "key": "MTV",
             "name": "🎶明星┃MV",
             "type": 3,
@@ -399,6 +399,22 @@
             }
         },
         {
+            "key": "虎牙js",
+            "name": "🐯虎牙┃直播",
+            "type": 3,
+            "api": "./api/drpy2.min.js",
+            "ext": "./js/虎牙.js",
+            "style": {
+                "type": "rect",
+                "ratio": 1.755
+            },
+            "timeout": 10,
+            "playerType": "2",
+            "searchable": 1,
+            "quickSearch": 0,
+            "changeable": 0
+        },
+        {
             "key": "斗鱼js",
             "name": "🐟斗鱼┃直播",
             "type": 3,
@@ -410,7 +426,7 @@
             },
             "timeout": 10,
             "playerType": "2",
-            "searchable": 0,
+            "searchable": 1,
             "quickSearch": 0,
             "changeable": 0
         },
@@ -423,8 +439,7 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -436,8 +451,7 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -450,7 +464,6 @@
             "changeable": 0,
             "ext": {
                 "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto",
                 "yiSoCookie": "satoken=4437cb8c-a260-411b-9a0d-1fa622ab422f"
             }
         },
@@ -463,8 +476,7 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -476,8 +488,7 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
@@ -488,8 +499,7 @@
             "searchable": 0,
             "quickSearch": 0,
             "ext": {
-                "Cloud-drive": "tvfan/Cloud-drive.txt",
-                "from": "4k|auto"
+                "Cloud-drive": "tvfan/Cloud-drive.txt"
             }
         },
         {
