@@ -290,6 +290,30 @@
       "filterable": 1
     },
     {
+      "key": "爱影视",
+      "name": "🌀爱影｜1920",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
+      "api": "csp_AppGet",
+      "ext": {
+        "host": "https://rxysyyds.oss-cn-chengdu.aliyuncs.com/qiji.txt",
+        "datakey": "sjvlwnhk6h9znl61",
+        "ua": "okhttp/3.10.0",
+        "api": 2
+      },
+      "categories": [
+        "直播",
+        "电影",
+        "电视剧",
+        "短剧",
+        "综艺",
+        "动漫",
+        "少儿",
+        "体育",
+        "同步课堂"
+      ]
+    },
+    {
       "key": "还行",
       "name": "🌀还行｜1920",
       "type": 3,
