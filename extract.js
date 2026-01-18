@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-// 去除注释和 BOM（保留）
+// 去除注释和 BOM
 function removeComments(str) {
   str = str.replace(/\/\*[\s\S]*?\*\//g, "");
   str = str.replace(/(^|[^:])\/\/.*$/gm, "$1");
@@ -12,22 +12,31 @@ function removeBOM(str) {
 }
 
 /**
- * ⭐【改动 1】：不再识别“本地库”“ff”
- * 现在 ZIP 解压后只有一个文件夹，因此直接找第一个目录即可
+ * ⭐【改动 1】：优先识别 ZIP 解压后的固定目录 “缘起【天神IY】”
+ * ⭐【改动 2】：如果不存在，则寻找唯一的非隐藏目录
  */
 function findExtractedFolder() {
-  const dirs = fs.readdirSync(".");
-  for (const d of dirs) {
-    if (fs.statSync(d).isDirectory()) {
-      return d; // 直接返回第一个目录
-    }
+  const EXPECTED = "缘起【天神IY】";
+
+  // 优先使用固定目录名
+  if (fs.existsSync(EXPECTED) && fs.statSync(EXPECTED).isDirectory()) {
+    return EXPECTED;
   }
+
+  // fallback：寻找唯一的非隐藏目录
+  const dirs = fs.readdirSync(".").filter(d =>
+    fs.statSync(d).isDirectory() && !d.startsWith(".")
+  );
+
+  if (dirs.length === 1) {
+    return dirs[0];
+  }
+
   return null;
 }
 
 /**
- * ⭐【改动 2】：不再使用关键字筛选
- * 直接递归查找第一个 api.json
+ * ⭐【改动 3】：递归查找 api.json（保持不变）
  */
 function findApiJson(dir) {
   const entries = fs.readdirSync(dir);
@@ -39,13 +48,13 @@ function findApiJson(dir) {
       const found = findApiJson(full);
       if (found) return found;
     } else if (e === "api.json") {
-      return full; // 找到第一个 api.json 就返回
+      return full;
     }
   }
   return null;
 }
 
-// 修复相对路径（保留）
+// 修复相对路径（保持不变）
 function fixPaths(obj) {
   if (typeof obj === "string") {
     if (obj.startsWith("./")) {
@@ -73,15 +82,15 @@ try {
   // 1) 自动识别解压文件夹
   const root = findExtractedFolder();
   if (!root) {
-    console.error("❌ 未找到解压后的文件夹");
+    console.error("❌ 未找到解压后的文件夹（未检测到“缘起【天神IY】”）");
     process.exit(1);
   }
   console.log("📁 解压目录:", root);
 
-  // 2) 查找唯一的 api.json
+  // 2) 查找 api.json
   const apiPath = findApiJson(root);
   if (!apiPath) {
-    console.error("❌ 未找到 api.json");
+    console.error("❌ 未找到 api.json（已递归搜索所有子目录）");
     process.exit(1);
   }
   console.log("🔍 找到 api.json:", apiPath);
