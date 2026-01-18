@@ -87,7 +87,7 @@
     },
     {
       "key": "配置中心",
-      "name": "🌐网盘配置｜1.17版",
+      "name": "🌐网盘配置｜1.18版",
       "type": 3,
       "api": "csp_Config",
       "searchable": 0,
@@ -134,54 +134,36 @@
       "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/yszb.png"
     },
     {
-      "key": "labi",
-      "name": "❤蜡笔｜4K测试",
-      "type": 4,
-      "api": "http://8088880.xyz:8080/video/labi?token=698d04ebe00a6369",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
+      "key": "立春",
+      "name": "❤立春｜4K虎斑",
+      "type": 3,
+      "api": "csp_HBNT4",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "ext": "DyoqWQIrBwMuGytIIxtMWy8FMQwtNStECyoUXy0YVUg="
     },
     {
-      "key": "huban",
-      "name": "❤虎斑｜4K测试",
-      "type": 4,
-      "api": "http://8088880.xyz:8080/video/hb?token=698d04ebe00a6369",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
+      "key": "夏至",
+      "name": "❤夏至｜4K虎斑",
+      "type": 3,
+      "api": "csp_HBNT4",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "ext": "DyoqWQInJUMuGFdFDzUQAgIGXUUAUi9H"
     },
     {
-      "key": "xbky",
-      "name": "❤快映｜4K测试",
-      "type": 4,
-      "api": "http://8088880.xyz:8080/video/xbky?token=698d04ebe00a6369",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
+      "key": "秋分",
+      "name": "❤秋分｜4K虎斑",
+      "type": 3,
+      "api": "csp_HBNT4",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "ext": "DyoqWQInJUMuGFcBCgtNXAQ4Og8HOSNECiVBHi0YVUg="
     },
     {
-      "key": "ouge",
-      "name": "❤讴歌｜4K测试",
-      "type": 4,
-      "api": "http://8088880.xyz:8080/video/ouge?token=698d04ebe00a6369",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
-    },
-    {
-      "key": "libo",
-      "name": "❤立播｜4K测试",
-      "type": 4,
-      "api": "http://8088880.xyz:8080/video/libo?token=698d04ebe00a6369",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
+      "key": "冬至",
+      "name": "❤冬至｜4K虎斑",
+      "type": 3,
+      "api": "csp_HBNT4",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "ext": "DyoqWQIrBwMuUgZBNzVBHQA7MUcsCFtcCjVMVA=="
     },
     {
       "key": "藤藤",
@@ -196,6 +178,56 @@
       "type": 3,
       "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/drpy2.min.js",
       "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/茫茫.png"
+    },
+    {
+      "key": "labi",
+      "name": "❤蜡笔｜4K测试",
+      "type": 4,
+      "api": "http://8088880.xyz:8080/video/labi?token=6d75b78a7fc4930b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    {
+      "key": "huban",
+      "name": "❤虎斑｜4K测试",
+      "type": 4,
+      "api": "http://8088880.xyz:8080/video/hb?token=6d75b78a7fc4930b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    {
+      "key": "xbky",
+      "name": "❤快映｜4K测试",
+      "type": 4,
+      "api": "http://8088880.xyz:8080/video/xbky?token=6d75b78a7fc4930b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    {
+      "key": "ouge",
+      "name": "❤讴歌｜4K测试",
+      "type": 4,
+      "api": "http://8088880.xyz:8080/video/ouge?token=6d75b78a7fc4930b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    {
+      "key": "libo",
+      "name": "❤立播｜4K测试",
+      "type": 4,
+      "api": "http://8088880.xyz:8080/video/libo?token=6d75b78a7fc4930b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
     },
     {
       "key": "Max",
@@ -221,18 +253,6 @@
         "少儿",
         "纪录片"
       ]
-    },
-    {
-      "key": "粉象世界",
-      "name": "♨️粉象｜4K线路",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
-      "changeable": 0,
-      "api": "csp_Appfox",
-      "ext": {
-        "host": "http://121.40.131.51:2556/host.json",
-        "ver": 2
-      }
     },
     {
       "key": "金牌",
@@ -420,20 +440,6 @@
       "filterable": 1
     },
     {
-      "key": "仓鼠",
-      "name": "🌀仓鼠｜1920",
-      "type": 3,
-      "quickSearch": 1,
-      "api": "csp_AppQi",
-      "ext": {
-        "url": "https://hk440cms.cs4k.top",
-        "dataKey": "fL7sY4zN4kB3pG4p",
-        "dataIv": "fL7sY4zN4kB3pG4p",
-        "init": "initV122",
-        "ua": "okhttp/3.10.0"
-      }
-    },
-    {
       "key": "小猪",
       "name": "🌀小猪丨1920",
       "type": 3,
@@ -478,6 +484,18 @@
         "site": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/a.txt",
         "dataKey": "123456789abcdefg",
         "dataIv": "123456789abcdefg"
+      }
+    },
+    {
+      "key": "小猫影视",
+      "name": "🌀小猫｜1920",
+      "type": 3,
+      "searchable": 1,
+      "api": "csp_AppGet",
+      "ext": {
+        "site": "http://xywlkj.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/12/1.txt",
+        "dataKey": "xmyxmyxywlkjxywl",
+        "dataIv": "xmyxmyxywlkjxywl"
       }
     },
     {
@@ -599,7 +617,7 @@
       "changeable": 1,
       "ext": {
         "site": [
-          "http://xhban.xyz"
+          "http://xsayang.fun:12512"
         ]
       }
     },
@@ -737,7 +755,7 @@
       "changeable": 1,
       "ext": {
         "site": [
-          "http://103.45.162.207:20720"
+          "http://xhban.xyz:20720"
         ]
       }
     },
