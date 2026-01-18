@@ -1,10 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-// 关键字（用于筛选 api.json 路径）
-const KEYWORDS = ["缘起", "天神", "iy", "IY", "Iy", "iY"];
-
-// 去除注释和 BOM
+// 去除注释和 BOM（保留）
 function removeComments(str) {
   str = str.replace(/\/\*[\s\S]*?\*\//g, "");
   str = str.replace(/(^|[^:])\/\/.*$/gm, "$1");
@@ -14,38 +11,41 @@ function removeBOM(str) {
   return str.charCodeAt(0) === 0xFEFF ? str.slice(1) : str;
 }
 
-// 自动识别解压根目录（包含“本地库”或“ff”）
-function findRootDir() {
+/**
+ * ⭐【改动 1】：不再识别“本地库”“ff”
+ * 现在 ZIP 解压后只有一个文件夹，因此直接找第一个目录即可
+ */
+function findExtractedFolder() {
   const dirs = fs.readdirSync(".");
   for (const d of dirs) {
     if (fs.statSync(d).isDirectory()) {
-      if (d.includes("本地库") || d.toLowerCase().includes("ff")) {
-        return d;
-      }
+      return d; // 直接返回第一个目录
     }
   }
   return null;
 }
 
-// 在指定目录下收集所有包含关键字的 api.json 候选
-function collectApiJsonCandidates(dir, out = []) {
+/**
+ * ⭐【改动 2】：不再使用关键字筛选
+ * 直接递归查找第一个 api.json
+ */
+function findApiJson(dir) {
   const entries = fs.readdirSync(dir);
   for (const e of entries) {
     const full = path.join(dir, e);
     const stat = fs.statSync(full);
+
     if (stat.isDirectory()) {
-      collectApiJsonCandidates(full, out);
+      const found = findApiJson(full);
+      if (found) return found;
     } else if (e === "api.json") {
-      const lowerPath = full.toLowerCase();
-      if (KEYWORDS.some(k => lowerPath.includes(k.toLowerCase()))) {
-        out.push(full);
-      }
+      return full; // 找到第一个 api.json 就返回
     }
   }
-  return out;
+  return null;
 }
 
-// 递归修复路径：只替换以 ./ 或 ../ 开头的字符串
+// 修复相对路径（保留）
 function fixPaths(obj) {
   if (typeof obj === "string") {
     if (obj.startsWith("./")) {
@@ -70,33 +70,31 @@ function fixPaths(obj) {
 }
 
 try {
-  // 1) 自动识别解压根目录
-  const root = findRootDir();
+  // 1) 自动识别解压文件夹
+  const root = findExtractedFolder();
   if (!root) {
-    console.error("❌ 未找到 ff.zip 解压后的根目录");
+    console.error("❌ 未找到解压后的文件夹");
     process.exit(1);
   }
-  console.log("📁 自动识别根目录:", root);
+  console.log("📁 解压目录:", root);
 
-  // 2) 收集包含关键字的 api.json 候选，并选择最短路径（原逻辑）
-  const candidates = collectApiJsonCandidates(root);
-  if (candidates.length === 0) {
-    console.error("❌ 未找到包含关键字的 api.json");
+  // 2) 查找唯一的 api.json
+  const apiPath = findApiJson(root);
+  if (!apiPath) {
+    console.error("❌ 未找到 api.json");
     process.exit(1);
   }
-  candidates.sort((a, b) => a.length - b.length);
-  const apiPath = candidates[0];
-  console.log("🔍 选定 api.json:", apiPath);
+  console.log("🔍 找到 api.json:", apiPath);
 
   // 3) 去除注释和 BOM
   let raw = fs.readFileSync(apiPath, "utf8");
   raw = removeBOM(removeComments(raw));
   const parsed = JSON.parse(raw);
 
-  // 4) 递归修复相对路径 → 天神 Gitee raw 地址
+  // 4) 修复路径
   const fixed = fixPaths(parsed);
 
-  // 5) 输出中间文件
+  // 5) 输出
   fs.writeFileSync("天神IY.txt", JSON.stringify(fixed, null, 2), "utf8");
   console.log("✅ 成功生成 天神IY.txt");
 
