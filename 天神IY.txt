@@ -87,7 +87,7 @@
     },
     {
       "key": "配置中心",
-      "name": "🌐网盘配置｜1.18版",
+      "name": "🌐网盘配置｜1.24版",
       "type": 3,
       "api": "csp_Config",
       "searchable": 0,
@@ -139,7 +139,12 @@
       "type": 3,
       "api": "csp_HBNT4",
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
-      "ext": "DyoqWQIrBwMuGytIIxtMWy8FMQwtNStECyoUXy0YVUg="
+      "ext": "DyoqWQIrBwMuGytIIxtMWy8FMQwtNStECyoUXy0YVUg=",
+      "categories": [
+        "木偶电影",
+        "木偶剧集",
+        "木偶动漫"
+      ]
     },
     {
       "key": "夏至",
@@ -183,7 +188,7 @@
       "key": "labi",
       "name": "❤蜡笔｜4K测试",
       "type": 4,
-      "api": "http://8088880.xyz:8080/video/labi?token=6d75b78a7fc4930b",
+      "api": "http://8088880.xyz:8080/video/labi?token=71783caf9e692312",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -193,7 +198,7 @@
       "key": "huban",
       "name": "❤虎斑｜4K测试",
       "type": 4,
-      "api": "http://8088880.xyz:8080/video/hb?token=6d75b78a7fc4930b",
+      "api": "http://8088880.xyz:8080/video/hb?token=71783caf9e692312",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -203,7 +208,7 @@
       "key": "xbky",
       "name": "❤快映｜4K测试",
       "type": 4,
-      "api": "http://8088880.xyz:8080/video/xbky?token=6d75b78a7fc4930b",
+      "api": "http://8088880.xyz:8080/video/xbky?token=71783caf9e692312",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -213,7 +218,7 @@
       "key": "ouge",
       "name": "❤讴歌｜4K测试",
       "type": 4,
-      "api": "http://8088880.xyz:8080/video/ouge?token=6d75b78a7fc4930b",
+      "api": "http://8088880.xyz:8080/video/ouge?token=71783caf9e692312",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -223,7 +228,7 @@
       "key": "libo",
       "name": "❤立播｜4K测试",
       "type": 4,
-      "api": "http://8088880.xyz:8080/video/libo?token=6d75b78a7fc4930b",
+      "api": "http://8088880.xyz:8080/video/libo?token=71783caf9e692312",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -253,6 +258,18 @@
         "少儿",
         "纪录片"
       ]
+    },
+    {
+      "key": "粉象世界",
+      "name": "♨️粉象｜4K线路",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
+      "changeable": 1,
+      "api": "csp_Appfox",
+      "ext": {
+        "host": "http://host1.sopython.top/host.json",
+        "ver": 2
+      }
     },
     {
       "key": "金牌",
@@ -315,18 +332,18 @@
       }
     },
     {
-      "key": "鲸鱼",
-      "name": "♨️鲸鱼｜4K线路",
+      "key": "顾我",
+      "name": "♨️顾我｜4K线路",
       "type": 3,
-      "quickSearch": 1,
       "api": "csp_AppQi",
+      "changeable": "1",
+      "quickSearch": 1,
+      "filterable": 1,
       "ext": {
-        "url": "",
-        "site": "https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/1.json",
-        "dataKey": "AAdgrdghjfgswerA",
-        "dataIv": "AAdgrdghjfgswerA",
-        "deviceId": "",
-        "version": ""
+        "site": "https://guwozj-1319364746.cos.ap-guangzhou.myqcloud.com/gwzj.txt",
+        "dataKey": "ca94b06ca3c7d80e",
+        "dataIv": "ca94b06ca3c7d80e",
+        "ua": "okhttp/3.10.0"
       }
     },
     {
@@ -350,8 +367,8 @@
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
       "api": "csp_AppGet",
       "ext": {
-        "host": "https://daen-1256234123.cos.ap-shanghai.myqcloud.com/MuQi/mqxh.txt",
-        "datakey": "37kj83zs1q16jk6t",
+        "host": "https://daen-1256234123.cos.ap-shanghai.myqcloud.com/MuQi/pgqj.json",
+        "datakey": "kj37zs29q22jk96t",
         "ua": "okhttp/3.10.0",
         "api": 2
       }
@@ -617,7 +634,8 @@
       "changeable": 1,
       "ext": {
         "site": [
-          "http://xsayang.fun:12512"
+          "http://xsayang.fun:12512",
+          "http://154.201.83.50:12512"
         ]
       }
     },
@@ -755,7 +773,8 @@
       "changeable": 1,
       "ext": {
         "site": [
-          "http://xhban.xyz:20720"
+          "http://xhban.xyz:20720",
+          "http://154.222.27.33:20720"
         ]
       }
     },
@@ -856,9 +875,9 @@
       },
       "ext": {
         "site": [
-          "https://www.kfzy.cc"
+          "https://www.kfjwzz.com"
         ],
-        "cookie": "bbs_sid=qtrfbfct9gs8e7qat96o3nf09t; isClose=yes; __mxau__c2-lS6GI0pR=de438e75-e385-47c4-acb1-6564b407c7b1; __mxaf__c2-lS6GI0pR=1761439615; bbs_token=9NqiBWxAvM2MN_2FST20QOg5g9gcyzm2Hqfd9YwaQjK6Y_3D; __mxas__c2-lS6GI0pR=%7B%22sid%22%3A%22e4f30c47-1290-431b-b228-b9116c4744bd%22%2C%22vd%22%3A5%2C%22stt%22%3A168%2C%22dr%22%3A3%2C%22expires%22%3A1761476207%2C%22ct%22%3A1761474407%7D; __mxav__c2-lS6GI0pR=13"
+        "cookie": "bbs_sid=bi7dpnm6vp31s38rjqlqq8vq84; bbs_token=TWiR3YUrGoVpbdTkjAJ0xMe_2B_2FiaFvd84V3_2FEZJRRSKU_3D"
       }
     },
     {
