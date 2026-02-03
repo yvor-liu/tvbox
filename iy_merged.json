@@ -1133,32 +1133,6 @@
       "filterable": 1
     },
     {
-      "key": "爱听音乐",
-      "name": "📻爱听┃音乐",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0,
-      "ext": {
-        "sp": "AiMusic"
-      }
-    },
-    {
-      "key": "酷狗音乐",
-      "name": "📻酷狗┃音乐",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0,
-      "ext": {
-        "sp": "KuGou"
-      }
-    },
-    {
       "key": "随身评书",
       "name": "📺斗鱼｜直播",
       "type": 3,
