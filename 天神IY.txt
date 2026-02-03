@@ -87,7 +87,7 @@
     },
     {
       "key": "配置中心",
-      "name": "🌐网盘配置｜1.24版",
+      "name": "🌐网盘配置｜2.03版",
       "type": 3,
       "api": "csp_Config",
       "searchable": 0,
@@ -134,41 +134,153 @@
       "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/yszb.png"
     },
     {
-      "key": "立春",
-      "name": "❤立春｜4K虎斑",
-      "type": 3,
-      "api": "csp_HBNT4",
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
-      "ext": "DyoqWQIrBwMuGytIIxtMWy8FMQwtNStECyoUXy0YVUg=",
+      "key": "panso-baidu",
+      "name": "❤百度搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/pansou-baidu?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "pansoquark",
+      "name": "❤夸克搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/pansoquark?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "pansotianyi",
+      "name": "❤天翼搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/pansotianyi?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "pansouc",
+      "name": "❤UC搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/pansouc?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "panso",
+      "name": "❤盘搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/pansou?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "盘搜高码",
+      "name": "❤高码搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/%E7%9B%98%E6%90%9C%E9%AB%98%E7%A0%81?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "panso139",
+      "name": "❤移动搜｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/panso139?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "mogg",
+      "name": "❤木偶｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/mogg?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0,
       "categories": [
-        "木偶电影",
-        "木偶剧集",
-        "木偶动漫"
+        "电影",
+        "剧集",
+        "动漫",
+        "纪录片"
       ]
     },
     {
-      "key": "夏至",
-      "name": "❤夏至｜4K虎斑",
-      "type": 3,
-      "api": "csp_HBNT4",
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
-      "ext": "DyoqWQInJUMuGFdFDzUQAgIGXUUAUi9H"
+      "key": "labi",
+      "name": "❤蜡笔｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/labi?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
     },
     {
-      "key": "秋分",
-      "name": "❤秋分｜4K虎斑",
-      "type": 3,
-      "api": "csp_HBNT4",
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
-      "ext": "DyoqWQInJUMuGFcBCgtNXAQ4Og8HOSNECiVBHi0YVUg="
+      "key": "ouge",
+      "name": "❤讴歌｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/ouge?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
     },
     {
-      "key": "冬至",
-      "name": "❤冬至｜4K虎斑",
-      "type": 3,
-      "api": "csp_HBNT4",
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
-      "ext": "DyoqWQIrBwMuUgZBNzVBHQA7MUcsCFtcCjVMVA=="
+      "key": "erxiao",
+      "name": "❤二小｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/erxiao?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "xb",
+      "name": "❤小斑｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/xb?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "libo",
+      "name": "❤立播｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/libo?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "hub",
+      "name": "❤虎斑｜4K晚安",
+      "type": 4,
+      "hide": 1,
+      "api": "http://110.42.34.135:8080/video/hub?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "movie360",
+      "name": "❤360｜4K晚安",
+      "type": 4,
+      "api": "http://110.42.34.135:8080/video/movie360?token=1047",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
     },
     {
       "key": "藤藤",
@@ -185,7 +297,7 @@
       "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/茫茫.png"
     },
     {
-      "key": "labi",
+      "key": "labi2",
       "name": "❤蜡笔｜4K测试",
       "type": 4,
       "api": "http://8088880.xyz:8080/video/labi?token=71783caf9e692312",
@@ -195,7 +307,18 @@
       "changeable": 1
     },
     {
-      "key": "huban",
+      "key": "erxiao2",
+      "name": "❤二小｜4K测试",
+      "type": 4,
+      "hide": 1,
+      "api": "http://8088880.xyz:8080/video/erxiao?token=71783caf9e692312",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    {
+      "key": "huban2",
       "name": "❤虎斑｜4K测试",
       "type": 4,
       "api": "http://8088880.xyz:8080/video/hb?token=71783caf9e692312",
@@ -205,7 +328,7 @@
       "changeable": 1
     },
     {
-      "key": "xbky",
+      "key": "xbky2",
       "name": "❤快映｜4K测试",
       "type": 4,
       "api": "http://8088880.xyz:8080/video/xbky?token=71783caf9e692312",
@@ -215,7 +338,7 @@
       "changeable": 1
     },
     {
-      "key": "ouge",
+      "key": "ouge2",
       "name": "❤讴歌｜4K测试",
       "type": 4,
       "api": "http://8088880.xyz:8080/video/ouge?token=71783caf9e692312",
@@ -225,7 +348,7 @@
       "changeable": 1
     },
     {
-      "key": "libo",
+      "key": "libo2",
       "name": "❤立播｜4K测试",
       "type": 4,
       "api": "http://8088880.xyz:8080/video/libo?token=71783caf9e692312",
@@ -233,6 +356,22 @@
       "quickSearch": 1,
       "filterable": 1,
       "changeable": 1
+    },
+    {
+      "key": "景天",
+      "name": "❤景天｜4K虎斑",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "api": "csp_HBcms10Dou",
+      "ext": "https://zy.jinchancaiji.com/api.php/provide/vod/from/qq/"
+    },
+    {
+      "key": "茂茂",
+      "name": "❤茂茂｜4K虎斑",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/custom_spider.png",
+      "api": "csp_HBcms10Dou",
+      "ext": "https://zy.jinchancaiji.com/api.php/provide/vod/from/mgtv/"
     },
     {
       "key": "Max",
@@ -260,15 +399,31 @@
       ]
     },
     {
-      "key": "粉象世界",
-      "name": "♨️粉象｜4K线路",
+      "key": "秒看",
+      "name": "♨️秒看｜4K线路",
       "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/vox.png",
-      "changeable": 1,
-      "api": "csp_Appfox",
+      "api": "csp_AppGet",
       "ext": {
-        "host": "http://host1.sopython.top/host.json",
-        "ver": 2
+        "site": "https://mk1080.top/get.txt",
+        "dataKey": "c60d88b2eep53za8",
+        "dataIv": "c60d88b2eep53za8",
+        "token": "4181e508e7a17657d6a6246e70b1b13553e5ae9d8d287dc47000fb2df638dffa",
+        "ua": "okhttp/3.14.9"
+      }
+    },
+    {
+      "key": "鲸鱼",
+      "name": "♨️鲸鱼｜4K线路",
+      "type": 3,
+      "api": "csp_AppQi",
+      "searchable": 1,
+      "changeable": 1,
+      "ext": {
+        "site": "https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/juyu3.json",
+        "dataKey": "AAdgrdghjfgsABC1",
+        "dataIv": "AAdgrdghjfgsABC1",
+        "init": "initV122",
+        "ua": "okhttp/3.10.0"
       }
     },
     {
@@ -304,19 +459,6 @@
       "quickSearch": 1,
       "changeable": 1,
       "filterable": 1
-    },
-    {
-      "key": "魔方",
-      "name": "♨️魔方｜4K线路",
-      "type": 3,
-      "searchable": 1,
-      "changeable": 1,
-      "api": "csp_AppGet",
-      "ext": {
-        "site": "https://snysw.xyz/mf4kzs327.txt",
-        "dataKey": "1234567887654321",
-        "dataIv": "1234567887654321"
-      }
     },
     {
       "key": "假段友get",
@@ -429,17 +571,6 @@
       "ext": "http://m51.gotto.top/api.php/v1.vod"
     },
     {
-      "key": "木瓜",
-      "name": "🌀木瓜｜1920",
-      "type": 3,
-      "changeable": 0,
-      "api": "csp_AppFox",
-      "ext": {
-        "host": "http://www.yezitv.top/dtym.json",
-        "ver": 2
-      }
-    },
-    {
       "key": "广广",
       "name": "🌀广广｜1920",
       "type": 3,
@@ -450,34 +581,44 @@
       "name": "🌀雄鹰｜1920",
       "type": 3,
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_XiongYingGuard",
+      "api": "csp_AweSomeGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "filterable": 1
+      "filterable": 1,
+      "ext": {
+        "sp": "XiongYing"
+      }
     },
     {
       "key": "小猪",
       "name": "🌀小猪丨1920",
       "type": 3,
-      "quickSearch": 1,
       "api": "csp_AppQi",
+      "searchable": 1,
+      "changeable": 1,
       "ext": {
-        "site": "https://tiantangyoulu.oss-cn-beijing.aliyuncs.com/tengxunyun.txt",
-        "dataKey": "seb5tq9mykp2w9ry",
-        "dataIv": "seb5tq9mykp2w9ry",
+        "site": "https://tiantangwulu.oss-cn-shanghai.aliyuncs.com/zhuzhuxia.txt",
+        "dataKey": "j8sr6d93yp49db3p",
+        "dataIv": "j8sr6d93yp49db3p",
+        "init": "initV122",
         "ua": "okhttp/3.10.0"
       }
     },
     {
-      "key": "随看",
-      "name": "🌀随看｜1920",
+      "key": "齐齐",
+      "name": "🌀齐齐｜1920",
       "type": 3,
-      "api": "csp_AppGet",
+      "api": "csp_AppQi",
+      "searchable": 1,
+      "changeable": 1,
       "ext": {
-        "url": "https://suikan.tpmbt.cn",
-        "dataKey": "pHQsm6wjYaCuSPEz",
-        "dataIv": "pHQsm6wjYaCuSPEz"
+        "url": "http://110.42.67.221:8007",
+        "dataKey": "123456789abcdefg",
+        "dataIv": "123456789abcdefg",
+        "search": "searchList7",
+        "init": "initV122",
+        "ua": "okhttp/3.10.0"
       }
     },
     {
@@ -565,26 +706,18 @@
       "filterable": 1
     },
     {
-      "key": "星阁短剧",
-      "name": "🎬星阁｜短剧",
-      "type": 3,
-      "api": "csp_XinggeDJ",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
       "key": "盒马短剧",
       "name": "🎬盒马┃短剧",
       "type": 3,
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_HeMaGuard",
+      "api": "csp_AweSomeGuard",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
       "filterable": 1,
-      "timeout": 10
+      "ext": {
+        "sp": "HeMa"
+      }
     },
     {
       "key": "星芽短剧",
@@ -923,6 +1056,18 @@
       "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/路漫漫.png"
     },
     {
+      "key": "云屋动漫",
+      "name": "🌈云屋｜动漫",
+      "type": 3,
+      "searchable": 1,
+      "api": "csp_AppGet",
+      "ext": {
+        "url": "https://www.yunwuee.icu",
+        "dataKey": "ygcnb9bdcmb8aeiw",
+        "dataIv": "ygcnb9bdcmb8aeiw"
+      }
+    },
+    {
       "key": "方舟动漫",
       "name": "🌈方舟丨动漫",
       "type": 3,
@@ -944,18 +1089,6 @@
         "siteKey": "rectangleadsadxa",
         "listKey": "aassddwwxxllsx1x",
         "parsesKey": "aassddwwxxllsx1x"
-      }
-    },
-    {
-      "key": "元咲动漫",
-      "name": "🌈元咲丨动漫",
-      "type": 3,
-      "quickSearch": 1,
-      "api": "csp_AppGet",
-      "ext": {
-        "url": "http://cic.aicg.fun",
-        "dataKey": "2c4h36abd96se10u",
-        "dataIv": "2c4h36abd96se10u"
       }
     },
     {
@@ -1069,26 +1202,56 @@
       "filterable": 1
     },
     {
+      "key": "爱听音乐",
+      "name": "📻爱听┃音乐",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
+      "api": "csp_AweSomeGuard",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0,
+      "ext": {
+        "sp": "AiMusic"
+      }
+    },
+    {
+      "key": "酷狗音乐",
+      "name": "📻酷狗┃音乐",
+      "type": 3,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
+      "api": "csp_AweSomeGuard",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0,
+      "ext": {
+        "sp": "KuGou"
+      }
+    },
+    {
       "key": "六月听书",
       "name": "📻六月┃听书",
       "type": 3,
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_WeiTingGuard",
+      "api": "csp_AweSomeGuard",
       "searchable": 1,
       "quickSearch": 0,
       "changeable": 0,
-      "timeout": 10
+      "ext": {
+        "sp": "WeiTing"
+      }
     },
     {
       "key": "世界听书",
       "name": "📻世界┃听书",
       "type": 3,
       "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_BookTingGuard",
+      "api": "csp_AweSomeGuard",
       "searchable": 1,
       "quickSearch": 0,
       "changeable": 0,
-      "timeout": 10
+      "ext": {
+        "sp": "BookTing"
+      }
     },
     {
       "key": "蜻蜓FM",
