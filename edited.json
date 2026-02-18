@@ -1,4 +1,6 @@
 {
+  "wallpaper": "",
+  "warningText": "",
   "lives": [
     {
       "name": "冰茶",
@@ -26,6 +28,18 @@
       "delete": true
     },
     {
+      "name": "虎牙一起看",
+      "delete": true
+    },
+    {
+      "name": "斗鱼一起看",
+      "delete": true
+    },
+    {
+      "name": "B站直播",
+      "delete": true
+    },
+    {
       "name": "YY轮播",
       "delete": true
     }
@@ -41,6 +55,26 @@
     },
     {
       "key": "lf_live10_min",
+      "delete": true
+    },
+    {
+      "key": "藤藤",
+      "delete": true
+    },
+    {
+      "key": "茫茫",
+      "delete": true
+    },
+    {
+      "key": "爱听音乐",
+      "delete": true
+    },
+    {
+      "key": "易听音乐",
+      "delete": true
+    },
+    {
+      "key": "酷狗音乐",
       "delete": true
     },
     {
@@ -60,32 +94,12 @@
       "delete": true
     },
     {
-      "key": "爱听音乐",
-      "delete": true
-    },
-    {
-      "key": "酷狗音乐",
-      "delete": true
-    },
-    {
       "key": "随身评书",
-      "name": "📺斗鱼｜直播",
-      "type": 3,
-      "api": "csp_WexNewDouYuGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
+      "delete": true
     },
     {
       "key": "戏曲多多",
-      "name": "📺虎牙｜直播",
-      "type": 3,
-      "api": "csp_WexNewHuYaGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1
+      "delete": true
     },
     {
       "key": "网络直播",
