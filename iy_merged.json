@@ -1,8 +1,8 @@
 {
   "spider": "https://gitee.com/cpu-iy/lib/raw/master/spider.jar",
-  "wallpaper": "https://wp.upx8.com/api.php",
+  "wallpaper": "",
   "logo": "https://gitee.com/cpu-iy/lib/raw/master/logo.png",
-  "warningText": "天神IY：资源来自网络，无盈利纯搬运分享！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
+  "warningText": "",
   "lives": [
     {
       "name": "冰茶",
@@ -12,30 +12,6 @@
       "ua": "okhttp/3",
       "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
       "logo": "https://epg.112114.eu.org/logo/{name}.png"
-    },
-    {
-      "name": "虎牙一起看",
-      "type": 0,
-      "url": "https://sub.ottiptv.cc/huyayqk.m3u",
-      "playerType": 2,
-      "timeout": 10,
-      "ua": "okHttp/Mod-1.4.0.0"
-    },
-    {
-      "name": "斗鱼一起看",
-      "type": 0,
-      "url": "https://sub.ottiptv.cc/douyuyqk.m3u",
-      "playerType": 2,
-      "timeout": 10,
-      "ua": "okHttp/Mod-1.4.0.0"
-    },
-    {
-      "name": "B站直播",
-      "type": 0,
-      "url": "https://sub.ottiptv.cc/bililive.m3u",
-      "playerType": 2,
-      "timeout": 10,
-      "ua": "okHttp/Mod-1.4.0.0"
     }
   ],
   "sites": [
@@ -129,20 +105,6 @@
       "quickSearch": 1,
       "changeable": 1,
       "filterable": 1
-    },
-    {
-      "key": "藤藤",
-      "name": "❤藤藤｜4K限时",
-      "type": 3,
-      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/drpy2.min.js",
-      "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/藤藤.png"
-    },
-    {
-      "key": "茫茫",
-      "name": "❤茫茫｜4K限时",
-      "type": 3,
-      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/drpy2.min.js",
-      "ext": "https://gitee.com/cpu-iy/iy/raw/master/lib/茫茫.png"
     },
     {
       "key": "秒看",
@@ -959,43 +921,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
-    },
-    {
-      "key": "易听音乐",
-      "name": "📻易听｜音乐",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0,
-      "ext": {
-        "sp": "ShiJiMusic"
-      }
-    },
-    {
-      "key": "随身评书",
-      "name": "📺斗鱼｜直播",
-      "type": 3,
-      "api": "csp_WexNewDouYuGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1770659955442a_rFbc.txt;md5;090a5f72a69bac293b5ccf36b82f19cf",
-      "ext": "https://9280.kstore.space/wex.json"
-    },
-    {
-      "key": "戏曲多多",
-      "name": "📺虎牙｜直播",
-      "type": 3,
-      "api": "csp_WexNewHuYaGuard",
-      "searchable": 1,
-      "changeable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://aisearch.cdn.bcebos.com/fileManager/40aicoLgDtklAyS8-ZZBrA/1770659955442a_rFbc.txt;md5;090a5f72a69bac293b5ccf36b82f19cf",
-      "ext": "https://9280.kstore.space/wex.json"
     },
     {
       "key": "88看球",
