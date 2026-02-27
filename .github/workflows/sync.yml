@@ -29,13 +29,11 @@ jobs:
           FOLDER_NAME="缘起【天神IY】"
           rm -rf "$ZIP_NAME" "$FOLDER_NAME" || true
 
-      # 下载 zip（处理中文 URL 编码与 404 错误）
+      # 下载 zip
       - name: Download zip
         run: |
           ZIP_NAME="缘起【天神IY】.zip"
-          # 对中文文件名进行 URL 编码
-          # "缘起【天神IY】.zip" 编码后为 "%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91.zip"
-          URL="https://gitee.com/cpu-iy/iy/raw/master/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91.zip"
+          URL="https://gitee.com/cpu-iy/iy/raw/master/$ZIP_NAME"
           
           for i in {1..5}; do
             # 新增 -f 参数: 遇到 404 等错误直接报错，不保存错误网页
