@@ -29,19 +29,25 @@ jobs:
           FOLDER_NAME="缘起【天神IY】"
           rm -rf "$ZIP_NAME" "$FOLDER_NAME" || true
 
-      # 下载 zip（保持原名）
+      # 下载 zip（处理中文 URL 编码与 404 错误）
       - name: Download zip
         run: |
           ZIP_NAME="缘起【天神IY】.zip"
-          URL="https://gitee.com/cpu-iy/iy/raw/master/$ZIP_NAME"
-
+          # 对中文文件名进行 URL 编码
+          # "缘起【天神IY】.zip" 编码后为 "%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91.zip"
+          URL="https://gitee.com/cpu-iy/iy/raw/master/%E7%BC%98%E8%B5%B7%E3%80%90%E5%A4%A9%E7%A5%9EIY%E3%80%91.zip"
+          
           for i in {1..5}; do
-            curl -L --retry 5 --retry-delay 2 --max-time 60 \
+            # 新增 -f 参数: 遇到 404 等错误直接报错，不保存错误网页
+            # 新增 -H "User-Agent...": 伪装成浏览器，防止 Gitee 拦截 curl
+            curl -f -L --retry 5 --retry-delay 2 --max-time 60 \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
               -o "$ZIP_NAME" "$URL" && break
           done
-
+          
+          # 检查文件是否存在且大小大于 0 
           if [ ! -s "$ZIP_NAME" ]; then
-            echo "❌ $ZIP_NAME 下载失败"
+            echo "❌ $ZIP_NAME 下载失败或文件为空"
             exit 1
           fi
 
