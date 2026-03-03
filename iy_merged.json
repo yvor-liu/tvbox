@@ -3,21 +3,10 @@
   "wallpaper": "",
   "logo": "https://gitee.com/cpu-iy/lib/raw/master/logo.png",
   "warningText": "",
-  "lives": [
-    {
-      "name": "冰茶",
-      "type": 0,
-      "url": "https://bc.188766.xyz/?ip=&mima=bingcha1130",
-      "playerType": 2,
-      "ua": "okhttp/3",
-      "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
-      "logo": "https://epg.112114.eu.org/logo/{name}.png"
-    }
-  ],
   "sites": [
     {
       "key": "配置中心",
-      "name": "🌐网盘配置｜2.17版",
+      "name": "🌐网盘配置｜3.03版",
       "type": 3,
       "api": "csp_Config",
       "searchable": 0,
@@ -29,82 +18,62 @@
       }
     },
     {
-      "name": "🚀嗷呜弹幕豆瓣｜搜索自启",
-      "key": "嗷嗚彈幕",
+      "name": "🚀虎斑弹幕｜搜索自启",
+      "key": "huban",
       "type": 3,
-      "api": "csp_GoConfigAmns",
-      "jar": "https://cnb.cool/aooooowuuuuu/FreeSpider/-/git/raw/main/bfdb--cvdvds.png",
-      "indexs": 1,
-      "searchable": 1,
-      "filterable": 0,
-      "quickSearch": 1,
-      "changeable": 0
+      "jar": "https://gitee.com/zj521jj/little-tiger-spot/raw/master/jar/HubanTCR.jar",
+      "api": "csp_Huban"
     },
     {
-      "key": "mogg",
-      "name": "❤木偶｜4K晚安",
+      "key": "drpyS_木偶[盘]",
+      "name": "❤木偶｜4K百度",
       "type": 4,
-      "jar": "http://110.42.34.135:8080/custom_spider.jar?token=1047",
-      "api": "http://110.42.34.135:8080/video/mogg?token=1047",
+      "api": "http://115.191.55.109:9097/api/木偶[盘]?pwd=ca33ff3f40e73f22",
       "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "categories": [
-        "电影",
-        "剧集",
-        "动漫",
-        "纪录片"
-      ]
-    },
-    {
-      "key": "labi",
-      "name": "❤蜡笔｜4K晚安",
-      "type": 4,
-      "jar": "http://110.42.34.135:8080/custom_spider.jar?token=1047",
-      "api": "http://110.42.34.135:8080/video/labi?token=1047",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "erxiao",
-      "name": "❤二小｜4K晚安",
-      "type": 4,
-      "jar": "http://110.42.34.135:8080/custom_spider.jar?token=1047",
-      "api": "http://110.42.34.135:8080/video/erxiao?token=1047",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "腾讯",
-      "name": "❤腾腾丨4K白嫖",
-      "type": 4,
-      "api": "http://115.191.55.109:8080/video/tengxun?token=47f318660fa5ca46",
-      "searchable": 1,
-      "quickSearch": 1,
       "filterable": 1,
-      "changeable": 1
-    },
-    {
-      "key": "芒果",
-      "name": "❤芒芒丨4K白嫖",
-      "type": 4,
-      "api": "http://115.191.55.109:8080/video/mgtv?token=47f318660fa5ca46",
-      "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1
+      "title": "木偶[盘]",
+      "类型": "影视",
+      "lang": "ds",
+      "ext": ""
     },
     {
-      "key": "qqqys",
-      "name": "❤集合丨4K白嫖",
+      "key": "drpyS_多多[盘]",
+      "name": "❤多多｜4K百度",
       "type": 4,
-      "api": "http://115.191.55.109:8080/video/qqqys?token=47f318660fa5ca46",
+      "api": "http://115.191.55.109:9097/api/多多[盘]?pwd=ca33ff3f40e73f22",
+      "searchable": 1,
+      "filterable": 1,
+      "quickSearch": 0,
+      "title": "多多[盘]",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
+      "key": "人人影视",
+      "name": "❤人人｜4K测试",
+      "type": 3,
+      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/人人影视.py",
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
       "filterable": 1
+    },
+    {
+      "key": "顾我",
+      "name": "♨️顾我｜4K线路",
+      "type": 3,
+      "api": "csp_AppQi",
+      "searchable": 1,
+      "changeable": 1,
+      "ext": {
+        "url": "http://117.50.204.35:520",
+        "dataKey": "ca94b06ca3c7d80e",
+        "dataIv": "ca94b06ca3c7d80e",
+        "search": "gftvvvvklod",
+        "init": "initV122",
+        "ua": "okhttp/3.10.0"
+      }
     },
     {
       "key": "秒看",
@@ -120,16 +89,6 @@
       }
     },
     {
-      "key": "人人影视",
-      "name": "♨️人人｜4K测试",
-      "type": 3,
-      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/人人影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "filterable": 1
-    },
-    {
       "key": "假段友get",
       "name": "♨️段友｜4K测试",
       "type": 3,
@@ -143,118 +102,14 @@
       }
     },
     {
-      "key": "顾我",
-      "name": "♨️顾我｜4K线路",
+      "key": "小羊",
+      "name": "♨️小羊｜4K测试",
       "type": 3,
-      "api": "csp_AppQi",
-      "changeable": "1",
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": {
-        "site": "https://guwozj-1319364746.cos.ap-guangzhou.myqcloud.com/gwzj.txt",
-        "dataKey": "ca94b06ca3c7d80e",
-        "dataIv": "ca94b06ca3c7d80e",
-        "ua": "okhttp/3.10.0"
-      }
-    },
-    {
-      "key": "小鸟",
-      "name": "♨️小鸟｜4K测试",
-      "type": 3,
-      "searchable": 1,
-      "changeable": 1,
       "api": "csp_AppGet",
       "ext": {
-        "url": "http://154.222.26.58:7788",
-        "dataKey": "guodan2004031600",
-        "dataIv": "guodan2004031600",
-        "token": "fd035ffa03d62775add295bfbb7d99c131e0bb49bb9451309b0ffc4df1631146"
-      }
-    },
-    {
-      "key": "魔方",
-      "name": "♨️魔方｜4K线路",
-      "type": 3,
-      "searchable": 1,
-      "changeable": 1,
-      "api": "csp_AppGet",
-      "ext": {
-        "url": "http://www.613mf4k12.top",
-        "dataKey": "1234567887654321",
-        "dataIv": "1234567887654321"
-      }
-    },
-    {
-      "key": "鲸鱼",
-      "name": "♨️鲸鱼｜4K线路",
-      "type": 3,
-      "api": "csp_AppQi",
-      "searchable": 1,
-      "changeable": 1,
-      "ext": {
-        "site": "https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/juyu3.json",
-        "dataKey": "AAdgrdghjfgsABC1",
-        "dataIv": "AAdgrdghjfgsABC1",
-        "init": "initV122",
-        "ua": "okhttp/3.10.0"
-      }
-    },
-    {
-      "key": "金牌",
-      "name": "♨️金牌｜4K线路",
-      "type": 3,
-      "api": "csp_AppQi",
-      "searchable": 1,
-      "changeable": 1,
-      "ext": {
-        "site": "https://dtqj.ggtvb.cc/dtjp.txt",
-        "dataKey": "eecbio48dsq131ee",
-        "dataIv": "eecbio48dsq131ee",
-        "search": "searchList4",
-        "version": "305",
-        "init": "initV122",
-        "ua": "okhttp/3.10.0"
-      }
-    },
-    {
-      "key": "巧技",
-      "name": "♨️巧技｜4K线路",
-      "type": 3,
-      "searchable": 1,
-      "quickSearch": 1,
-      "api": "csp_qiao2",
-      "playerType": 2,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/qj071.png",
-      "ext": "7lj763gg402i7942412h849jg1558j9jl8g19213il86316k465719lik158491h179312h4934183ig2l05g9"
-    },
-    {
-      "key": "齐齐",
-      "name": "♨️齐齐｜4K线路",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "filterable": 1,
-      "ext": {
-        "sp": "QiQi"
-      }
-    },
-    {
-      "key": "片喵",
-      "name": "♨️片喵｜4K测试",
-      "type": 3,
-      "api": "csp_AppNox",
-      "ext": {
-        "url": "https://svip.2video.cc",
-        "header": {
-          "content-type": "application/json",
-          "x-app-signature": "70:DF:B1:2A:AE:C3:E3:73:6E:23:0F:67:B9:3B:C5:63:2D:EA:2A:2C:9E:9D:52:82:1D:3F:3C:3C:B9:10:9E:EE",
-          "x-app-package": "com.ds.wlss",
-          "x-app-version-code": "56",
-          "x-app-version-name": "1.2.6"
-        }
+        "site": "https://xy4k.com/url.txt",
+        "dataKey": "7SDWjknU34zqFbVr",
+        "dataIv": "7SDWjknU34zqFbVr"
       }
     },
     {
@@ -313,25 +168,18 @@
       "ext": "http://m51.gotto.top/api.php/v1.vod"
     },
     {
-      "key": "广广",
-      "name": "🌀广广｜1920",
+      "key": "鲸鱼",
+      "name": "🌀鲸鱼｜1920",
       "type": 3,
-      "api": "https://gitee.com/cpu-iy/lib/raw/master/lib/广广.py"
-    },
-    {
-      "key": "豆丁",
-      "name": "🌀豆丁｜1920",
-      "type": 3,
-      "api": "csp_AppNox",
+      "api": "csp_AppQi",
+      "searchable": 1,
+      "changeable": 1,
       "ext": {
-        "url": "http://172.247.44.102:9924",
-        "header": {
-          "content-type": "application/json",
-          "x-app-signature": "99:CA:F0:76:5A:92:1F:00:1A:60:96:2C:BB:AC:01:51:A6:4E:C6:28:EB:67:F5:82:9C:2C:78:66:91:C3:60:56",
-          "x-app-package": "com.ddsp.app",
-          "x-app-version-code": "2",
-          "x-app-version-name": "3.0.9"
-        }
+        "site": "https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/juyu3.json",
+        "dataKey": "AAdgrdghjfgsABC1",
+        "dataIv": "AAdgrdghjfgsABC1",
+        "init": "initV122",
+        "ua": "okhttp/3.10.0"
       }
     },
     {
@@ -349,6 +197,29 @@
       }
     },
     {
+      "key": "热播影视",
+      "name": "🌀热播｜1920",
+      "type": 3,
+      "api": "csp_AppRJ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": {
+        "url": "http://v.rbotv.cn"
+      }
+    },
+    {
+      "key": "巧技",
+      "name": "🌀巧技｜1920",
+      "type": 3,
+      "searchable": 1,
+      "quickSearch": 1,
+      "api": "csp_qiao2",
+      "playerType": 2,
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/qj071.png",
+      "ext": "7lj763gg402i7942412h849jg1558j9jl8g19213il86316k465719lik158491h179312h4934183ig2l05g9"
+    },
+    {
       "key": "小猪",
       "name": "🌀小猪丨1920",
       "type": 3,
@@ -361,18 +232,6 @@
         "dataIv": "j8sr6d93yp49db3p",
         "init": "initV122",
         "ua": "okhttp/3.10.0"
-      }
-    },
-    {
-      "key": "热播影视",
-      "name": "🌀热播｜1920",
-      "type": 3,
-      "api": "csp_AppRJ",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0,
-      "ext": {
-        "url": "http://v.rbotv.cn"
       }
     },
     {
@@ -427,7 +286,8 @@
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+      "genre": "shortdrama"
     },
     {
       "key": "盒马短剧",
@@ -451,7 +311,8 @@
       "searchable": 1,
       "changeable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+      "genre": "shortdrama"
     },
     {
       "key": "碎片短剧",
@@ -765,6 +626,13 @@
           "https://pan1.me"
         ]
       }
+    },
+    {
+      "key": "盘链",
+      "name": "🌐盘链｜4K自扫",
+      "type": 3,
+      "api": "csp_PanLian",
+      "ext": "PHPSESSID=n9ft2itj9kov9pkra9hfdbd1ml; SITE_TOTAL_ID=8adf122efa0edefb90f7148129ed4633; announcement_dismissed=true; session_token=1a78fe59bf250c3ef05146573f0cd1781a9081a29a1a72c5c4c8dd002b80a100"
     },
     {
       "key": "即刻",
@@ -1497,5 +1365,16 @@
   ],
   "ads": [
     "static-mozai.4gtv.tv"
+  ],
+  "lives": [
+    {
+      "name": "冰茶",
+      "type": 0,
+      "url": "https://bc.188766.xyz/?ip=&mima=bingcha1130",
+      "playerType": 2,
+      "ua": "okhttp/3",
+      "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
+      "logo": "https://epg.112114.eu.org/logo/{name}.png"
+    }
   ]
 }
