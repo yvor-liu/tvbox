@@ -16,7 +16,7 @@
     },
     {
       "key": "配置中心",
-      "name": "🌐配置中心｜3.28版",
+      "name": "🌐配置中心｜4.03版",
       "type": 3,
       "api": "csp_Config",
       "searchable": 0,
@@ -29,15 +29,16 @@
     },
     {
       "name": "🚀豆瓣｜嗷呜弹幕｜搜索自启",
-      "key": "嗷嗚彈幕",
+      "key": "GoConfig",
       "type": 3,
+      "jar": "https://gitee.com/cpu-iy/iy/raw/master/lib/awdm.png",
       "api": "csp_GoConfigAmns",
-      "jar": "https://cnb.cool/aooooowuuuuu/FreeSpider/-/git/raw/main/bfdb--cvdvds.png",
       "indexs": 1,
       "searchable": 1,
       "filterable": 0,
       "quickSearch": 1,
-      "changeable": 0
+      "changeable": 0,
+      "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/douban.png"
     },
     {
       "key": "DG音乐仓",
@@ -69,6 +70,29 @@
       "quickSearch": 1,
       "changeable": 1,
       "filterable": 1
+    },
+    {
+      "key": "蜡笔",
+      "name": "❤蜡笔｜4K高兴",
+      "type": 3,
+      "api": "csp_ZC4K",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ZC4KK.png",
+      "ext": "YUhSMGNEb3ZMekV4Tmk0Mk1pNHhNek11T0RZNk5UWTJPREV2VkRRdlZEVXZZWEJwTWk1d2FIQS9jMmwwWlQxc1lXSnBNeU1qSTJ4aFlta3o="
+    },
+    {
+      "key": "木偶",
+      "name": "❤木偶｜4K高兴",
+      "type": 3,
+      "api": "csp_ZC4K",
+      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ZC4KK.png",
+      "ext": "YUhSMGNEb3ZMekV4Tmk0Mk1pNHhNek11T0RZNk5UWTJPREV2VkRRdlZEWXZZWEJwTWk1d2FIQS9jMmwwWlQxdGRXOTFJeU1qYlhWdmRRPT0=",
+      "categories": [
+        "动漫",
+        "电影",
+        "剧集",
+        "综艺",
+        "纪录片"
+      ]
     },
     {
       "key": "藤藤",
@@ -204,14 +228,15 @@
       "key": "雄鹰",
       "name": "🌀雄鹰｜1920",
       "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
+      "api": "csp_AppQi",
       "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "filterable": 1,
+      "changeable": 1,
       "ext": {
-        "sp": "XiongYing"
+        "site": "https://xinlanyinghb.oss-cn-wuhan-lr.aliyuncs.com/xly.txt",
+        "dataKey": "ca94b06ca359d80e",
+        "dataIv": "ca94b06ca359d80e",
+        "init": "initV120",
+        "ua": "okhttp/3.10.0"
       }
     },
     {
@@ -240,13 +265,6 @@
       "ext": {
         "sp": "HanXiaoQuan"
       }
-    },
-    {
-      "key": "韩剧看看",
-      "name": "🌀韩剧｜1280",
-      "type": 3,
-      "api": "csp_XBPQ",
-      "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/韩剧看看.png"
     },
     {
       "key": "酷酷",
@@ -1108,8 +1126,7 @@
       "style": {
         "type": "list",
         "ratio": 1.433
-      },
-      "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/aliShare.png"
+      }
     },
     {
       "key": "夸克云盘",
@@ -1122,28 +1139,26 @@
       "style": {
         "type": "list",
         "ratio": 1.433
-      },
-      "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/quarkShare.png"
+      }
     },
     {
       "key": "UC云盘",
       "name": "📁我的｜UC",
       "type": 3,
-      "api": "csp_PanUc",
+      "api": "csp_PanUC",
       "searchable": 0,
       "filterable": 0,
       "changeable": 0,
       "style": {
         "type": "list",
         "ratio": 1.433
-      },
-      "ext": "https://gitee.com/cpu-iy/lib/raw/master/lib/ucShare.png"
+      }
     },
     {
       "key": "百度云盘",
       "name": "📁我的｜百度",
       "type": 3,
-      "api": "csp_PanBaiDu",
+      "api": "csp_PanBaidu",
       "searchable": 0,
       "filterable": 0,
       "changeable": 0,
@@ -1265,7 +1280,39 @@
       "api": "csp_QuPanSo"
     }
   ],
-  "parses": [],
+  "parses": [
+    {
+      "name": "4K高兴测试",
+      "type": 1,
+      "url": "http://php.xuan666.icu/高兴公开/jx/api99.php?url=",
+      "ext": {
+        "flag": [
+          "原彩4k",
+          "原彩4k2",
+          "baidu",
+          "baidu2",
+          "臻彩4k",
+          "臻彩4k2",
+          "会员专享",
+          "qq",
+          "腾讯",
+          "腾讯视频",
+          "mgtv",
+          "imgo",
+          "芒果",
+          "qiyi",
+          "iqiyi",
+          "爱奇艺",
+          "奇艺",
+          "youku",
+          "优酷",
+          "bilibili",
+          "bilibili1",
+          "B站"
+        ]
+      }
+    }
+  ],
   "rules": [
     {
       "name": "农民",
