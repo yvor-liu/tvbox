@@ -908,19 +908,6 @@
       "filterable": 1
     },
     {
-      "key": "听悠",
-      "name": "📻听悠｜听书",
-      "type": 3,
-      "jar": "https://gitee.com/cpu-iy/lib/raw/master/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 1,
-      "quickSearch": 0,
-      "changeable": 0,
-      "ext": {
-        "sp": "TingYou"
-      }
-    },
-    {
       "key": "88看球",
       "name": "📺看球｜点播",
       "type": 3,
