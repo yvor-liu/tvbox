@@ -12,35 +12,11 @@
       "logo": "https://epg.112114.eu.org/logo/{name}.png"
     },
     {
-      "name": "限时测试",
+      "name": "测试1",
       "delete": true
     },
     {
-      "name": "内置测测",
-      "delete": true
-    },
-    {
-      "name": "V4-develop202",
-      "delete": true
-    },
-    {
-      "name": "V6-范明明（需开启V6网络）",
-      "delete": true
-    },
-    {
-      "name": "虎牙一起看",
-      "delete": true
-    },
-    {
-      "name": "斗鱼一起看",
-      "delete": true
-    },
-    {
-      "name": "B站直播",
-      "delete": true
-    },
-    {
-      "name": "YY轮播",
+      "name": "测试2",
       "delete": true
     }
   ],
@@ -95,6 +71,14 @@
     },
     {
       "key": "919体育",
+      "delete": true
+    },
+    {
+      "key": "球通体育",
+      "delete": true
+    },
+    {
+      "key": "瓜子体育",
       "delete": true
     },
     {
