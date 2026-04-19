@@ -3,14 +3,6 @@
   "warningText": "",
   "lives": [
     {
-      "name": "直播",
-      "type": 0,
-      "url": "https://ds65.tv1288.xyz",
-      "playerType": 1,
-      "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
-      "logo": "https://epg.112114.eu.org/logo/{name}.png"
-    },
-    {
       "name": "测试1",
       "delete": true
     },
