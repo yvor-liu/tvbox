@@ -5,11 +5,10 @@
   "warningText": "",
   "lives": [
     {
-      "name": "冰茶",
+      "name": "直播",
       "type": 0,
-      "url": "https://bc.188766.xyz/?ip=&mima=bingcha1130",
-      "playerType": 2,
-      "ua": "okhttp/3",
+      "url": "https://ds65.tv1288.xyz",
+      "playerType": 1,
       "epg": "https://epg.112114.eu.org/?ch={name}&date={date}",
       "logo": "https://epg.112114.eu.org/logo/{name}.png"
     }
