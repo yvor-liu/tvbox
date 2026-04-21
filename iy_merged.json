@@ -3,7 +3,15 @@
   "wallpaper": "",
   "logo": "https://gitee.com/cpu-iy/lib/raw/master/logo.png",
   "warningText": "",
-  "lives": [],
+  "lives": [
+    {
+      "name": "IPTV365",
+      "type": 0,
+      "url": "https://gh-proxy.org/https://raw.githubusercontent.com/kimwang1978/collect-txt/main/bbxx.txt",
+      "playerType": 2,
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"
+    }
+  ],
   "sites": [
     {
       "key": "配置中心",
