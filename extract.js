@@ -54,6 +54,30 @@ function findApiJson(dir) {
   return null;
 }
 
+// 修复相对路径
+function fixPaths(obj) {
+  if (typeof obj === "string") {
+    if (obj.startsWith("./")) {
+      return `https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/${obj.slice(2)}`;
+    }
+    if (obj.startsWith("../")) {
+      return `https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/${obj.slice(3)}`;
+    }
+    return obj;
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(fixPaths);
+  }
+  if (typeof obj === "object" && obj !== null) {
+    const res = {};
+    for (const [k, v] of Object.entries(obj)) {
+      res[k] = fixPaths(v);
+    }
+    return res;
+  }
+  return obj;
+}
+
 try {
   // 1) 自动识别解压文件夹
   const root = findExtractedFolder();
@@ -76,8 +100,11 @@ try {
   raw = removeBOM(removeComments(raw));
   const parsed = JSON.parse(raw);
 
-  // 4) 输出
-  fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
+  // 4) 修复路径
+  const fixed = fixPaths(parsed);
+
+  // 5) 输出
+  fs.writeFileSync("天神IY.txt", JSON.stringify(fixed, null, 2), "utf8");
   console.log("✅ 成功生成 天神IY.txt");
 
 } catch (e) {
