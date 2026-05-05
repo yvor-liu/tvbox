@@ -58,7 +58,7 @@ function findApiJson(dir) {
 function fixPaths(obj) {
   if (typeof obj === "string") {
     if (obj.startsWith("./")) {
-      return `https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/${obj.slice(2)}`;
+      return `https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/${obj.slice(2)}`;
     }
     if (obj.startsWith("../")) {
       return `https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/${obj.slice(3)}`;
