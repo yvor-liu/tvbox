@@ -77,7 +77,7 @@ try {
   const parsed = JSON.parse(raw);
 
   // 4) 输出
-  fs.writeFileSync("天神IY.txt", JSON.stringify(fixed, null, 2), "utf8");
+  fs.writeFileSync("天神IY.txt", JSON.stringify(parsed, null, 2), "utf8");
   console.log("✅ 成功生成 天神IY.txt");
 
 } catch (e) {
