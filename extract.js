@@ -100,10 +100,7 @@ try {
   raw = removeBOM(removeComments(raw));
   const parsed = JSON.parse(raw);
 
-  // 4) 修复路径
-  const fixed = fixPaths(parsed);
-
-  // 5) 输出
+  // 4) 输出
   fs.writeFileSync("天神IY.txt", JSON.stringify(fixed, null, 2), "utf8");
   console.log("✅ 成功生成 天神IY.txt");
 
