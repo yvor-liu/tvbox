@@ -1050,6 +1050,24 @@
       "quickSearch": 1
     },
     {
+      "key": "网络直播",
+      "name": "📺虎牙｜点播",
+      "type": 3,
+      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/ok.png",
+      "api": "csp_AweSomeGuard",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.433
+      },
+      "ext": {
+        "sp": "Huya"
+      }
+    },
+    {
       "key": "哔哩直播",
       "name": "📺哔哩｜点播",
       "type": 3,
