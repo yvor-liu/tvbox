@@ -11,6 +11,14 @@
       "delete": true
     },
     {
+      "name": "测试3",
+      "delete": true
+    },
+    {
+      "name": "测试4",
+      "delete": true
+    },
+    {
       "name": "IPTV365",
       "type": 0,
       "url": "https://gh-proxy.org/https://raw.githubusercontent.com/kimwang1978/collect-txt/main/bbxx.txt",
@@ -81,21 +89,7 @@
     },
     {
       "key": "网络直播",
-      "name": "📺虎牙｜点播",
-      "type": 3,
-      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.433
-      },
-      "ext": {
-        "sp": "Huya"
-      }
+      "delete": true
     },
     {
       "key": "哔哩演唱会",
