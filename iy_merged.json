@@ -5,20 +5,6 @@
   "warningText": "",
   "lives": [
     {
-      "name": "测试3",
-      "type": 0,
-      "url": "https://ds65.tv1288.xyz",
-      "playerType": 1,
-      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
-      "logo": "https://live.fanmingming.com/tv/{name}.png"
-    },
-    {
-      "name": "测试4",
-      "type": 0,
-      "url": "https://nos.netease.com/ysf/3d75a78a0fc7ede372c03598d6d10367.m3u",
-      "playerType": 2
-    },
-    {
       "name": "IPTV365",
       "type": 0,
       "url": "https://gh-proxy.org/https://raw.githubusercontent.com/kimwang1978/collect-txt/main/bbxx.txt",
@@ -1094,24 +1080,6 @@
       "style": {
         "type": "rect",
         "ratio": 1.433
-      }
-    },
-    {
-      "key": "网络直播",
-      "name": "📺虎牙｜点播",
-      "type": 3,
-      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/ok.png",
-      "api": "csp_AweSomeGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.433
-      },
-      "ext": {
-        "sp": "Huya"
       }
     },
     {
