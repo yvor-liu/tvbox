@@ -40,20 +40,6 @@
       "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/douban.png"
     },
     {
-      "key": "IY音乐台",
-      "name": "📻IY音乐台｜爱上音乐",
-      "type": 3,
-      "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/awdm2.png",
-      "api": "csp_BiliAmns",
-      "searchable": 0,
-      "quickSearch": 0,
-      "filterable": 0,
-      "ext": {
-        "cookie": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/blc.png",
-        "json": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/iyyy.png"
-      }
-    },
-    {
       "key": "spider_2054142081324027906",
       "name": "❤木偶｜4K测试",
       "type": 4,
