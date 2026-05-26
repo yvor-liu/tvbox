@@ -48,7 +48,7 @@
       "delete": true
     },
     {
-      "key": "听悠",
+      "key": "听了么",
       "delete": true
     },
     {
@@ -85,6 +85,14 @@
     },
     {
       "key": "瓜子体育",
+      "delete": true
+    },
+    {
+      "key": "spider_2054142177793019904",
+      "name": "📺抖音｜点播"
+    },
+    {
+      "key": "DouyinLive",
       "delete": true
     },
     {
