@@ -932,6 +932,17 @@
       }
     },
     {
+      "key": "网络直播",
+      "name": "📺抖音｜点播",
+      "type": 4,
+      "api": "http://115.191.55.109:7023/api/tvbox/source/2054142177793019904?token=phcB9KDg6dzm8lNH5uG67q5BXdf0X3dR",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 0,
+      "playable": 1
+    },
+    {
       "key": "哔哩直播",
       "name": "📺哔哩｜点播",
       "type": 3,
@@ -1104,17 +1115,6 @@
       "type": 3,
       "hide": 1,
       "api": "csp_QuPanSo"
-    },
-    {
-      "key": "spider_2054142177793019904",
-      "name": "📺抖音｜点播",
-      "type": 4,
-      "api": "http://115.191.55.109:7023/api/tvbox/source/2054142177793019904?token=phcB9KDg6dzm8lNH5uG67q5BXdf0X3dR",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 0,
-      "playable": 1
     }
   ],
   "parses": [
