@@ -27,20 +27,6 @@
       }
     },
     {
-      "key": "豆瓣",
-      "name": "🔥豆瓣",
-      "type": 3,
-      "api": "csp_Douban",
-      "searchable": 0
-    },
-    {
-      "key": "路漫漫",
-      "name": "🌈路漫漫｜动漫",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/drpy2.min.js",
-      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/路漫漫.png"
-    },
-    {
       "key": "弹幕",
       "name": "🚀虎斑弹幕配置",
       "type": 3,
