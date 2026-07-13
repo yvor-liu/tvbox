@@ -102,24 +102,25 @@ function deepMerge(api, edited) {
     // ------------------------------
     // ⑤ 自动为所有 csp_Wex* 站点注入 jar/ext
     // ------------------------------
-    if (merged.sites && Array.isArray(merged.sites) && wexSpider) {
-      merged.sites = merged.sites.map(site => {
-        if (typeof site.api === "string" && site.api.startsWith("csp_Wex")) {
-          console.log(`✨ 为 ${site.key} 注入最新 Wex spider`);
-          return {
-            ...site,
-            jar: wexSpider,
-            ext: "https://9280.kstore.space/wex.json"
-          };
-        }
-        return site;
-      });
-    }
+      if (merged.sites && Array.isArray(merged.sites) && wexSpider) {
+    merged.sites = merged.sites.map(site => {
+      if (site.api === "csp_SportKaFeiGuard") {
+        console.log(`✨ 为 ${site.key} 注入最新 spider`);
 
+        return {
+          ...site,
+          jar: wexSpider,
+          ext: "https://9280.kstore.space/newwex.json"
+        };
+      }
+
+      return site;
+    });
+      }
     // 写入最终接口
     fs.writeFileSync("iy_merged.json", JSON.stringify(merged, null, 2), "utf8");
 
-    console.log("🎉 合并完成：已自动注入所有 Wex 系列 spider");
+    console.log("🎉 合并完成：已自动注入Wexspider");
 
   } catch (e) {
     console.error("❌ 合并失败");
