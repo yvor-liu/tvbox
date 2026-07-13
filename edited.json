@@ -88,6 +88,19 @@
       "delete": true
     },
     {
+      "key": "88看球",
+      "name": "📺看球｜点播",
+      "type": 3,
+      "api": "csp_SportKaFeiGuard",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 0,
+      "style": {
+        "type": "list"
+      }
+    },
+    {
       "key": "网络直播",
       "name": "📺抖音｜点播",
       "type": 4,
