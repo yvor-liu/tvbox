@@ -8,7 +8,7 @@ const ARRAY_FIELDS = ["sites", "lives", "flags", "parses", "rules", "ads"];
 // ------------------------------
 async function getWexSpider() {
   try {
-    const url = "https://9280.kstore.space/wex.json";
+    const url = "https://9280.kstore.space/newwex.json";
     const res = await axios.get(url, { timeout: 10000 });
     if (res.data && res.data.spider) {
       console.log("🕷️ 已获取最新 Wex spider:", res.data.spider);
