@@ -102,14 +102,17 @@
     },
     {
       "key": "网络直播",
-      "name": "📺抖音｜点播",
-      "type": 4,
-      "api": "http://115.191.55.109:7023/api/tvbox/source/2054142177793019904?token=phcB9KDg6dzm8lNH5uG67q5BXdf0X3dR",
+      "name": "📺网络｜点播",
+      "type": 3,
+      "api": "csp_ALLLive",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "changeable": 0,
-      "playable": 1
+      "changeable": 0
+    },
+    {
+      "key": "哔哩直播",
+      "delete": true
     },
     {
       "key": "哔哩演唱会",
