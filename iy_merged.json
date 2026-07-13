@@ -812,11 +812,16 @@
       "key": "88看球",
       "name": "📺看球｜点播",
       "type": 3,
-      "api": "csp_Kanqiu",
-      "gridview": 3,
+      "api": "csp_SportKaFeiGuard",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "changeable": 0,
       "style": {
         "type": "list"
-      }
+      },
+      "jar": "https://nos.netease.com/ysf/e458da8ce422b93b3568e00c0e86fc41.jar;md5;fc469ae29c98cf87d95a1f9dcfada35c",
+      "ext": "https://9280.kstore.space/newwex.json"
     },
     {
       "key": "网络直播",
