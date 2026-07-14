@@ -825,20 +825,15 @@
     },
     {
       "key": "网络直播",
-      "name": "📺抖音｜点播",
-      "type": 4,
-      "api": "http://115.191.55.109:7023/api/tvbox/source/2054142177793019904?token=phcB9KDg6dzm8lNH5uG67q5BXdf0X3dR",
+      "name": "📺网络｜点播",
+      "type": 3,
+      "api": "csp_ALLLive",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "changeable": 0,
-      "playable": 1
-    },
-    {
-      "key": "哔哩直播",
-      "name": "📺哔哩｜点播",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/哔哩直播.py"
+      "jar": "https://tc-new.z.wiki/autoupload/iYHTWVx6T8RrCmqdGD6MOdiO_OyvX7mIgxFBfDMDErs/20260711/xZj2/fish07111721.jar;md5;ec2cf8ed7cec0efe03a2bda99a5c9e21",
+      "ext": "https://6800.kstore.vip/fish.json"
     },
     {
       "key": "哔哩合集",
