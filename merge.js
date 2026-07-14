@@ -146,18 +146,22 @@ if (merged.sites && Array.isArray(merged.sites)) {
       };
     }
 
-    // 为 csp_ALLLive 注入 Fish spider
-    if (site.api === "csp_ALLLive" && fishSpider) {
-      console.log(`🐟 为 ${site.key} 注入最新 Fish spider`);
+    // 为 csp_ALLLive 和 csp_FishConfig 注入 Fish spider
+if (
+  (site.api === "csp_ALLLive" || site.api === "csp_FishConfig") &&
+  fishSpider
+) {
+  console.log(`🐟 为 ${site.key}（${site.api}）注入最新 Fish spider`);
 
-      return {
-        ...site,
-        jar: fishSpider,
-        ext: "https://6800.kstore.vip/fish.json"
-      };
-    }
+  return {
+    ...site,
+    jar: fishSpider,
+    ext: "https://6800.kstore.vip/fish.json"
+  };
+}
 
-    return site;
+return site;
+
   });
 }
 
