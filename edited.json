@@ -29,9 +29,7 @@
     },
     {
       "key": "路漫漫",
-      "name": "🍼设置|中心",
-      "type": 3,
-      "api": "csp_FishConfig"
+      "delete": true
     },
     {
       "key": "IY音乐台",
@@ -87,10 +85,6 @@
     },
     {
       "key": "瓜子体育",
-      "delete": true
-    },
-    {
-      "key": "88看球",
       "name": "📺看球｜点播",
       "type": 3,
       "api": "csp_SportKaFeiGuard",
@@ -103,18 +97,15 @@
       }
     },
     {
-      "key": "网络直播",
-      "name": "📺网络｜点播",
-      "type": 3,
-      "api": "csp_ALLLive",
+      "key": "88看球",
+      "name": "📺抖音｜点播",
+      "type": 4,
+      "api": "http://115.191.55.109:7023/api/tvbox/source/2054142177793019904?token=phcB9KDg6dzm8lNH5uG67q5BXdf0X3dR",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "changeable": 0
-    },
-    {
-      "key": "哔哩直播",
-      "delete": true
+      "changeable": 0,
+      "playable": 1
     },
     {
       "key": "哔哩演唱会",
