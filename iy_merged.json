@@ -27,6 +27,14 @@
       }
     },
     {
+      "key": "路漫漫",
+      "name": "🍼设置|中心",
+      "type": 3,
+      "api": "csp_FishConfig",
+      "jar": "https://tc-new.z.wiki/autoupload/iYHTWVx6T8RrCmqdGD6MOdiO_OyvX7mIgxFBfDMDErs/20260711/xZj2/fish07111721.jar;md5;ec2cf8ed7cec0efe03a2bda99a5c9e21",
+      "ext": "https://6800.kstore.vip/fish.json"
+    },
+    {
       "name": "🚀豆瓣｜小白弹幕｜搜索自启",
       "key": "弹幕",
       "type": 3,
