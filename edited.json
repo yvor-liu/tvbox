@@ -11,6 +11,10 @@
       "delete": true
     },
     {
+      "name": "测试3",
+      "delete": true
+    },
+    {
       "name": "无意云空间",
       "delete": true
     },
@@ -37,6 +41,10 @@
     },
     {
       "key": "lf_live10_min",
+      "delete": true
+    },
+    {
+      "name": "短木",
       "delete": true
     },
     {
