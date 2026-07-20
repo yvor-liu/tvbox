@@ -747,7 +747,9 @@
       "changeable": 0,
       "style": {
         "type": "list"
-      }
+      },
+      "jar": "https://nos.netease.com/ysf/bd630429a515df48ad3573ea1d4e7426.jar;md5;80286bf6d6ffbadfb4559f098e2847ce",
+      "ext": "https://9280.kstore.space/newwex.json"
     },
     {
       "key": "88看球",
