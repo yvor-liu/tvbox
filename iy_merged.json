@@ -553,21 +553,6 @@
       }
     },
     {
-      "key": "短木",
-      "name": "🌐短木｜4K自扫\"",
-      "type": 3,
-      "api": "csp_PanWebShare",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "changeable": 1,
-      "ext": {
-        "site": [
-          "https://duanmu.laozhangone.top"
-        ]
-      }
-    },
-    {
       "key": "夸父",
       "name": "🌐夸父｜4K自扫",
       "type": 3,
