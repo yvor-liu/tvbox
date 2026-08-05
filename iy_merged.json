@@ -921,26 +921,6 @@
       }
     },
     {
-      "key": "兔小贝",
-      "name": "📚兔小贝｜教育",
-      "type": 3,
-      "api": "csp_TuXiaoBei",
-      "style": {
-        "type": "rect",
-        "ratio": 1.597
-      }
-    },
-    {
-      "key": "贝乐虎",
-      "name": "📚贝乐虎｜教育",
-      "type": 3,
-      "api": "csp_BeiLeHu",
-      "style": {
-        "type": "rect",
-        "ratio": 1.597
-      }
-    },
-    {
       "key": "本地",
       "name": "📁本地｜视频",
       "type": 3,
