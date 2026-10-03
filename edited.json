@@ -15,10 +15,6 @@
       "delete": true
     },
     {
-      "name": "无意云空间",
-      "delete": true
-    },
-    {
       "name": "IPTV365",
       "type": 0,
       "url": "https://gh-proxy.org/https://raw.githubusercontent.com/kimwang1978/collect-txt/main/bbxx.txt",
@@ -56,14 +52,6 @@
       "delete": true
     },
     {
-      "key": "六月听书",
-      "delete": true
-    },
-    {
-      "key": "世界听书",
-      "delete": true
-    },
-    {
       "key": "蜻蜓FM",
       "delete": true
     },
@@ -73,18 +61,6 @@
     },
     {
       "key": "随身评书",
-      "delete": true
-    },
-    {
-      "key": "戏曲多多",
-      "delete": true
-    },
-    {
-      "key": "919体育",
-      "delete": true
-    },
-    {
-      "key": "球通体育",
       "name": "📺体育｜点播",
       "type": 3,
       "api": "https://cdn.jsdmirror.com/gh/ouhaibo1980/tvbox@main/js/体育聚合.js",
@@ -94,6 +70,12 @@
       "style":{
         "type":"list"
       }
+    },
+    {
+      "key": "戏曲多多",
+      "name": "📺网络｜点播",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/网络直播.py"
     },
     {
       "key": "瓜子体育",
