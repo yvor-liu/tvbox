@@ -56,7 +56,7 @@
       "delete": true
     },
     {
-      "key": "凤凰FM",
+      "key": "戏曲多多",
       "name": "📺体育｜点播",
       "type": 3,
       "api": "https://cdn.jsdmirror.com/gh/ouhaibo1980/tvbox@main/js/体育聚合.js",
@@ -68,7 +68,7 @@
       }
     },
     {
-      "key": "戏曲多多",
+      "key": "球通体育",
       "name": "📺网络｜点播",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/IY-CPU/IY/main/lib/网络直播.py"
